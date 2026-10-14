@@ -123,6 +123,7 @@ def normalize_job(record, monitor: dict, now: datetime) -> dict:
         company_id=monitor["company_id"], company_name=monitor["company_name"],
         collection_ids=monitor["collection_ids"], monitor_ids=[monitor["id"]],
         title=text_only(value["title"]), location=text_only(value["location"]),
+        location_addresses=value.get("location_addresses", []),
         work_mode=value["remote_mode"], employment_type=value["employment_type"],
         salary_text=salary_text, salary_min=salary_min, salary_max=salary_max,
         salary_currency=value["salary_currency"], salary_period=value["salary_period"],

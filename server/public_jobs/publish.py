@@ -16,7 +16,10 @@ DETAIL_PAGE_SIZE = 100
 MAX_PUBLISHED_BYTES = 990_000_000
 RETAINED_GENERATIONS = 2
 MAX_SHARD_BYTES = 7_000_000
-MAX_INDEX_BYTES = 200_000_000
+MAX_INDEX_BYTES = 350_000_000
+# Optional duplicate description prefixes should not consume the headroom for
+# required metadata or the hosted index's current/next-generation overlap.
+SEARCH_TEXT_TARGET_BYTES = 220_000_000
 MAX_SEARCH_TEXT_CHARS = 2000
 
 
@@ -53,12 +56,13 @@ def _fit_search_text(rows: list[dict], generation: str, *, byte_budget: int | No
                    for group in _groups(rows, PAGE_SIZE))
 
     size = measure(MAX_SEARCH_TEXT_CHARS)
-    if size <= budget:
+    if size <= min(budget, SEARCH_TEXT_TARGET_BYTES):
         return MAX_SEARCH_TEXT_CHARS, size
     base_size = measure(0)
     if base_size > budget:
         raise ValueError(f"Required search metadata alone exceeds the {budget}-byte budget "
                          f"({base_size} bytes for {len(rows)} jobs); no jobs were dropped")
+    budget = min(budget, max(base_size, SEARCH_TEXT_TARGET_BYTES))
     low, high = 0, MAX_SEARCH_TEXT_CHARS - 1
     while low < high:
         middle = (low + high + 1) // 2

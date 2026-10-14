@@ -48,6 +48,8 @@ def apply_results(state: dict, results: list[dict], *, generation: str, now: dat
             # Preserve richer details if this cycle's bounded enrichment misses.
             if prior and not record.get("description"):
                 record["description"] = prior["job"].get("description", "")
+            if prior and not record.get("location_addresses") and prior["job"].get("location_addresses"):
+                record["location_addresses"] = prior["job"]["location_addresses"]
             record["monitor_ids"] = sorted(observations)
             if prior:
                 record["collection_ids"] = sorted(set(record["collection_ids"]) | set(prior["job"]["collection_ids"]))

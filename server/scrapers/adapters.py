@@ -9,7 +9,7 @@ from urllib.parse import quote, urljoin, urlsplit
 
 from bs4 import BeautifulSoup
 
-from .models import JobRecord, ScraperRecipe
+from .models import JobRecord, ScraperRecipe, LocationAddress
 from .normalize import first, make_job, plain_text, normalize_description
 
 
@@ -33,7 +33,21 @@ def ashby(data: dict[str, Any], recipe: ScraperRecipe) -> list[JobRecord]:
             if isinstance(item, dict)
         )
         location = "; ".join(dict.fromkeys(str(item).strip() for item in locations if item)) or "Unspecified"
-        jobs.append(make_job(
+        addresses = []
+        for item in [raw, *(raw.get("secondaryLocations") or [])]:
+            if not isinstance(item, dict):
+                continue
+            address = item.get("address") or {}
+            postal = (address.get("postalAddress") or {}) if isinstance(address, dict) else {}
+            if not isinstance(postal, dict):
+                continue
+            country = plain_text(postal.get("addressCountry")) or None
+            city = plain_text(postal.get("addressLocality")) or None
+            if country or city:
+                address = LocationAddress(country=country, city=city)
+                if address not in addresses:
+                    addresses.append(address)
+        record = make_job(
             company=recipe.company,
             source="ashby",
             source_id=raw.get("id"),
@@ -49,7 +63,8 @@ def ashby(data: dict[str, Any], recipe: ScraperRecipe) -> list[JobRecord]:
             currency=first(raw, "compensation.currency", "salary.currency", "salaryRange.currency"),
             salary_period=first(raw, "compensation.interval", "salary.interval", "salaryRange.interval"),
             remote_mode="remote" if raw.get("isRemote") is True or raw.get("workplaceType") == "Remote" else raw.get("workplaceType"),
-        ))
+        )
+        jobs.append(record.model_copy(update={"location_addresses": addresses}))
     return jobs
 
 

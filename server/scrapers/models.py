@@ -61,11 +61,18 @@ def canonicalize_url(value: str, *, strip_trailing_slash: bool = True) -> str:
     return urlunsplit((parsed.scheme.lower(), host + port, path, parsed.query, ""))
 
 
+class LocationAddress(StrictModel):
+    """Explicit public ATS location evidence, never description-derived geography."""
+    country: str | None = Field(default=None, max_length=200)
+    city: str | None = Field(default=None, max_length=200)
+
+
 class JobRecord(StrictModel):
     company: str = Field(min_length=1, max_length=300)
     source_id: str = Field(min_length=1, max_length=500)
     title: str = Field(min_length=1, max_length=500)
     location: str = Field(default="Unspecified", max_length=500)
+    location_addresses: list[LocationAddress] = Field(default_factory=list, max_length=100)
     remote_mode: RemoteMode = RemoteMode.UNKNOWN
     employment_type: str | None = Field(default=None, max_length=200)
     posted_date: date | None = None

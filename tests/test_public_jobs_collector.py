@@ -280,14 +280,37 @@ def test_publication_adapts_search_text_without_losing_jobs_or_full_descriptions
     assert all(len(item["search_text"]) == report["search_text_max_chars"] for item in search)
 
 
-def test_search_metadata_above_previous_60_mb_budget_is_accepted():
+def test_search_metadata_above_previous_200_mb_budget_is_accepted():
     from server.public_jobs import publish as publisher
-    rows = [{"title": "x" * 1000, "search_text": ""} for _ in range(70_000)]
+    rows = [{"title": "x" * 3000, "search_text": ""} for _ in range(70_000)]
     snippet_chars, size = publisher._fit_search_text(rows, "large-board")
-    assert publisher.MAX_INDEX_BYTES == 200_000_000
-    assert 60_000_000 < size <= publisher.MAX_INDEX_BYTES
+    assert publisher.MAX_INDEX_BYTES == 350_000_000
+    assert 200_000_000 < size <= publisher.MAX_INDEX_BYTES
     assert snippet_chars == publisher.MAX_SEARCH_TEXT_CHARS
     assert len(rows) == 70_000
+
+
+def test_ashby_preserves_secondary_address_evidence_through_publication(tmp_path):
+    from server.scrapers.adapters import ashby
+    from server.public_jobs.schema import PublicJob
+    recipe = ScraperRecipe.model_validate({"version": 1, "company": "Acme", "strategy": "ashby",
+        "careers_url": "https://jobs.ashbyhq.com/acme", "allowed_hosts": ["jobs.ashbyhq.com", "api.ashbyhq.com"],
+        "request": {"url": "https://api.ashbyhq.com/posting-api/job-board/acme"}})
+    raw = {"id": "one", "title": "Engineer", "location": "London", "jobUrl": "https://jobs.ashbyhq.com/acme/one",
+        "descriptionPlain": "Complete description", "isListed": True,
+        "address": {"postalAddress": {"addressCountry": "United Kingdom", "addressLocality": "London"}},
+        "secondaryLocations": [{"location": "Toronto", "address": {"postalAddress": {"addressCountry": "Canada", "addressLocality": "Toronto"}}},
+                               {"location": "Canada", "address": {"postalAddress": {"addressCountry": "Canada"}}}]}
+    record = normalize_job(ashby({"jobs": [raw]}, recipe)[0], MONITOR, NOW)
+    assert record["location"] == "London; Toronto; Canada"
+    assert record["location_addresses"] == [{"country": "United Kingdom", "city": "London"}, {"country": "Canada", "city": "Toronto"}, {"country": "Canada", "city": None}]
+    state = merge(empty_state(), [clean_result(result([record]))], 1)
+    manifest = publish(state, {"catalog_commit": "a" * 40, "collections": []}, tmp_path, generation="addresses", now=NOW, compress_details=True)
+    api = tmp_path / "api/v1"
+    search = json.loads((api / manifest["search_pages"][0]["path"]).read_bytes())["jobs"][0]
+    detail = json.loads(gzip.decompress((api / manifest["detail_pages"][0]["path"]).read_bytes()))["jobs"][0]
+    assert search["location_addresses"] == record["location_addresses"]
+    assert PublicJob.model_validate(detail).model_dump(mode="json") == state["jobs"][record["id"]]["job"]
 
 
 def test_required_metadata_overflow_preserves_previous_generation(tmp_path, monkeypatch):

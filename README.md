@@ -43,7 +43,7 @@ Search snippets adapt from at most 2,000 characters to the actual UTF-8
 JSON budget and remaining hosting capacity after retaining full details and the
 prior immutable snapshot. All jobs, metadata and detail references
 remain present; full descriptions are retained unchanged in the detail pages.
-Each page is at most seven MB, aggregate search is at most 200 MB, and the
+Each page is at most seven MB, aggregate search is at most 350 MB, and the
 retained publication has a 990 MB safety ceiling, below GitHub Pages' 1 GB limit.
 Each new snapshot receives a share of that capacity so optional snippets cannot
 crowd out the next build's required metadata. If required metadata alone
@@ -98,3 +98,5 @@ This repository does not grant new rights to existing JobHound code or employer
 content. Existing notices remain applicable; company trademarks belong to their
 owners. GitHub usage limits and source availability still apply. A scheduled
 build may be delayed; use manifest/source timestamps to assess freshness.
+
+Search description prefixes target a 220 MB aggregate while required metadata can use the full 350 MB ceiling. This reserves space for growth and consumer staging; complete descriptions and every populated field remain in details. Ashby location_addresses retains primary/secondary country and city evidence without replacing the original location labels. Older 200 MB readers need updating before reading larger generations.

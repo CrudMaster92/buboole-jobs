@@ -8,6 +8,7 @@ from typing import Literal
 from urllib.parse import urlsplit, urlunsplit
 
 from pydantic import BaseModel, ConfigDict, Field, field_validator
+from server.scrapers.models import LocationAddress
 
 FORMAT = "jobhound-public-jobs"
 VERSION = 1
@@ -63,6 +64,7 @@ class PublicJob(Contract):
     monitor_ids: list[str] = Field(default_factory=list)
     title: str
     location: str
+    location_addresses: list[LocationAddress] = Field(default_factory=list, max_length=100)
     work_mode: Literal["onsite", "hybrid", "remote", "unknown"] = "unknown"
     employment_type: str | None = None
     salary_text: str | None = None
