@@ -15,6 +15,30 @@ from server.scrapers.models import JobRecord, ScrapeResult, ScraperRecipe
 NOW = datetime(2026, 9, 26, 12, tzinfo=timezone.utc)
 
 
+def test_company_grouping_preserves_every_field_and_reduces_repeated_text_in_shards(tmp_path):
+    from hashlib import sha256
+    from server.public_jobs import publish as publisher
+    from server.public_jobs.schema import PublicJob
+    records = []
+    for company in ('zeta', 'alpha', 'beta', 'gamma', 'delta', 'epsilon', 'theta', 'eta'):
+        boilerplate = ''.join(sha256(f'{company}-{index}'.encode()).hexdigest() for index in range(160))
+        for index in range(30):
+            record = job(url=f"https://{company}.example/jobs/{index}", description=boilerplate + f'\nUnique role {index}.')
+            record.update(company_id=company, company_name=company.title(), id=job_id(company, record["source_url"]))
+            records.append(record)
+    state = merge(empty_state(), [clean_result(result(records))], 1)
+    manifest = publish(state, {"catalog_commit": "a" * 40, "collections": []}, tmp_path,
+                       generation="grouped", now=NOW, compress_details=True, compress_search=True)
+    restored = [job for ref in manifest["detail_pages"]
+                for job in json.loads(gzip.decompress((tmp_path / "api/v1" / ref["path"]).read_bytes()))["jobs"]]
+    assert [(job["company_id"], job["id"]) for job in restored] == sorted((job["company_id"], job["id"]) for job in records)
+    assert {job["id"]: PublicJob.model_validate(job).model_dump(mode="json") for job in restored} == {key: entry["job"] for key, entry in state["jobs"].items()}
+    scattered = [state['jobs'][key]['job'] for key in sorted(state['jobs'])]
+    scattered_bytes = sum(len(gzip.compress(json_bytes({'generation':'grouped','jobs':[{key:value for key,value in job.items() if value is not None} for job in group]}), compresslevel=6, mtime=0)) for group in publisher._groups(scattered, publisher.DETAIL_PAGE_SIZE))
+    grouped_bytes = sum((tmp_path / 'api/v1' / ref['path']).stat().st_size for ref in manifest['detail_pages'])
+    assert grouped_bytes < scattered_bytes // 2
+
+
 def test_search_gzip_is_lossless_and_expanded_index_limit_is_still_enforced(tmp_path, monkeypatch):
     from server.public_jobs import publish as publisher
     records = [job(url=f"https://acme.example/jobs/{i}", description="Full original description. " * 1000) for i in range(12)]

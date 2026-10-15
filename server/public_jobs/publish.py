@@ -140,6 +140,10 @@ def publish(state: dict, lock: dict, output: Path, *, generation: str, now, comp
     if generation_path.exists():
         raise ValueError("Generation already exists")
     jobs = [PublicJob.model_validate(entry["job"]).model_dump(mode="json") for _, entry in sorted(state["jobs"].items())]
+    # Adjacent employer records share metadata and description boilerplate.
+    # Grouping improves lossless gzip compression without changing any field,
+    # identity, query ordering, or lifecycle state.
+    jobs.sort(key=lambda job: (job["company_id"], job["id"]))
     detail_refs, search_rows = [], []
     for page, group in enumerate(_groups(jobs, DETAIL_PAGE_SIZE), 1):
         relative = f"snapshots/{generation}/details-{page:04}.json" + (".gz" if compress_details else "")
