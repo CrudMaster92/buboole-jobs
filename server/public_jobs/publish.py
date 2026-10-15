@@ -11,7 +11,7 @@ from pathlib import Path
 
 from .schema import FeedManifest, PublicJob, digest, json_bytes, timestamp
 
-PAGE_SIZE = 250
+PAGE_SIZE = 1000
 DETAIL_PAGE_SIZE = 100
 MAX_PUBLISHED_BYTES = 990_000_000
 RETAINED_GENERATIONS = 2
