@@ -14,6 +14,31 @@ from server.scrapers.models import JobRecord, ScrapeResult, ScraperRecipe
 
 NOW = datetime(2026, 9, 26, 12, tzinfo=timezone.utc)
 
+
+def test_search_gzip_is_lossless_and_expanded_index_limit_is_still_enforced(tmp_path, monkeypatch):
+    from server.public_jobs import publish as publisher
+    records = [job(url=f"https://acme.example/jobs/{i}", description="Full original description. " * 1000) for i in range(12)]
+    state = merge(empty_state(), [clean_result(result(records))], 1)
+    lock = {"catalog_commit": "a" * 40, "collections": []}
+    plain = publisher.publish(state, lock, tmp_path / "plain", generation="lossless", now=NOW, compress_details=True)
+    packed = publisher.publish(state, lock, tmp_path / "packed", generation="lossless", now=NOW,
+                               compress_details=True, compress_search=True)
+    plain_api, packed_api = tmp_path / "plain/api/v1", tmp_path / "packed/api/v1"
+    expanded_size = 0
+    for original, compressed in zip(plain["search_pages"], packed["search_pages"], strict=True):
+        assert compressed["path"].endswith(".json.gz")
+        expanded = gzip.decompress((packed_api / compressed["path"]).read_bytes())
+        assert expanded == (plain_api / original["path"]).read_bytes()
+        expanded_size += len(expanded)
+    assert packed["total_jobs"] == len(records)
+    assert packed["detail_pages"] == plain["detail_pages"]
+    report = json.loads((tmp_path / "packed/build-report.json").read_bytes())
+    assert report["stored_search_bytes"] < expanded_size // 2
+    assert report["search_index_bytes"] == expanded_size
+    monkeypatch.setattr(publisher, "MAX_INDEX_BYTES", expanded_size - 1)
+    with pytest.raises(ValueError, match="Search index exceeds"):
+        publisher.validate_publication(packed_api, packed)
+
 def test_compressed_publication_preserves_every_job_and_full_description(tmp_path):
     records = [job(url=f"https://acme.example/jobs/{i}", description="Long public paragraph. " * 1000) for i in range(101)]
     state = merge(empty_state(), [clean_result(result(records))], 1)

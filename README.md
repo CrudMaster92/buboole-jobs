@@ -99,4 +99,6 @@ content. Existing notices remain applicable; company trademarks belong to their
 owners. GitHub usage limits and source availability still apply. A scheduled
 build may be delayed; use manifest/source timestamps to assess freshness.
 
-Search description prefixes target a 220 MB aggregate while required metadata can use the full 350 MB ceiling. This reserves space for growth and consumer staging; complete descriptions and every populated field remain in details. Ashby location_addresses retains primary/secondary country and city evidence without replacing the original location labels. Older 200 MB readers need updating before reading larger generations.
+Search description prefixes target a 240 MB aggregate while required metadata can use the full 350 MB ceiling. This reserves space for growth and consumer staging; complete descriptions and every populated field remain in details. Ashby location_addresses retains primary/secondary country and city evidence without replacing the original location labels. Older 200 MB readers need updating before reading larger generations.
+
+Search pages can also be losslessly compressed with --compress-search. The 350 MB reader limit counts expanded JSON, while the 990 MB hosting cap counts stored bytes. Hashes cover stored bytes, expansion is bounded per page, and both limits are checked before switching the manifest. This removes repeated JSON text from hosting storage without removing any posting fields or full descriptions.

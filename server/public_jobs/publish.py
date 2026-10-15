@@ -19,7 +19,7 @@ MAX_SHARD_BYTES = 7_000_000
 MAX_INDEX_BYTES = 350_000_000
 # Optional duplicate description prefixes should not consume the headroom for
 # required metadata or the hosted index's current/next-generation overlap.
-SEARCH_TEXT_TARGET_BYTES = 220_000_000
+SEARCH_TEXT_TARGET_BYTES = 240_000_000
 MAX_SEARCH_TEXT_CHARS = 2000
 
 
@@ -98,8 +98,6 @@ def validate_publication(api: Path, manifest: dict) -> None:
         content = path.read_bytes()
         if len(content) > MAX_SHARD_BYTES:
             raise ValueError("Feed shard exceeds the seven MB byte budget")
-        if ref in manifest["search_pages"]:
-            index_bytes += len(content)
         if digest(content) != ref["sha256"]:
             raise ValueError("Feed artifact hash mismatch")
         if path.name.endswith(".json.gz"):
@@ -107,6 +105,8 @@ def validate_publication(api: Path, manifest: dict) -> None:
                 content = stream.read(MAX_SHARD_BYTES + 1)
             if len(content) > MAX_SHARD_BYTES:
                 raise ValueError("Expanded feed shard exceeds the seven MB byte budget")
+        if ref in manifest["search_pages"]:
+            index_bytes += len(content)
         page = json.loads(content)
         if page["generation"] != manifest["generation"] or len(page["jobs"]) != ref["count"]:
             raise ValueError("Feed artifact generation/count mismatch")
@@ -130,7 +130,8 @@ def validate_publication(api: Path, manifest: dict) -> None:
         raise ValueError(f"Publication exceeds its {MAX_PUBLISHED_BYTES}-byte safety budget")
 
 
-def publish(state: dict, lock: dict, output: Path, *, generation: str, now, compress_details: bool = False) -> dict:
+def publish(state: dict, lock: dict, output: Path, *, generation: str, now, compress_details: bool = False,
+            compress_search: bool = False) -> dict:
     if not re.fullmatch(r"[a-zA-Z0-9_-]{1,100}", generation):
         raise ValueError("Invalid generation identifier")
     api = output / "api" / "v1"
@@ -166,7 +167,7 @@ def publish(state: dict, lock: dict, output: Path, *, generation: str, now, comp
     # Keep the previous immutable snapshot, full descriptions and every job.
     # Fit only this generation's optional snippets to the remaining hosting
     # capacity. Reserve both new manifest copies before replacing either one.
-    anticipated_refs = [{"path": f"snapshots/{generation}/search-{page:04}.json",
+    anticipated_refs = [{"path": f"snapshots/{generation}/search-{page:04}.json" + (".gz" if compress_search else ""),
                          "sha256": "0" * 64, "count": PAGE_SIZE}
                         for page, _ in enumerate(_groups(search_rows, PAGE_SIZE), 1)]
     manifest_reserve = 2 * len(json_bytes(make_manifest(anticipated_refs)))
@@ -183,6 +184,10 @@ def publish(state: dict, lock: dict, output: Path, *, generation: str, now, comp
     snapshot_budget = (MAX_PUBLISHED_BYTES - manifest_reserve) // RETAINED_GENERATIONS
     index_budget = min(MAX_INDEX_BYTES, MAX_PUBLISHED_BYTES - existing_bytes - manifest_reserve,
                        snapshot_budget - detail_bytes - manifest_reserve // 2)
+    if compress_search:
+        # Reader limits apply to expanded JSON. Hosting limits apply separately
+        # to the losslessly compressed bytes, validated before activation.
+        index_budget = MAX_INDEX_BYTES
     snippet_chars, index_bytes = _fit_search_text(search_rows, generation, byte_budget=index_budget)
     report = {"generation": generation, "stage": "index_built", "jobs": len(jobs),
               "jobs_with_descriptions": sum(bool(job["description"].strip()) for job in jobs),
@@ -193,8 +198,11 @@ def publish(state: dict, lock: dict, output: Path, *, generation: str, now, comp
     print(json.dumps({"publication": report}), flush=True)
     search_refs = []
     for page, group in enumerate(_groups(search_rows, PAGE_SIZE), 1):
-        relative = f"snapshots/{generation}/search-{page:04}.json"
+        relative = f"snapshots/{generation}/search-{page:04}.json" + (".gz" if compress_search else "")
         search_refs.append({"path": relative, "sha256": _write(api / relative, {"generation": generation, "jobs": group}), "count": len(group)})
+    report["stored_search_bytes"] = sum((api / ref["path"]).stat().st_size for ref in search_refs)
+    if compress_search and detail_bytes + report["stored_search_bytes"] + manifest_reserve // 2 > snapshot_budget:
+        raise ValueError("Compressed snapshot exceeds its share of the publication safety budget")
     manifest = make_manifest(search_refs)
     validate_publication(api, manifest)
     _write(generation_path / "manifest.json", manifest)

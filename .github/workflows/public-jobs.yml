@@ -54,7 +54,7 @@ jobs:
         run: |
           python -c "from pathlib import Path; Path('_site/build-report.json').unlink(missing_ok=True)"
           set -o pipefail
-          python -m server.public_jobs build --compress-details --catalog .catalog --lock catalog-lock.json \
+          python -m server.public_jobs build --compress-details --compress-search --catalog .catalog --lock catalog-lock.json \
             --state .feed-state/state.json --output _site \
             --generation "$(date -u +%Y%m%dT%H%M%S)-${{ github.run_id }}-${{ github.run_attempt }}" \
             2>&1 | tee public-build.log
