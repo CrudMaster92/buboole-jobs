@@ -14,7 +14,7 @@ SCHEMA_NAMES = ("jobhound-company-v1", "jobhound-monitor-v1", "jobhound-collecti
 EXPORT_PATHS = [*[f"server/contributions/{name}.py" for name in CONTRIBUTION_MODULES],
                 *[f"server/contributions/schemas/{name}.schema.json" for name in SCHEMA_NAMES],
                 "server/__init__.py", "server/external_http.py", *[f"server/public_jobs/{name}.py" for name in PUBLIC_MODULES],
-                *[f"server/scrapers/{name}.py" for name in SCRAPER_MODULES], "tests/test_public_jobs_collector.py", "tests/test_public_description_extraction.py", "tests/test_scraper_detail_cache.py", "tests/test_contribution_admission.py", "tests/test_scraper_traversal.py", "tests/test_scraper_public_listing_mapping.py"]
+                *[f"server/scrapers/{name}.py" for name in SCRAPER_MODULES], "tests/test_public_jobs_collector.py", "tests/test_public_description_extraction.py", "tests/test_scraper_detail_cache.py", "tests/test_contribution_admission.py", "tests/test_scraper_traversal.py", "tests/test_scraper_public_listing_mapping.py", "tests/test_njoyn_stable_links.py"]
 
 
 def export_runtime(source: Path, destination: Path, *, check: bool = False) -> dict:
