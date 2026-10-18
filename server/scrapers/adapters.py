@@ -4,13 +4,16 @@ from __future__ import annotations
 
 import json
 import re
+from datetime import datetime
 from typing import Any, Iterable
+from zoneinfo import ZoneInfo
 from urllib.parse import parse_qsl, quote, urlencode, urljoin, urlsplit
 
 from bs4 import BeautifulSoup
 
 from .models import JobRecord, ScraperRecipe, LocationAddress
-from .normalize import first, make_job, plain_text, normalize_description
+from .normalize import first, make_job, plain_text, normalize_description, parse_date
+from .posting_urls import render_template
 
 
 def _smartrecruiters_description(raw: dict[str, Any]) -> str:
@@ -210,7 +213,7 @@ def json_ld(html: str, recipe: ScraperRecipe) -> list[JobRecord]:
 
 def generic_html(html: str, recipe: ScraperRecipe, *, source: str = "generic_html") -> list[JobRecord]:
     # Prefer standards-based structured data even for pages reached through a generic recipe.
-    structured = json_ld(html, recipe)
+    structured = [] if recipe.metadata.get("closing_date_selector") else json_ld(html, recipe)
     if structured:
         return structured
     soup = BeautifulSoup(html, "html.parser")
@@ -219,7 +222,7 @@ def generic_html(html: str, recipe: ScraperRecipe, *, source: str = "generic_htm
 
     def selected(item, field: str):
         selector = selectors.get(field)
-        return item.select_one(selector) if selector else None
+        return item if selector == ":scope" else item.select_one(selector) if selector else None
 
     def node_value(node, *, attribute: str | None = None):
         if not node:
@@ -227,14 +230,31 @@ def generic_html(html: str, recipe: ScraperRecipe, *, source: str = "generic_htm
         return node.get(attribute) or node.get_text(" ", strip=True) if attribute else node.get_text(" ", strip=True)
 
     for index, item in enumerate(soup.select(selectors.get("item", ".job"))):
-        title_node = item.select_one(selectors.get("title", "h2, h3, .title"))
-        link_node = item.select_one(selectors.get("link", "a[href]"))
+        closing_selector = recipe.metadata.get("closing_date_selector")
+        if isinstance(closing_selector, str):
+            closing_node = item.select_one(closing_selector)
+            raw_closing = node_value(closing_node, attribute="datetime")
+            deadline = parse_date(raw_closing)
+            if deadline is None and raw_closing:
+                try:
+                    deadline = datetime.strptime(" ".join(raw_closing.split()), "%B %d, %Y").date()
+                except ValueError:
+                    pass
+            today = datetime.now(ZoneInfo(str(recipe.metadata.get("closing_date_timezone", "UTC")))).date()
+            # An explicit closing-date rule fails closed when evidence is missing.
+            if deadline is None or deadline < today:
+                continue
+        title_node = selected(item, "title") if "title" in selectors else item.select_one("h2, h3, .title")
+        link_node = selected(item, "link") if "link" in selectors else item.select_one("a[href]")
         location_node = item.select_one(selectors.get("location", ".location"))
         description_node = item.select_one(selectors.get("description", ".description"))
         employment_node = selected(item, "employment_type")
         salary_node = selected(item, "salary")
-        source_id = item.get("data-job-id") or item.get("id")
+        attribute = recipe.metadata.get("source_id_attribute")
+        source_id = item.get(attribute) if isinstance(attribute, str) else item.get("data-job-id") or item.get("id")
         link = link_node.get("href") if link_node else None
+        if link and urlsplit(urljoin(recipe.careers_url, link)).scheme not in {"http", "https"}:
+            link = None
         if link and recipe.metadata.get("strip_link_session_id") is True:
             parts = urlsplit(link)
             path = re.sub(r";jsessionid=[^/;?]*", "", parts.path, flags=re.I)
@@ -247,8 +267,8 @@ def generic_html(html: str, recipe: ScraperRecipe, *, source: str = "generic_htm
                          if key.lower() not in {"tbtoken", "chk"}]
                 link = parts._replace(query=urlencode(query)).geturl()
         template = recipe.metadata.get("link_template")
-        if not link and source_id and isinstance(template, str) and "{source_id}" in template:
-            link = template.replace("{source_id}", quote(str(source_id), safe=""))
+        if not link and isinstance(template, str):
+            link = render_template(template, recipe.allowed_hosts, source_id=source_id)
         if not title_node or not link:
             continue
         salary_text = node_value(salary_node)
@@ -283,7 +303,15 @@ def generic_json(data: Any, recipe: ScraperRecipe) -> list[JobRecord]:
         if not isinstance(raw, dict):
             continue
         get = lambda field: at_path(raw, recipe.mapping.get(field, field))
+        original_get = get
+        if isinstance(recipe.metadata.get("title_prefix"), str):
+            get = lambda field: (recipe.metadata["title_prefix"].rstrip() + " " + str(original_get(field) or "")) if field == "title" else original_get(field)
         url = get("url")
+        template = recipe.metadata.get("posting_url_template")
+        if isinstance(template, str):
+            url = render_template(template, recipe.allowed_hosts, source_id=get("source_id"), url=url)
+            if not url:
+                continue
         prefix = recipe.metadata.get("posting_url_prefix")
         if isinstance(prefix, str) and prefix and url:
             # A public listing may return a slug rather than a posting URL.

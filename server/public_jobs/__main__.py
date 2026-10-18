@@ -17,7 +17,7 @@ from .schema import json_bytes
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     commands = parser.add_subparsers(dest="command", required=True)
-    lock_parser = commands.add_parser("lock", help="Explicitly select and pin current verified non-browser catalog monitors")
+    lock_parser = commands.add_parser("lock", help="Explicitly select and pin current verified eligible catalog monitors")
     lock_parser.add_argument("--catalog", type=Path, required=True)
     lock_parser.add_argument("--output", type=Path, required=True)
     build = commands.add_parser("build", help="Collect selected pins and atomically publish a static feed")

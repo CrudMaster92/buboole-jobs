@@ -7,8 +7,11 @@ from enum import Enum
 from hashlib import sha256
 from typing import Any, Literal
 from urllib.parse import urlsplit, urlunsplit
+from zoneinfo import ZoneInfo, ZoneInfoNotFoundError
 
 from pydantic import BaseModel, ConfigDict, Field, field_validator, model_validator
+
+from .posting_urls import validate_template
 
 
 class StrictModel(BaseModel):
@@ -266,6 +269,39 @@ class ScraperRecipe(StrictModel):
             if (parsed.scheme != "https" or parsed.hostname not in self.allowed_hosts
                     or parsed.username or parsed.password or parsed.query or parsed.fragment):
                 raise ValueError("posting_url_prefix must be HTTPS on an explicitly allowed host without credentials, query or fragment")
+        for key in ("link_template", "posting_url_template"):
+            if key in self.metadata:
+                validate_template(self.metadata[key], self.allowed_hosts)
+        identity = self.metadata.get("source_id_attribute")
+        title_prefix = self.metadata.get("title_prefix")
+        if title_prefix is not None and (not isinstance(title_prefix, str) or len(title_prefix) > 120 or "\n" in title_prefix):
+            raise ValueError("title_prefix must be a short single-line source label")
+        if identity is not None:
+            import re
+            if not isinstance(identity, str) or not re.fullmatch(r"(?:data-[a-z0-9_-]+|id)", identity):
+                raise ValueError("source_id_attribute must name id or a data attribute")
+        capture = self.metadata.get("browser_json_url")
+        closing_selector = self.metadata.get("closing_date_selector")
+        if closing_selector is not None:
+            if (not isinstance(closing_selector, str) or not closing_selector.strip() or len(closing_selector) > 2000
+                    or self.strategy not in {ScraperStrategy.GENERIC_HTML, ScraperStrategy.JOBVITE, ScraperStrategy.PLAYWRIGHT}
+                    or capture is not None):
+                raise ValueError("closing_date_selector requires an HTML listing and a bounded CSS selector")
+            try:
+                ZoneInfo(str(self.metadata.get("closing_date_timezone", "UTC")))
+            except (ZoneInfoNotFoundError, ValueError) as exc:
+                raise ValueError("closing_date_timezone must be an IANA time zone") from exc
+        if capture is not None:
+            if not isinstance(capture, str):
+                raise ValueError("browser_json_url must be a public HTTPS URL")
+            parsed = urlsplit(capture)
+            if (self.strategy != ScraperStrategy.PLAYWRIGHT or parsed.scheme != "https"
+                    or parsed.hostname != host or parsed.username or parsed.password or parsed.fragment
+                    or self.metadata.get("browser_json_method", "GET") not in {"GET", "POST"}
+                    or not self.mapping.get("items") or self.metadata.get("partial_listing") is not True):
+                raise ValueError("browser_json_url requires bounded Playwright JSON capture on the page host with explicit items and partial_listing")
+            if self.source_filter and any(rule.phase == "detail" for rule in self.source_filter.predicates):
+                raise ValueError("browser JSON ownership predicates must use listing evidence")
         return self
 
 

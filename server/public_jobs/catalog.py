@@ -48,13 +48,15 @@ def build_lock(root: Path) -> dict:
         reason = None
         if item.get("verification", {}).get("status") != "verified":
             reason = "Catalog verification is not verified"
-        elif item["recipe"].get("strategy") == "playwright":
-            reason = "Browser sources are excluded from the initial public feed"
         else:
             try:
                 recipe = ScraperRecipe.model_validate(item["recipe"])
                 public_url(recipe.careers_url)
                 public_url(recipe.request.url)
+                if recipe.strategy.value == "playwright":
+                    from .browser import eligible
+                    if not eligible(recipe):
+                        reason = "Browser source lacks reviewed public opt-in and bounded partial coverage"
                 if recipe.source_filter and any(p.phase == "detail" for p in recipe.source_filter.predicates):
                     reason = "Detail ownership predicates require a separately reviewed public detail budget"
             except ValueError:
@@ -98,7 +100,9 @@ def load_monitors(root: Path, lock: dict) -> list[tuple[dict, ScraperRecipe]]:
             raise ValueError("Only reviewed verified monitors can be collected")
         recipe = ScraperRecipe.model_validate(document["recipe"])
         if recipe.strategy.value == "playwright":
-            raise ValueError("Browser sources cannot run in the public collector")
+            from .browser import eligible
+            if not eligible(recipe):
+                raise ValueError("Browser source is not explicitly enabled for bounded public collection")
         public_url(recipe.request.url)
         public_url(recipe.careers_url)
         selected.append((entry, recipe))

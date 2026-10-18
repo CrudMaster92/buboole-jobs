@@ -331,7 +331,7 @@ def _filter_listing_payload(payload: Any, recipe: ScraperRecipe) -> Any:
         return [item for item in filtered if matches(_predicate_matches(item, rule) for rule in predicates)]
     if not isinstance(filtered, dict):
         return filtered
-    items_path = recipe.mapping.get("items") if recipe.strategy == ScraperStrategy.GENERIC_JSON else None
+    items_path = recipe.mapping.get("items") if recipe.strategy == ScraperStrategy.GENERIC_JSON or recipe.metadata.get("browser_json_url") else None
     container = filtered
     if items_path:
         parts = items_path.split('.')
@@ -353,6 +353,7 @@ def run_scraper(
     client: httpx.Client | None = None,
     progress=None,
     detail_cache: dict | None = None,
+    browser_policy=None,
 ) -> ScrapeResult | dict[str, Any]:
     """Run a recipe.
 
@@ -366,7 +367,7 @@ def run_scraper(
         selected = ScraperRecipe.model_validate(selected)
     _notify(progress, "fetching", "Connecting to careers source", 15)
     if selected.strategy == ScraperStrategy.PLAYWRIGHT:
-        result = _run_playwright(selected)
+        result = _run_playwright(selected, browser_policy=browser_policy) if browser_policy else _run_playwright(selected)
         return _scheduler_payload(result, selected) if scheduler_call else result
     jobs = []
     pages = 0
@@ -476,7 +477,29 @@ def _apply_source_filter(jobs: list, recipe: ScraperRecipe) -> list:
     return [job for job in jobs if any(term in job.title.casefold() for term in terms)]
 
 
-def _run_playwright(recipe: ScraperRecipe) -> ScrapeResult:
+def _browser_json_matches(response, recipe: ScraperRecipe) -> bool:
+    return (response.url == recipe.metadata.get("browser_json_url")
+            and response.request.method == recipe.metadata.get("browser_json_method", "GET"))
+
+
+def _read_browser_json(response, recipe: ScraperRecipe):
+    if not _browser_json_matches(response, recipe) or not 200 <= response.status < 300:
+        raise ScraperExecutionError("public browser JSON response was not successful or did not match the declared endpoint")
+    if "json" not in response.headers.get("content-type", "").lower():
+        raise ScraperExecutionError("public browser listing did not return JSON")
+    declared = int(response.headers.get("content-length", "0") or 0)
+    if declared > recipe.request.max_response_bytes:
+        raise ScraperExecutionError("public browser JSON exceeds recipe size limit")
+    body = response.body()
+    if len(body) > recipe.request.max_response_bytes:
+        raise ScraperExecutionError("public browser JSON exceeds recipe size limit")
+    try:
+        return json.loads(body)
+    except ValueError as exc:
+        raise ScraperExecutionError("public browser listing returned invalid JSON") from exc
+
+
+def _run_playwright(recipe: ScraperRecipe, *, browser_policy=None) -> ScrapeResult:
     try:
         from playwright.sync_api import sync_playwright
     except ImportError as exc:
@@ -484,29 +507,50 @@ def _run_playwright(recipe: ScraperRecipe) -> ScrapeResult:
     try:
         with sync_playwright() as playwright:
             browser = playwright.chromium.launch(headless=True)
-            page = browser.new_page()
+            context = browser.new_context(service_workers="block", accept_downloads=False) if browser_policy else None
+            page = context.new_page() if context else browser.new_page(service_workers="block")
             def confined(route):
                 try:
                     _validate_target(route.request.url, recipe.allowed_hosts)
-                except ScraperNetworkError:
+                    if browser_policy:
+                        browser_policy.request(route.request.url)
+                except (ScraperNetworkError, RuntimeError):
                     route.abort()
                 else:
                     route.continue_()
-            page.route("**/*", confined)
+            (context or page).route("**/*", confined)
+            if context:
+                context.route_web_socket("**/*", lambda socket: socket.close())
+                context.on("requestfinished", browser_policy.finished)
             fragment = recipe.metadata.get("browser_fragment")
             start_url = recipe.request.url + ("#" + quote(str(fragment), safe="=&") if fragment else "")
-            page.goto(start_url, wait_until="domcontentloaded", timeout=int(recipe.request.timeout_seconds * 1000))
+            capture = recipe.metadata.get("browser_json_url")
+            timeout = int(recipe.request.timeout_seconds * 1000)
+            payload = None
+            if capture:
+                with page.expect_response(lambda response: _browser_json_matches(response, recipe), timeout=timeout) as pending:
+                    page.goto(start_url, wait_until="domcontentloaded", timeout=timeout)
+                payload = _read_browser_json(pending.value, recipe)
+            else:
+                page.goto(start_url, wait_until="domcontentloaded", timeout=timeout)
             wait_selector = recipe.metadata.get("wait_selector")
             if isinstance(wait_selector, str) and wait_selector:
                 page.wait_for_selector(wait_selector, timeout=int(recipe.request.timeout_seconds * 1000))
             jobs = []
             pages_fetched = 0
             next_selector = recipe.metadata.get("next_selector")
+            total_bytes = 0
             for _ in range(recipe.pagination.max_pages):
-                html = page.content()
-                if len(html.encode("utf-8")) > recipe.request.max_response_bytes:
+                if browser_policy:
+                    browser_policy.check()
+                document = payload if capture else page.content()
+                size = len(json.dumps(document).encode("utf-8")) if capture else len(document.encode("utf-8"))
+                total_bytes += size
+                if size > recipe.request.max_response_bytes or total_bytes > MAX_PAGED_RESPONSE_BYTES:
                     raise ScraperExecutionError("rendered page exceeds recipe size limit")
-                jobs.extend(_apply_source_filter(adapters.generic_html(html, recipe, source="playwright"), recipe))
+                document = _filter_listing_payload(document, recipe)
+                normalized = adapters.generic_json(document, recipe) if capture else adapters.generic_html(document, recipe, source="playwright")
+                jobs.extend(_apply_source_filter(normalized, recipe))
                 pages_fetched += 1
                 if recipe.pagination.kind == "none" or not isinstance(next_selector, str):
                     break
@@ -515,7 +559,12 @@ def _run_playwright(recipe: ScraperRecipe) -> ScrapeResult:
                     break
                 prior_id = (page.locator(wait_selector).first.get_attribute("data-job-id")
                             if isinstance(wait_selector, str) and wait_selector else None)
-                next_button.click()
+                if capture:
+                    with page.expect_response(lambda response: _browser_json_matches(response, recipe), timeout=timeout) as pending:
+                        next_button.click()
+                    payload = _read_browser_json(pending.value, recipe)
+                else:
+                    next_button.click()
                 if prior_id and isinstance(wait_selector, str):
                     page.wait_for_function(
                         "value => document.querySelector(value.selector)?.getAttribute('data-job-id') !== value.id",
@@ -526,6 +575,10 @@ def _run_playwright(recipe: ScraperRecipe) -> ScrapeResult:
                     page.wait_for_timeout(500)
                 if isinstance(wait_selector, str) and wait_selector:
                     page.wait_for_selector(wait_selector, timeout=int(recipe.request.timeout_seconds * 1000))
+            if browser_policy:
+                browser_policy.check()
+            if context:
+                context.remove_listener("requestfinished", browser_policy.finished)
             browser.close()
         unique = {job.source_id: job for job in jobs}
         return ScrapeResult(

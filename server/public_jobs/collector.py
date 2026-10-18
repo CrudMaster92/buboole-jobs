@@ -146,8 +146,13 @@ def collect_monitor(monitor: dict, recipe: ScraperRecipe, *, now: datetime, limi
         if bounded.coverage_mode != "all":
             bounded.metadata["detail_fetch_limit"] = DETAIL_LIMIT
         cache = copy.deepcopy(detail_cache or {})
-        with PublicClient(limiter, min(deadline, time.monotonic() + SOURCE_SECONDS)) as client:
-            result = runner(bounded, client=client, detail_cache=cache)
+        source_deadline = min(deadline, time.monotonic() + SOURCE_SECONDS)
+        if bounded.strategy.value == "playwright":
+            from .browser import collect_browser
+            result = collect_browser(bounded, deadline=source_deadline, limiter=limiter)
+        else:
+            with PublicClient(limiter, source_deadline) as client:
+                result = runner(bounded, client=client, detail_cache=cache)
         # Fail the source if normalization rejects even one record: discarding it
         # and calling this a complete listing could incorrectly close a job.
         jobs = [normalize_job(job, monitor, now) for job in result.jobs]

@@ -7,14 +7,14 @@ from pathlib import Path
 
 from .schema import digest, json_bytes
 
-PUBLIC_MODULES = ("__init__", "schema", "lifecycle", "catalog", "collector", "publish", "__main__", "export", "admission", "coverage")
-SCRAPER_MODULES = ("__init__", "adapters", "ai_contract", "detection", "detail_cache", "detail_extraction", "facade", "http", "models", "normalize", "progress", "runtime", "traversal", "missing_postings", "workday_inventory")
+PUBLIC_MODULES = ("__init__", "schema", "lifecycle", "catalog", "collector", "browser", "publish", "__main__", "export", "admission", "coverage")
+SCRAPER_MODULES = ("__init__", "adapters", "ai_contract", "detection", "detail_cache", "detail_extraction", "facade", "http", "models", "normalize", "posting_urls", "progress", "runtime", "traversal", "missing_postings", "workday_inventory")
 CONTRIBUTION_MODULES = ("__init__", "contracts", "github", "validation", "cli", "admission")
 SCHEMA_NAMES = ("jobhound-company-v1", "jobhound-monitor-v1", "jobhound-collection-v1", "jobhound-preset-v1")
 EXPORT_PATHS = [*[f"server/contributions/{name}.py" for name in CONTRIBUTION_MODULES],
                 *[f"server/contributions/schemas/{name}.schema.json" for name in SCHEMA_NAMES],
                 "server/__init__.py", "server/external_http.py", *[f"server/public_jobs/{name}.py" for name in PUBLIC_MODULES],
-                *[f"server/scrapers/{name}.py" for name in SCRAPER_MODULES], "tests/test_public_jobs_collector.py", "tests/test_public_description_extraction.py", "tests/test_scraper_detail_cache.py", "tests/test_contribution_admission.py", "tests/test_scraper_traversal.py", "tests/test_scraper_public_listing_mapping.py", "tests/test_njoyn_stable_links.py"]
+                *[f"server/scrapers/{name}.py" for name in SCRAPER_MODULES], "tests/test_public_jobs_collector.py", "tests/test_public_description_extraction.py", "tests/test_scraper_detail_cache.py", "tests/test_contribution_admission.py", "tests/test_scraper_traversal.py", "tests/test_scraper_public_listing_mapping.py", "tests/test_njoyn_stable_links.py", "tests/test_public_browser_collection.py", "tests/test_scraper_posting_extensions.py", "tests/test_scraper_closing_dates.py"]
 
 
 def export_runtime(source: Path, destination: Path, *, check: bool = False) -> dict:

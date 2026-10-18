@@ -7,7 +7,10 @@ feed at `https://crudmaster92.github.io/job-hound-jobs/api/v1/manifest.json`.
 The scheduled build runs twice daily at 05:17 and 17:17 UTC, with a manual
 workflow trigger for maintainers. Four workers collect at most one concurrent
 request per host. Each source has a 180-second/60-request budget; the entire
-collection has a 40-minute budget. No AI, credentials or browser automation run.
+collection has a 40-minute budget. No AI or credentials run. Explicitly reviewed
+browser recipes run in isolated processes with a 180-second, 120-request,
+40 MB response budget, HTTPS host restrictions and at most five listing pages.
+Browser sources require a pinned opt-in and remain explicitly partial.
 Workday/SmartRecruiters details use a persistent listing-signature cache.
 The public collector requests all roles for supported JSON page/offset recipes,
 including older catalog pins with small `max_pages` values. It resumes listing
@@ -23,8 +26,8 @@ coverage; incomplete results never prove that unseen jobs closed.
 
 The catalog lock pins exact reviewed monitor commits, revisions and hashes.
 Version two retains individually reviewed historical pins when newer catalog
-collections are added. Verified non-browser sources are eligible, including explicitly
-partial sources. Excluded and failing sources remain visible in source health.
+collections are added. Verified HTTP sources and explicitly reviewed browser sources are eligible,
+including explicitly partial sources. Excluded and failing sources remain visible in source health.
 New revisions require an explicit lock update and deployment.
 
 Jobs have stable company-and-source-URL IDs across overlapping monitors and
