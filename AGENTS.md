@@ -1,6 +1,6 @@
 # Public jobs feed
 
-The canonical JobHound application authors `server/` and the exported collector
+The canonical Buboole application authors `server/` and the exported collector
 tests. Those are generated files: update the app, run
 `scripts/export_public_jobs.py --destination <this repository>`, and commit the
 reviewed export with `runtime-manifest.json`. Never fork scraper/domain rules.

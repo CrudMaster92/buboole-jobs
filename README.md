@@ -1,8 +1,8 @@
-# JobHound public jobs
+# Buboole public jobs
 
 A free-to-browse anonymous jobs feed built from reviewed public company sources.
-The public Sites board and local JobHound Global Jobs page read the same versioned
-feed at `https://crudmaster92.github.io/job-hound-jobs/api/v1/manifest.json`.
+The public Sites board and local Buboole Global Jobs page read the same versioned
+feed at `https://crudmaster92.github.io/buboole-jobs/api/v1/manifest.json`.
 
 The scheduled build runs twice daily at 05:17 and 17:17 UTC, with a manual
 workflow trigger for maintainers. Four workers collect at most one concurrent
@@ -73,7 +73,7 @@ State is not served from Pages. Pages deployments are atomic.
 
 The same manifest and hashed page contracts are available to browsers and
 agents without an account or API key. The public board exposes structured
-browsing; local agents use the JobHound MCP tools. Public feed data contains no
+browsing; local agents use the Buboole MCP tools. Public feed data contains no
 preferences, application tracking, saved favourites or personal documents.
 See `server/public_jobs/schema.py` for exact version-one fields. All artifact
 paths resolve relative to `api/v1/manifest.json`; reject unsafe paths, hash
@@ -86,7 +86,7 @@ their current clock as well as the recorded publication time.
 python -m pip install -r requirements-dev.txt
 python -m server.public_jobs.export --destination . --check
 python -m pytest tests -q
-git clone https://github.com/CrudMaster92/job-hound-presets.git .catalog
+git clone https://github.com/CrudMaster92/buboole-presets.git .catalog
 # Check out catalog-lock.json's catalog_commit before building.
 python -m server.public_jobs build --compress-details --catalog .catalog --lock catalog-lock.json --state .feed-state/state.json --output _site
 ```
@@ -95,9 +95,9 @@ To review an intentional catalog update, check out the desired catalog commit,
 run `python -m server.public_jobs lock --catalog .catalog --output catalog-lock.json`,
 review the exact sources/revisions, then test and commit the new lock.
 
-The runtime is generated from the canonical JobHound application using its
+The runtime is generated from the canonical Buboole application using its
 `scripts/export_public_jobs.py`; `runtime-manifest.json` records file hashes.
-This repository does not grant new rights to existing JobHound code or employer
+This repository does not grant new rights to existing Buboole code or employer
 content. Existing notices remain applicable; company trademarks belong to their
 owners. GitHub usage limits and source availability still apply. A scheduled
 build may be delayed; use manifest/source timestamps to assess freshness.

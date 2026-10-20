@@ -23,7 +23,7 @@ complete empty listing and remains unverified/excluded. Counts are dated observa
 can overlap, and are not a guarantee of exhaustive employer coverage. No private
 criteria, profiles, application history, credentials or personal database were used.
 Employer ownership, representative titles and source URLs were reviewed.
-[Catalog review and full public evidence](https://github.com/CrudMaster92/job-hound-presets/pull/26)
+[Catalog review and full public evidence](https://github.com/CrudMaster92/buboole-presets/pull/26)
 contain the individual observations and warnings. Partial listings never provide
 absence or closure evidence.
 
@@ -54,7 +54,7 @@ simulation results, not a claim that the production feed has already changed.
 ## Rollout order
 
 1. Merge the catalog evidence review and retain its exact reviewed JSON hashes.
-2. Publish [workspace preview 7](https://github.com/CrudMaster92/job-hound-workspace/pull/3).
+2. Publish [workspace preview 7](https://github.com/CrudMaster92/buboole-workspace/pull/3).
    Rebuild/restart the canonical app and update installed workspace readers with
    their existing durable homes. Older installed readers cannot read gzip details.
 3. Update the lock's catalog commit to the actual merged catalog state if merge
@@ -66,7 +66,7 @@ simulation results, not a claim that the production feed has already changed.
    new roles have already appeared in production.
 
 The Site reader update is published at
-[Job Hound](https://job-hound.realperson.chatgpt.site/jobs).
+[Buboole](https://buboole.realperson.chatgpt.site/jobs).
 Canonical app tests, reader regressions, both production builds, exported-runtime
 checks, 121 collector tests, fresh Windows workspace installation and GitHub Linux
 workspace smoke passed. Fresh Muse-host lifecycle remains unobserved.
