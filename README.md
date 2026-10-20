@@ -53,6 +53,10 @@ crowd out the next build's required metadata. If required metadata alone
 cannot fit, publication fails explicitly and preserves the previous generation.
 The workflow summary and three-day diagnostic artifact report description
 coverage, index bytes, chosen snippet length and publication failure details.
+Publication validates one detail shard at a time, releases collection inputs
+before building the index, and streams durable-state JSON to avoid allocating
+another entire state string and UTF-8 buffer. Public progress stages include
+Linux resident/peak memory; diagnostic artifacts retain process resource usage.
 `catalog-coverage.json` compares the current catalog with the lock, showing
 missing sources, outdated pins and collection coverage without admitting them.
 Comparison failures are explicit diagnostics, rather than a zero missing count.

@@ -34,7 +34,7 @@ lines = ["## Public job feed build", "", f"Collection outcome: {report['collecti
          f"Publication stage: {report.get('stage', 'not reached')}",
          f"Sources: {dict(counts)}"]
 for key in ("generation", "jobs", "jobs_with_descriptions", "search_index_bytes", "search_index_budget_bytes",
-            "search_text_max_chars", "stored_search_bytes", "detail_bytes"):
+            "search_text_max_chars", "stored_search_bytes", "detail_bytes", "rss_bytes", "peak_rss_bytes"):
     if key in report:
         lines.append(f"{key}: {report[key]}")
 if error:

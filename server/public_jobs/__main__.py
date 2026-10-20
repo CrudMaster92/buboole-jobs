@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import argparse
+import gc
 import json
 import os
 from datetime import datetime, timezone
@@ -11,7 +12,7 @@ from .catalog import build_lock, load_monitors, read_json
 from .collector import collect
 from .lifecycle import apply_results, empty_state
 from .publish import publish, retain_generations
-from .schema import json_bytes
+from .schema import json_bytes, write_json
 
 
 def main() -> None:
@@ -60,6 +61,11 @@ def main() -> None:
     if not any(result["source"]["status"] in {"complete", "partial"} for result in results):
         raise SystemExit("No sources succeeded; previous state and published generation preserved")
     updated = apply_results(state, results, generation=generation, now=now)
+    successful_sources = sum(result["source"]["status"] in {"complete", "partial"} for result in results)
+    # Publication needs only the merged state. Drop old caches and collection
+    # results before allocating search rows or serializing durable state.
+    del state, results, monitors
+    gc.collect()
     updated["catalog_lock"] = lock
     for source in lock["excluded"]:
         updated["sources"][source["id"]] = {key: source[key] for key in ("id", "company_id", "company_name", "revision")}
@@ -69,11 +75,11 @@ def main() -> None:
                        compress_details=args.compress_details, compress_search=args.compress_search)
     args.state.parent.mkdir(parents=True, exist_ok=True)
     pending = args.state.with_suffix(".pending.json")
-    pending.write_bytes(json_bytes(updated))
+    write_json(pending, updated)
     os.replace(pending, args.state)
     retain_generations(args.output)
     print(json.dumps({"generation": generation, "total_jobs": manifest["total_jobs"], "active_jobs": manifest["active_jobs"],
-                      "successful_sources": sum(result["source"]["status"] in {"complete", "partial"} for result in results)}))
+                      "successful_sources": successful_sources}))
 
 
 if __name__ == "__main__":
