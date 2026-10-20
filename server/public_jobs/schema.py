@@ -4,6 +4,7 @@ from __future__ import annotations
 import hashlib
 import json
 from datetime import datetime, timezone
+from pathlib import Path
 from typing import Literal
 from urllib.parse import urlsplit, urlunsplit
 
@@ -26,6 +27,13 @@ def parse_time(value: str) -> datetime:
 
 def json_bytes(value: object) -> bytes:
     return (json.dumps(value, ensure_ascii=False, sort_keys=True, separators=(",", ":")) + "\n").encode("utf-8")
+
+
+def write_json(path: Path, value: object) -> None:
+    """Write durable state without allocating a second whole-state string/bytes."""
+    with path.open("w", encoding="utf-8", newline="\n") as destination:
+        json.dump(value, destination, ensure_ascii=False, sort_keys=True, separators=(",", ":"))
+        destination.write("\n")
 
 
 def digest(data: bytes) -> str:

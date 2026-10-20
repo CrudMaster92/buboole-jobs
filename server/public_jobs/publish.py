@@ -7,6 +7,8 @@ import io
 import os
 import re
 import shutil
+import sys
+from itertools import chain
 from pathlib import Path
 
 from .schema import FeedManifest, PublicJob, digest, json_bytes, timestamp
@@ -87,11 +89,25 @@ def _generations(root: Path):
                   key=lambda path: path.name, reverse=True) if root.exists() else []
 
 
+def _record_stage(output: Path, report: dict, stage: str) -> None:
+    """Keep bounded, public-only progress even if the runner stops later."""
+    report["stage"] = stage
+    if sys.platform == "linux":
+        import resource
+        report["peak_rss_bytes"] = resource.getrusage(resource.RUSAGE_SELF).ru_maxrss * 1024
+        for line in Path("/proc/self/status").read_text().splitlines():
+            if line.startswith("VmRSS:"):
+                report["rss_bytes"] = int(line.split()[1]) * 1024
+    _write(output / "build-report.json", report)
+    print(json.dumps({"publication": report}), flush=True)
+
+
 def validate_publication(api: Path, manifest: dict) -> None:
     FeedManifest.model_validate(manifest)
     total = 0
     index_bytes = 0
-    for ref in [*manifest["search_pages"], *manifest["detail_pages"]]:
+    for is_search, ref in chain(((True, ref) for ref in manifest["search_pages"]),
+                                ((False, ref) for ref in manifest["detail_pages"])):
         path = (api / ref["path"]).resolve()
         if not path.is_relative_to(api.resolve()):
             raise ValueError("Feed artifact escaped publication root")
@@ -105,12 +121,12 @@ def validate_publication(api: Path, manifest: dict) -> None:
                 content = stream.read(MAX_SHARD_BYTES + 1)
             if len(content) > MAX_SHARD_BYTES:
                 raise ValueError("Expanded feed shard exceeds the seven MB byte budget")
-        if ref in manifest["search_pages"]:
+        if is_search:
             index_bytes += len(content)
         page = json.loads(content)
         if page["generation"] != manifest["generation"] or len(page["jobs"]) != ref["count"]:
             raise ValueError("Feed artifact generation/count mismatch")
-        if ref in manifest["detail_pages"]:
+        if not is_search:
             for job in page["jobs"]:
                 PublicJob.model_validate(job)
             total += len(page["jobs"])
@@ -139,13 +155,21 @@ def publish(state: dict, lock: dict, output: Path, *, generation: str, now, comp
     # Published generations are immutable; retry by using a new build ID.
     if generation_path.exists():
         raise ValueError("Generation already exists")
-    jobs = [PublicJob.model_validate(entry["job"]).model_dump(mode="json") for _, entry in sorted(state["jobs"].items())]
+    # Sort references, then validate/normalize only one detail shard at a time.
+    # Do not retain another normalized copy of every public record and its lists.
+    jobs = sorted((entry["job"] for entry in state["jobs"].values()),
+                  key=lambda job: (job["company_id"], job["id"]))
     # Adjacent employer records share metadata and description boilerplate.
     # Grouping improves lossless gzip compression without changing any field,
     # identity, query ordering, or lifecycle state.
-    jobs.sort(key=lambda job: (job["company_id"], job["id"]))
+    total_jobs = len(jobs)
+    active_jobs = sum(job.get("status", "active") == "active" for job in jobs)
+    description_count = sum(bool(job.get("description", "").strip()) for job in jobs)
+    report = {"generation": generation, "jobs": total_jobs, "jobs_with_descriptions": description_count}
+    _record_stage(output, report, "details_started")
     detail_refs, search_rows = [], []
-    for page, group in enumerate(_groups(jobs, DETAIL_PAGE_SIZE), 1):
+    normalized = (PublicJob.model_validate(job).model_dump(mode="json") for job in jobs)
+    for page, group in enumerate(_groups(normalized, DETAIL_PAGE_SIZE), 1):
         relative = f"snapshots/{generation}/details-{page:04}.json" + (".gz" if compress_details else "")
         # Optional nulls deserialize to the same contract defaults. Omit their
         # repeated field names without shortening descriptions or dropping jobs.
@@ -160,10 +184,14 @@ def publish(state: dict, lock: dict, output: Path, *, generation: str, now, comp
             row["search_text"] = job["description"][:MAX_SEARCH_TEXT_CHARS]
             row["detail_ref"] = {"path": ref["path"], "sha256": ref["sha256"]}
             search_rows.append(row)
+    # The last shard and generator locals otherwise survive through validation.
+    del jobs, normalized
+    group = compact = row = job = None
+    _record_stage(output, report, "details_written")
     def make_manifest(search_refs):
         return FeedManifest(
             generation=generation, generated_at=timestamp(now), catalog_commit=lock["catalog_commit"],
-            total_jobs=len(jobs), active_jobs=sum(job["status"] == "active" for job in jobs),
+            total_jobs=total_jobs, active_jobs=active_jobs,
             collections=lock["collections"], sources=list(state["sources"].values()),
             search_pages=search_refs, detail_pages=detail_refs,
         ).model_dump(mode="json")
@@ -193,28 +221,28 @@ def publish(state: dict, lock: dict, output: Path, *, generation: str, now, comp
         # to the losslessly compressed bytes, validated before activation.
         index_budget = MAX_INDEX_BYTES
     snippet_chars, index_bytes = _fit_search_text(search_rows, generation, byte_budget=index_budget)
-    report = {"generation": generation, "stage": "index_built", "jobs": len(jobs),
-              "jobs_with_descriptions": sum(bool(job["description"].strip()) for job in jobs),
-              "search_index_bytes": index_bytes, "search_index_budget_bytes": index_budget,
-              "search_text_max_chars": snippet_chars,
-              "detail_bytes": detail_bytes, "snapshot_budget_bytes": snapshot_budget}
-    _write(output / "build-report.json", report)
-    print(json.dumps({"publication": report}), flush=True)
+    report.update(search_index_bytes=index_bytes, search_index_budget_bytes=index_budget,
+                  search_text_max_chars=snippet_chars, detail_bytes=detail_bytes,
+                  snapshot_budget_bytes=snapshot_budget)
+    _record_stage(output, report, "index_built")
     search_refs = []
     for page, group in enumerate(_groups(search_rows, PAGE_SIZE), 1):
         relative = f"snapshots/{generation}/search-{page:04}.json" + (".gz" if compress_search else "")
         search_refs.append({"path": relative, "sha256": _write(api / relative, {"generation": generation, "jobs": group}), "count": len(group)})
     report["stored_search_bytes"] = sum((api / ref["path"]).stat().st_size for ref in search_refs)
+    del search_rows
+    group = None
+    _record_stage(output, report, "search_written")
     if compress_search and detail_bytes + report["stored_search_bytes"] + manifest_reserve // 2 > snapshot_budget:
         raise ValueError("Compressed snapshot exceeds its share of the publication safety budget")
     manifest = make_manifest(search_refs)
+    _record_stage(output, report, "validation_started")
     validate_publication(api, manifest)
     _write(generation_path / "manifest.json", manifest)
     pending = api / "manifest.pending.json"
     _write(pending, manifest)
     os.replace(pending, api / "manifest.json")
-    report["stage"] = "validated"
-    _write(output / "build-report.json", report)
+    _record_stage(output, report, "validated")
     return manifest
 
 

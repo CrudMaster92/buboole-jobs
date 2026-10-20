@@ -15,6 +15,63 @@ from server.scrapers.models import JobRecord, ScrapeResult, ScraperRecipe
 NOW = datetime(2026, 9, 26, 12, tzinfo=timezone.utc)
 
 
+def test_durable_state_json_is_identical_without_a_whole_document_allocation(tmp_path):
+    import tracemalloc
+    from server.public_jobs.schema import write_json
+    # One large state document, including non-ASCII/escaped descriptions. A
+    # whole-document dumps/encode peaks at tens of MB; streaming stays bounded.
+    value = {"jobs": [{"description": '雪 "quoted" \\ paragraph\n' * 100} for _ in range(4000)]}
+    target = tmp_path / "state.pending.json"
+    tracemalloc.start()
+    try:
+        write_json(target, value)
+        _, peak = tracemalloc.get_traced_memory()
+    finally:
+        tracemalloc.stop()
+    assert peak < 1_000_000
+    assert target.read_bytes() == json_bytes(value)
+
+
+def test_cli_publishes_merged_state_and_persists_only_after_validation(tmp_path, monkeypatch):
+    import sys
+    from server.public_jobs import __main__ as cli
+    lock = {"catalog_commit": "a" * 40, "collections": [], "excluded": []}
+    lock_path, state_path, output = tmp_path / "lock.json", tmp_path / "state.json", tmp_path / "site"
+    lock_path.write_bytes(json_bytes(lock))
+    state_path.write_bytes(json_bytes(empty_state()))
+    monkeypatch.setattr(cli, "load_monitors", lambda *args: [(MONITOR, None)])
+    monkeypatch.setattr(cli, "collect", lambda *args, **kwargs: [clean_result(result([job()]))])
+    monkeypatch.setattr(sys, "argv", ["public-jobs", "build", "--catalog", str(tmp_path), "--lock", str(lock_path),
+                                    "--state", str(state_path), "--output", str(output), "--generation", "cli-1"])
+    cli.main()
+    persisted = state_path.read_bytes()
+    assert json.loads(persisted)["last_generation"] == "cli-1"
+    assert len(json.loads(persisted)["jobs"]) == 1
+    monkeypatch.setattr(sys, "argv", [*sys.argv[:-1], "cli-2"])
+    def reject(*args, **kwargs):
+        raise ValueError("publication rejected")
+    monkeypatch.setattr(cli, "publish", reject)
+    with pytest.raises(ValueError, match="publication rejected"):
+        cli.main()
+    assert state_path.read_bytes() == persisted
+    assert not state_path.with_suffix(".pending.json").exists()
+
+
+def test_publication_reports_stages_and_preserves_input_and_contract_defaults(tmp_path, capsys):
+    import copy
+    state = merge(empty_state(), [clean_result(result([job()]))], 1)
+    record = next(iter(state["jobs"].values()))["job"]
+    del record["description"], record["status"]
+    before = copy.deepcopy(state)
+    manifest = publish(state, {"catalog_commit": "a" * 40, "collections": []}, tmp_path,
+                       generation="stages", now=NOW, compress_search=True, compress_details=True)
+    stages = [json.loads(line)["publication"]["stage"] for line in capsys.readouterr().out.splitlines()]
+    assert stages == ["details_started", "details_written", "index_built", "search_written", "validation_started", "validated"]
+    assert state == before
+    assert manifest["active_jobs"] == manifest["total_jobs"] == 1
+    validate_publication(tmp_path / "api/v1", manifest)
+
+
 def test_company_grouping_preserves_every_field_and_reduces_repeated_text_in_shards(tmp_path):
     from hashlib import sha256
     from server.public_jobs import publish as publisher
