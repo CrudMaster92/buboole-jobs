@@ -19,8 +19,11 @@ def trace_match(response,selected):
   page.on('requestfailed',lambda request:print(json.dumps({'diagnostic':'public_request_failed','host':urlsplit(request.url).hostname,'path':urlsplit(request.url).path,'error':request.failure},ensure_ascii=True)[:1500],flush=True))
   page.on('console',lambda message:print(json.dumps({'diagnostic':'public_console','type':message.type,'text':message.text[:1500]},ensure_ascii=True),flush=True) if message.type=='error' else None)
   page.on('pageerror',lambda error:print(json.dumps({'diagnostic':'public_page_error','text':str(error)[:1500]},ensure_ascii=True),flush=True))
+  page.on('request',lambda request:print(json.dumps({'diagnostic':'public_jobs_request_start','url':request.url.split('?')[0],'body':request.post_data_json},ensure_ascii=True)[:6000],flush=True) if '/api/jobs' in request.url else None)
+  page.on('response',lambda r:print(json.dumps({'diagnostic':'public_endpoint','host':urlsplit(r.url).hostname,'path':urlsplit(r.url).path,'status':r.status},ensure_ascii=True),flush=True) if '/api/' in r.url or 'ipify' in r.url else None)
   print(json.dumps({'diagnostic':'public_page_text','text':page.locator('body').inner_text(timeout=3000)[:6000]},ensure_ascii=True),flush=True)
  if response.url.split('?')[0]==selected.metadata['browser_json_url'] and response.request.method=='POST':
+  print(json.dumps({'diagnostic':'public_jobs_page_text','text':page.locator('body').inner_text(timeout=3000)[:10000]},ensure_ascii=True),flush=True)
   body=response.request.post_data_json or {}
   query=body.get('query') or {}
   scope=query.get('filter_query') or {}
