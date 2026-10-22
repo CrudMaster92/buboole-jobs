@@ -5,6 +5,7 @@ on:
       - server/scrapers/runtime.py
       - server/scrapers/models.py
       - server/public_jobs/browser.py
+      - scripts/public_browser_smoke.py
       - .github/workflows/public-source-smoke.yml
   workflow_dispatch:
 permissions:

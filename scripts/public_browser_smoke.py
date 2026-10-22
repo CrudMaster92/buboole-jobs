@@ -10,6 +10,15 @@ monitor,recipe=load_monitors(root/'.catalog',{**lock,'monitors':selected})[0];as
 keys={'PATH','SYSTEMROOT','WINDIR','TEMP','TMP','HOME','USERPROFILE','LOCALAPPDATA','PLAYWRIGHT_BROWSERS_PATH'}
 clean={k:v for k,v in os.environ.items() if k.upper() in keys};os.environ.clear();os.environ.update(clean)
 original=runtime._read_browser_json
+original_match=runtime._browser_json_matches
+def trace_match(response,selected):
+ if response.url.split('?')[0]==selected.metadata['browser_json_url'] and response.request.method=='POST':
+  body=response.request.post_data_json or {}
+  query=body.get('query') or {}
+  scope=query.get('filter_query') or {}
+  print(json.dumps({'diagnostic':'candidate_request','status':response.status,'index':body.get('index_name'),'offset':body.get('offset'),'limit':body.get('limit'),'scope':scope,'matches':original_match(response,selected)},ensure_ascii=True)[:6000],flush=True)
+ return original_match(response,selected)
+runtime._browser_json_matches=trace_match
 def diagnostic(response,selected):
  payload=json.loads(response.body());collections=runtime._browser_json_path_values(payload,selected.mapping['items']);rows=collections[0] if len(collections)==1 and isinstance(collections[0],list) else []
  body=response.request.post_data_json or {}
