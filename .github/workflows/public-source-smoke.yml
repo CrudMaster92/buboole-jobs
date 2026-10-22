@@ -12,7 +12,7 @@ permissions:
 jobs:
   browser-smoke:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 15
     continue-on-error: true
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
@@ -24,7 +24,10 @@ jobs:
           cache: pip
           cache-dependency-path: requirements-dev.txt
       - run: python -m pip install -r requirements-dev.txt
-      - run: python -m playwright install --with-deps chromium
+      - name: Install public browser from responsive Ubuntu mirror
+        run: |
+          printf '%s\n' 'https://archive.ubuntu.com/ubuntu' | sudo tee /etc/apt/apt-mirrors.txt >/dev/null
+          python -m playwright install --with-deps chromium
       - name: Read reviewed catalog without production state
         run: |
           pin="$(python -c "import json; print(json.load(open('catalog-lock.json'))['catalog_commit'])")"
