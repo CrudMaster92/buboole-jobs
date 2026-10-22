@@ -12,6 +12,14 @@ clean={k:v for k,v in os.environ.items() if k.upper() in keys};os.environ.clear(
 original=runtime._read_browser_json
 original_match=runtime._browser_json_matches
 def trace_match(response,selected):
+ page=response.frame.page
+ if not getattr(trace_match,'attached',False):
+  trace_match.attached=True
+  from urllib.parse import urlsplit
+  page.on('requestfailed',lambda request:print(json.dumps({'diagnostic':'public_request_failed','host':urlsplit(request.url).hostname,'path':urlsplit(request.url).path,'error':request.failure},ensure_ascii=True)[:1500],flush=True))
+  page.on('console',lambda message:print(json.dumps({'diagnostic':'public_console','type':message.type,'text':message.text[:1500]},ensure_ascii=True),flush=True) if message.type=='error' else None)
+  page.on('pageerror',lambda error:print(json.dumps({'diagnostic':'public_page_error','text':str(error)[:1500]},ensure_ascii=True),flush=True))
+  print(json.dumps({'diagnostic':'public_page_text','text':page.locator('body').inner_text(timeout=3000)[:6000]},ensure_ascii=True),flush=True)
  if response.url.split('?')[0]==selected.metadata['browser_json_url'] and response.request.method=='POST':
   body=response.request.post_data_json or {}
   query=body.get('query') or {}
