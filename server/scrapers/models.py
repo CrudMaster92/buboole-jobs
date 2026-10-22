@@ -273,6 +273,20 @@ class ScraperRecipe(StrictModel):
             if key in self.metadata:
                 validate_template(self.metadata[key], self.allowed_hosts)
         identity = self.metadata.get("source_id_attribute")
+        location_attribute = self.metadata.get("location_attribute")
+        location_suffix = self.metadata.get("location_suffix")
+        if location_attribute is not None:
+            import re
+            if (not isinstance(location_attribute, str) or not re.fullmatch(r"data-[a-z0-9_-]+", location_attribute)
+                    or self.strategy not in {ScraperStrategy.GENERIC_HTML, ScraperStrategy.JOBVITE, ScraperStrategy.PLAYWRIGHT}):
+                raise ValueError("location_attribute requires an HTML data attribute")
+        if location_suffix is not None and (not isinstance(location_suffix, str) or not location_suffix.strip()
+                or len(location_suffix) > 100 or any(ord(char) < 32 for char in location_suffix)):
+            raise ValueError("location_suffix must be a short source-proven jurisdiction")
+        page_base = self.metadata.get("pagination_page_base")
+        if page_base is not None and (type(page_base) is not int or page_base not in {0, 1}
+                or self.pagination.kind != "page"):
+            raise ValueError("pagination_page_base requires page pagination and zero or one")
         title_prefix = self.metadata.get("title_prefix")
         if title_prefix is not None and (not isinstance(title_prefix, str) or len(title_prefix) > 120 or "\n" in title_prefix):
             raise ValueError("title_prefix must be a short single-line source label")

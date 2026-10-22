@@ -79,7 +79,7 @@ def _paged_payloads(recipe: ScraperRecipe, client: httpx.Client | None):
         params = dict(recipe.request.params)
         body = dict(recipe.request.json_body or {})
         target = body if recipe.request.method == "POST" else params
-        target[pagination.parameter or ("offset" if pagination.kind == "offset" else "page")] = offset if pagination.kind == "offset" else page + 1
+        target[pagination.parameter or ("offset" if pagination.kind == "offset" else "page")] = offset if pagination.kind == "offset" else page + recipe.metadata.get("pagination_page_base", 1)
         if pagination.page_size_parameter:
             target[pagination.page_size_parameter] = pagination.page_size
         response = bounded_request(recipe.request, recipe.allowed_hosts, client, params=params, json_body=body or None)
@@ -95,7 +95,7 @@ def _paged_payloads(recipe: ScraperRecipe, client: httpx.Client | None):
                 records = adapters.first(payload, recipe.mapping["items"])
                 records = records if isinstance(records, list) else []
             count = len(records)
-            total = payload.get("total", payload.get("totalCount", payload.get("totalFound", payload.get("hits"))))
+            total = payload.get("total", payload.get("totalCount", payload.get("totalFound", payload.get("hits", payload.get("totalJobs")))))
         elif isinstance(payload, list):
             count, total = len(payload), None
         elif isinstance(payload, str):

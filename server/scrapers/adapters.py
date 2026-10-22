@@ -246,7 +246,11 @@ def generic_html(html: str, recipe: ScraperRecipe, *, source: str = "generic_htm
                 continue
         title_node = selected(item, "title") if "title" in selectors else item.select_one("h2, h3, .title")
         link_node = selected(item, "link") if "link" in selectors else item.select_one("a[href]")
-        location_node = item.select_one(selectors.get("location", ".location"))
+        location_node = selected(item, "location") if "location" in selectors else item.select_one(".location")
+        location_attribute = recipe.metadata.get("location_attribute")
+        location_text = (location_node.get(location_attribute) if location_node else None) if location_attribute else node_value(location_node)
+        if location_text and recipe.metadata.get("location_suffix"):
+            location_text = str(location_text).rstrip(" ,") + ", " + recipe.metadata["location_suffix"].strip()
         description_node = item.select_one(selectors.get("description", ".description"))
         employment_node = selected(item, "employment_type")
         salary_node = selected(item, "salary")
@@ -276,7 +280,7 @@ def generic_html(html: str, recipe: ScraperRecipe, *, source: str = "generic_htm
         jobs.append(make_job(
             company=recipe.company, source=source, source_id=source_id,
             title=title_node.get_text(" ", strip=True),
-            location=location_node.get_text(" ", strip=True) if location_node else "Unspecified",
+            location=location_text or "Unspecified",
             url=urljoin(recipe.careers_url, link), base_url=recipe.careers_url,
             description=str(description_node) if description_node else "",
             employment_type=node_value(employment_node),
@@ -317,5 +321,8 @@ def generic_json(data: Any, recipe: ScraperRecipe) -> list[JobRecord]:
             # A public listing may return a slug rather than a posting URL.
             # Encode it as one path component, including any query/fragment.
             url = prefix.rstrip("/") + "/" + quote(str(url), safe="")
-        jobs.append(make_job(company=recipe.company, source="generic_json", source_id=get("source_id"), title=get("title"), location=get("location"), url=url, base_url=recipe.careers_url, description=get("description"), posted_date=get("posted_date"), employment_type=get("employment_type"), salary_min=get("salary_min"), salary_max=get("salary_max"), currency=get("salary_currency"), salary_period=get("salary_period"), remote_mode=get("remote_mode")))
+        location = get("location")
+        if location and recipe.metadata.get("location_suffix"):
+            location = str(location).rstrip(" ,") + ", " + recipe.metadata["location_suffix"].strip()
+        jobs.append(make_job(company=recipe.company, source="generic_json", source_id=get("source_id"), title=get("title"), location=location, url=url, base_url=recipe.careers_url, description=get("description"), posted_date=get("posted_date"), employment_type=get("employment_type"), salary_min=get("salary_min"), salary_max=get("salary_max"), currency=get("salary_currency"), salary_period=get("salary_period"), remote_mode=get("remote_mode")))
     return jobs
