@@ -35,6 +35,7 @@ def apply_results(state: dict, results: list[dict], *, generation: str, now: dat
         seen = set()
         for incoming in result["jobs"]:
             identifier = incoming["id"]
+            repeated = identifier in seen
             seen.add(identifier)
             prior = jobs.get(identifier)
             observed_at = result.get("observed_at", {}).get(identifier, moment)
@@ -50,6 +51,16 @@ def apply_results(state: dict, results: list[dict], *, generation: str, now: dat
                 record["description"] = prior["job"].get("description", "")
             if prior and not record.get("location_addresses") and prior["job"].get("location_addresses"):
                 record["location_addresses"] = prior["job"]["location_addresses"]
+            if repeated and prior:
+                # Union explicit offices advertised for one URL in this listing.
+                # The next generation may still replace obsolete offices.
+                addresses = {tuple(sorted(address.items())): address for address in
+                             [*prior["job"].get("location_addresses", []), *record.get("location_addresses", [])]}
+                if len(addresses) > 100:
+                    raise ValueError("Too many explicit locations for one public posting")
+                record["location_addresses"] = list(addresses.values())
+                if len(addresses) > 1:
+                    record["location"] = "Multiple locations"
             record["monitor_ids"] = sorted(observations)
             if prior:
                 record["collection_ids"] = sorted(set(record["collection_ids"]) | set(prior["job"]["collection_ids"]))

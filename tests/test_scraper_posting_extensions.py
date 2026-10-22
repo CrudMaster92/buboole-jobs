@@ -152,3 +152,12 @@ def test_html_location_attribute_and_source_jurisdiction_are_explicit_and_missin
     for metadata in [{"location_attribute":"onclick"},{"location_suffix":"x"*101},{"location_suffix":"Quebec\nCanada"},{"pagination_page_base":True},{"pagination_page_base":0}]:
         with pytest.raises(ValidationError):
             recipe(metadata=metadata)
+
+
+def test_explicit_city_attribute_country_produces_structured_location_without_filling_missing_city():
+    selected = recipe(strategy="generic_html", selectors={"item":".role","title":"h2","link":"a","location":":scope"}, metadata={"location_attribute":"data-ville","location_country":"Canada"})
+    jobs = generic_html('<div class="role" data-ville="Lachute"><h2>Accountant</h2><a href="/1">Read</a></div><div class="role"><h2>Unknown</h2><a href="/2">Read</a></div>', selected)
+    assert [a.model_dump() for a in jobs[0].location_addresses] == [{"country":"Canada","city":"Lachute"}]
+    assert jobs[1].location_addresses == []
+    with pytest.raises(ValidationError):
+        recipe(metadata={"location_country":"Canada"})
