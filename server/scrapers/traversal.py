@@ -110,7 +110,7 @@ def traverse(recipe: ScraperRecipe, client, cache: dict, normalize: Callable,
             if pagination.kind not in {"offset", "page"}:
                 raise ValueError("all-role traversal requires offset or page pagination")
             target[pagination.parameter or pagination.kind] = (
-                offset if pagination.kind == "offset" else offset // pagination.page_size + 1)
+                offset if pagination.kind == "offset" else offset // pagination.page_size + recipe.metadata.get("pagination_page_base", 1))
             if pagination.page_size_parameter:
                 target[pagination.page_size_parameter] = pagination.page_size
         if workday:
@@ -159,7 +159,7 @@ def traverse(recipe: ScraperRecipe, client, cache: dict, normalize: Callable,
             if records is None:
                 records = next((payload[key] for key in candidates
                                 if isinstance(payload.get(key), list)), None)
-            total = next((payload[key] for key in ("total", "totalCount", "totalFound", "hits")
+            total = next((payload[key] for key in ("total", "totalCount", "totalFound", "hits", "totalJobs")
                           if isinstance(payload.get(key), int)), 0)
             if records is None:
                 records, count = [], len(normalized)
@@ -373,7 +373,7 @@ def traverse(recipe: ScraperRecipe, client, cache: dict, normalize: Callable,
             if workday and len(node["seen"]) < witnessed:
                 state["gaps"] += 1
                 state.setdefault('gap_queries', []).append(copy.deepcopy(node))
-            elif not workday and total and offset + count < total:
+            elif not workday and total and (offset + count < total or (not recipe.source_filter and len(node['seen']) < total)):
                 state["gaps"] += 1
             if workday and 0 < witnessed < 2000 and len(node['seen']) >= witnessed:
                 state.setdefault('finished_queries', {})[query_key] = {

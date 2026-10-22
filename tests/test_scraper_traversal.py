@@ -966,3 +966,30 @@ def test_old_global_observations_do_not_fill_a_facet_union_gap():
         result = run_scraper(recipe(), client=client, detail_cache=cache)
     assert len(cache[CACHE_KEY]['identities']) >= 3000 and not result.complete
     assert any('Facet unions could not establish' in warning for warning in result.warnings)
+
+
+def test_zero_based_page_api_starts_at_zero_and_resumes_without_skipping_first_page():
+    selected=recipe(strategy="generic_json",request={"url":"https://acme.example/jobs","method":"POST"},pagination={"kind":"page","parameter":"pageNumber","page_size":2,"max_pages":10},mapping={"items":"jobs","source_id":"id","title":"title","url":"url"},metadata={"pagination_page_base":0,"detail_fetch_limit":0})
+    seen=[]
+    def handler(request):
+        page=json.loads(request.content)["pageNumber"];seen.append(page)
+        return httpx.Response(200,json={"jobs":[{"id":str(i),"title":f"Job {i}","url":f"https://acme.example/jobs/{i}"} for i in range(page*2,min(page*2+2,5))]})
+    with httpx.Client(transport=httpx.MockTransport(handler)) as client:
+        result=run_scraper(selected,client=client,detail_cache={})
+    assert seen==[0,1,2]
+    assert len(result.jobs)==5 and result.complete
+    bounded=selected.model_copy(update={"coverage_mode":"bounded"})
+    seen.clear()
+    with httpx.Client(transport=httpx.MockTransport(handler)) as client:
+        result=run_scraper(bounded,client=client,detail_cache={})
+    assert seen==[0,1,2] and len(result.jobs)==5
+
+
+def test_generic_reported_total_requires_distinct_postings_not_just_page_offsets():
+    selected=recipe(strategy="generic_json",request={"url":"https://acme.example/jobs"},pagination={"kind":"page","parameter":"pageNumber","page_size":2},mapping={"items":"jobs","source_id":"id","title":"title","url":"url"},metadata={"pagination_page_base":0,"detail_fetch_limit":0})
+    def handler(request):
+        page=int(parse_qs(request.url.query.decode())["pageNumber"][0]);ids=[0,1] if page==0 else [1,2]
+        return httpx.Response(200,json={"totalJobs":4,"jobs":[{"id":str(i),"title":f"Job {i}","url":f"https://acme.example/jobs/{i}"} for i in ids]})
+    with httpx.Client(transport=httpx.MockTransport(handler)) as client:
+        result=run_scraper(selected,client=client,detail_cache={})
+    assert len(result.jobs)==3 and not result.complete

@@ -142,3 +142,13 @@ def test_browser_capture_uses_normal_navigation_and_shared_ownership_filter(monk
     assert [job.source_id for job in result.jobs] == ["1"]
     assert not result.complete
     assert observed == [("route", "**/*"), ("goto", "https://employer.test/jobs"), ("close",)]
+
+
+def test_html_location_attribute_and_source_jurisdiction_are_explicit_and_missing_values_stay_missing():
+    selected = recipe(strategy="generic_html", selectors={"item":".role","title":"h2","link":"a","location":":scope"}, metadata={"location_attribute":"data-ville","location_suffix":"Quebec, Canada"})
+    jobs = generic_html('<div class="role" data-ville="Lachute"><h2>Accountant</h2><a href="/1">Read</a></div><div class="role"><h2>Unknown</h2><a href="/2">Read</a></div>', selected)
+    assert jobs[0].location == "Lachute, Quebec, Canada"
+    assert jobs[1].location == "Unspecified"
+    for metadata in [{"location_attribute":"onclick"},{"location_suffix":"x"*101},{"location_suffix":"Quebec\nCanada"},{"pagination_page_base":True},{"pagination_page_base":0}]:
+        with pytest.raises(ValidationError):
+            recipe(metadata=metadata)
