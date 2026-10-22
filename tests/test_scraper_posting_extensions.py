@@ -199,3 +199,19 @@ def test_browser_json_missing_collection_is_a_failure_while_an_explicit_empty_li
     assert _read_browser_json(response({"jobs":[]}), selected) == {"jobs":[]}
     with pytest.raises(ScraperExecutionError, match="omitted its declared listing collection"):
         _read_browser_json(response({"error":"unavailable"}), selected)
+
+
+def test_browser_request_shape_distinguishes_main_jobs_from_sidebar_widget():
+    from types import SimpleNamespace
+    from server.scrapers.runtime import _browser_json_matches
+    meta={"partial_listing":True,"browser_json_url":"https://employer.test/jobs","browser_json_method":"POST","browser_json_request_path":"query.filters.*.city","browser_json_request_value":"Lachute","browser_json_request_list_path":"query.filters","browser_json_request_list_count":2}
+    selected=recipe(strategy="playwright",mapping={"items":"jobs"},metadata=meta)
+    def response(filters):
+        return SimpleNamespace(url="https://employer.test/jobs",request=SimpleNamespace(method="POST",post_data_json={"query":{"filters":filters}}))
+    main=[{"brand":"Super C"},{"city":"Lachute"}]
+    assert _browser_json_matches(response(main),selected)
+    assert _browser_json_matches(response(list(reversed(main))),selected)
+    assert not _browser_json_matches(response(main+[{"should":[{"department":"IT"}]}]),selected)
+    for count in [True,-1,101,"2"]:
+        with pytest.raises(ValidationError):
+            recipe(strategy="playwright",mapping={"items":"jobs"},metadata={**meta,"browser_json_request_list_count":count})

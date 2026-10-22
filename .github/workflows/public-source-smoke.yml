@@ -36,8 +36,8 @@ jobs:
         run: python scripts/public_browser_smoke.py
       - name: Collect isolated public browser sample
         run: |
-          python -m server.public_jobs build --catalog .catalog --lock catalog-lock.json --state .smoke/state.json --output smoke-site --monitor super-c-lachute --monitor ardene --monitor cascades --monitor fbl --monitor groupe-be-well-okeanos --monitor luxor-collection --minutes 3
-          python -c "import json; m=json.load(open('smoke-site/api/v1/manifest.json')); print(json.dumps({'generation':m['generation'],'total_jobs':m['total_jobs'],'sources':[s for s in m['sources'] if s['id'] in ('super-c-lachute','ardene','cascades','fbl','groupe-be-well-okeanos','luxor-collection')]}))"
+          python -m server.public_jobs build --catalog .catalog --lock catalog-lock.json --state .smoke/state.json --output smoke-site --monitor super-c --monitor super-c-lachute --monitor ardene --monitor cascades --monitor fbl --monitor groupe-be-well-okeanos --monitor luxor-collection --minutes 3
+          python -c "import json; m=json.load(open('smoke-site/api/v1/manifest.json')); print(json.dumps({'generation':m['generation'],'total_jobs':m['total_jobs'],'sources':[s for s in m['sources'] if s['id'] in ('super-c','super-c-lachute','ardene','cascades','fbl','groupe-be-well-okeanos','luxor-collection')]}))"
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         if: always()
         with:

@@ -497,12 +497,19 @@ def _browser_json_matches(response, recipe: ScraperRecipe) -> bool:
             and response.request.method == recipe.metadata.get("browser_json_method", "GET")):
         return False
     match_path = recipe.metadata.get("browser_json_request_path")
-    if match_path:
+    list_path = recipe.metadata.get("browser_json_request_list_path")
+    if match_path or list_path:
         try:
             payload = response.request.post_data_json
         except Exception:
             return False
-        return recipe.metadata["browser_json_request_value"] in _browser_json_path_values(payload, match_path)
+        if match_path and recipe.metadata["browser_json_request_value"] not in _browser_json_path_values(payload, match_path):
+            return False
+        if list_path:
+            arrays = _browser_json_path_values(payload, list_path)
+            if (len(arrays) != 1 or not isinstance(arrays[0], list)
+                    or len(arrays[0]) != recipe.metadata["browser_json_request_list_count"]):
+                return False
     return True
 
 

@@ -330,6 +330,15 @@ class ScraperRecipe(StrictModel):
                     or not re.fullmatch(r"[A-Za-z0-9_]+(?:\.(?:[A-Za-z0-9_]+|\*))*", match_path)
                     or not isinstance(match_value, str) or not match_value or len(match_value) > 300):
                 raise ValueError("browser JSON request matching requires a bounded POST JSON path and string value")
+        list_path = self.metadata.get("browser_json_request_list_path")
+        list_count = self.metadata.get("browser_json_request_list_count")
+        if list_path is not None or list_count is not None:
+            import re
+            if (not capture or self.metadata.get("browser_json_method", "GET") != "POST"
+                    or not isinstance(list_path, str) or len(list_path) > 300
+                    or not re.fullmatch(r"[A-Za-z0-9_]+(?:\.(?:[A-Za-z0-9_]+|\*))*", list_path)
+                    or type(list_count) is not int or not 0 <= list_count <= 100):
+                raise ValueError("browser JSON list matching requires a bounded POST path and integer count")
         return self
 
 
