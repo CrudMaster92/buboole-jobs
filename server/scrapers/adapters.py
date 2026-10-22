@@ -249,6 +249,7 @@ def generic_html(html: str, recipe: ScraperRecipe, *, source: str = "generic_htm
         location_node = selected(item, "location") if "location" in selectors else item.select_one(".location")
         location_attribute = recipe.metadata.get("location_attribute")
         location_text = (location_node.get(location_attribute) if location_node else None) if location_attribute else node_value(location_node)
+        source_city = str(location_text).strip() if location_text else None
         if location_text and recipe.metadata.get("location_suffix"):
             location_text = str(location_text).rstrip(" ,") + ", " + recipe.metadata["location_suffix"].strip()
         description_node = item.select_one(selectors.get("description", ".description"))
@@ -291,6 +292,8 @@ def generic_html(html: str, recipe: ScraperRecipe, *, source: str = "generic_htm
             currency=node_value(selected(item, "salary_currency")),
             salary_period=node_value(selected(item, "salary_period")) or salary_text,
         ))
+        if source_city and recipe.metadata.get("location_country"):
+            jobs[-1].location_addresses = [LocationAddress(country=recipe.metadata["location_country"], city=source_city)]
     return jobs
 
 

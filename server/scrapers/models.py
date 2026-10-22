@@ -283,6 +283,11 @@ class ScraperRecipe(StrictModel):
         if location_suffix is not None and (not isinstance(location_suffix, str) or not location_suffix.strip()
                 or len(location_suffix) > 100 or any(ord(char) < 32 for char in location_suffix)):
             raise ValueError("location_suffix must be a short source-proven jurisdiction")
+        location_country = self.metadata.get("location_country")
+        if location_country is not None and (not location_attribute or not isinstance(location_country, str)
+                or not location_country.strip() or len(location_country) > 100
+                or any(ord(char) < 32 for char in location_country)):
+            raise ValueError("location_country requires a source-proven country and city attribute")
         page_base = self.metadata.get("pagination_page_base")
         if page_base is not None and (type(page_base) is not int or page_base not in {0, 1}
                 or self.pagination.kind != "page"):

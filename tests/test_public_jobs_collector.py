@@ -541,3 +541,15 @@ def test_collector_preserves_withheld_listing_retry_state():
                             limiter=HostLimiter(), deadline=time.monotonic() + 10, runner=runner)
     assert not value["jobs"] and value["source"]["status"] == "partial"
     assert value["detail_cache"]["withheld"]["failures"] == 1
+
+
+def test_same_application_url_keeps_all_current_explicit_offices_without_carrying_old_offices_forward():
+    first = job(location="Lachute, Canada", location_addresses=[{"country":"Canada","city":"Lachute"}])
+    second = job(location="Terrebonne, Canada", location_addresses=[{"country":"Canada","city":"Terrebonne"}])
+    state = merge(empty_state(), [result([first, second, first])], 1)
+    assert len(state["jobs"]) == 1
+    posting = next(iter(state["jobs"].values()))["job"]
+    assert posting["location"] == "Multiple locations"
+    assert {a["city"] for a in posting["location_addresses"]} == {"Lachute", "Terrebonne"}
+    next_state = merge(state, [result([second])], 2)
+    assert next(iter(next_state["jobs"].values()))["job"]["location_addresses"] == second["location_addresses"]
