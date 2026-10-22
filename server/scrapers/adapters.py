@@ -327,5 +327,12 @@ def generic_json(data: Any, recipe: ScraperRecipe) -> list[JobRecord]:
         location = get("location")
         if location and recipe.metadata.get("location_suffix"):
             location = str(location).rstrip(" ,") + ", " + recipe.metadata["location_suffix"].strip()
+        country = get("location_country") if "location_country" in recipe.mapping else None
+        region = get("location_region") if "location_region" in recipe.mapping else None
+        city = str(location).strip() if location else None
+        if city and isinstance(country, str) and country.strip():
+            location = ", ".join(str(value).strip() for value in (city, region, country) if value)
         jobs.append(make_job(company=recipe.company, source="generic_json", source_id=get("source_id"), title=get("title"), location=location, url=url, base_url=recipe.careers_url, description=get("description"), posted_date=get("posted_date"), employment_type=get("employment_type"), salary_min=get("salary_min"), salary_max=get("salary_max"), currency=get("salary_currency"), salary_period=get("salary_period"), remote_mode=get("remote_mode")))
+        if city and isinstance(country, str) and country.strip():
+            jobs[-1].location_addresses = [LocationAddress(country=country.strip(), city=city)]
     return jobs

@@ -177,3 +177,25 @@ def test_browser_capture_rejects_initial_unfiltered_response_and_waits_for_decla
     for values in [{"browser_json_request_path":"city"}, {"browser_json_request_value":"Lachute"}, {"browser_json_request_path":"../city","browser_json_request_value":"Lachute"}]:
         with pytest.raises(ValidationError):
             recipe(metadata=values)
+
+
+def test_json_location_mappings_keep_each_posting_country_and_region_without_global_defaults():
+    selected = recipe(mapping={"items":"jobs","source_id":"id","url":"url","location":"address.city","location_country":"address.country","location_region":"address.region"})
+    jobs = generic_json({"jobs":[{"id":"ca","title":"Associate","url":"https://employer.test/ca","address":{"city":"London","region":"Ontario","country":"Canada"}},{"id":"gb","title":"Associate","url":"https://employer.test/gb","address":{"city":"London","country":"United Kingdom"}},{"id":"missing","title":"Associate","url":"https://employer.test/missing","address":{}}]}, selected)
+    assert jobs[0].location == "London, Ontario, Canada"
+    assert jobs[1].location == "London, United Kingdom"
+    assert [a.model_dump() for a in jobs[0].location_addresses] == [{"country":"Canada","city":"London"}]
+    assert jobs[1].location_addresses[0].country == "United Kingdom"
+    assert jobs[2].location == "Unspecified" and not jobs[2].location_addresses
+
+
+def test_browser_json_missing_collection_is_a_failure_while_an_explicit_empty_list_is_valid():
+    import json
+    from types import SimpleNamespace
+    from server.scrapers.runtime import _read_browser_json, ScraperExecutionError
+    selected = recipe(strategy="playwright",mapping={"items":"jobs"},metadata={"partial_listing":True,"browser_json_url":"https://employer.test/jobs"})
+    def response(value):
+        return SimpleNamespace(url="https://employer.test/jobs",request=SimpleNamespace(method="GET"),status=200,headers={"content-type":"application/json"},body=lambda:json.dumps(value).encode())
+    assert _read_browser_json(response({"jobs":[]}), selected) == {"jobs":[]}
+    with pytest.raises(ScraperExecutionError, match="omitted its declared listing collection"):
+        _read_browser_json(response({"error":"unavailable"}), selected)

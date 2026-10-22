@@ -477,6 +477,21 @@ def _apply_source_filter(jobs: list, recipe: ScraperRecipe) -> list:
     return [job for job in jobs if any(term in job.title.casefold() for term in terms)]
 
 
+def _browser_json_path_values(payload, path):
+    values = [payload]
+    for part in path.split("."):
+        selected = []
+        for value in values:
+            if part == "*" and isinstance(value, list):
+                selected.extend(value)
+            elif isinstance(value, dict) and part in value:
+                selected.append(value[part])
+            elif isinstance(value, list) and part.isdigit() and int(part) < len(value):
+                selected.append(value[int(part)])
+        values = selected
+    return values
+
+
 def _browser_json_matches(response, recipe: ScraperRecipe) -> bool:
     if not (response.url == recipe.metadata.get("browser_json_url")
             and response.request.method == recipe.metadata.get("browser_json_method", "GET")):
@@ -487,18 +502,7 @@ def _browser_json_matches(response, recipe: ScraperRecipe) -> bool:
             payload = response.request.post_data_json
         except Exception:
             return False
-        values = [payload]
-        for part in match_path.split("."):
-            selected = []
-            for value in values:
-                if part == "*" and isinstance(value, list):
-                    selected.extend(value)
-                elif isinstance(value, dict) and part in value:
-                    selected.append(value[part])
-                elif isinstance(value, list) and part.isdigit() and int(part) < len(value):
-                    selected.append(value[int(part)])
-            values = selected
-        return recipe.metadata["browser_json_request_value"] in values
+        return recipe.metadata["browser_json_request_value"] in _browser_json_path_values(payload, match_path)
     return True
 
 
@@ -514,9 +518,13 @@ def _read_browser_json(response, recipe: ScraperRecipe):
     if len(body) > recipe.request.max_response_bytes:
         raise ScraperExecutionError("public browser JSON exceeds recipe size limit")
     try:
-        return json.loads(body)
+        payload = json.loads(body)
     except ValueError as exc:
         raise ScraperExecutionError("public browser listing returned invalid JSON") from exc
+    collections = _browser_json_path_values(payload, recipe.mapping["items"])
+    if len(collections) != 1 or not isinstance(collections[0], list):
+        raise ScraperExecutionError("public browser JSON omitted its declared listing collection")
+    return payload
 
 
 def _run_playwright(recipe: ScraperRecipe, *, browser_policy=None) -> ScrapeResult:
