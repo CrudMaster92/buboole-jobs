@@ -46,7 +46,7 @@ SELECTOR_FIELDS = {
     "salary_currency", "salary_period",
 }
 MAPPING_FIELDS = {
-    "items", "source_id", "title", "location", "url", "description",
+    "items", "source_id", "title", "location", "location_country", "location_region", "url", "description",
     "posted_date", "employment_type", "remote_mode", "salary_min", "salary_max",
     "salary_currency", "salary_period",
 }
@@ -321,6 +321,24 @@ class ScraperRecipe(StrictModel):
                 raise ValueError("browser_json_url requires bounded Playwright JSON capture on the page host with explicit items and partial_listing")
             if self.source_filter and any(rule.phase == "detail" for rule in self.source_filter.predicates):
                 raise ValueError("browser JSON ownership predicates must use listing evidence")
+        match_path = self.metadata.get("browser_json_request_path")
+        match_value = self.metadata.get("browser_json_request_value")
+        if match_path is not None or match_value is not None:
+            import re
+            if (not capture or self.metadata.get("browser_json_method", "GET") != "POST"
+                    or not isinstance(match_path, str) or len(match_path) > 300
+                    or not re.fullmatch(r"[A-Za-z0-9_]+(?:\.(?:[A-Za-z0-9_]+|\*))*", match_path)
+                    or not isinstance(match_value, str) or not match_value or len(match_value) > 300):
+                raise ValueError("browser JSON request matching requires a bounded POST JSON path and string value")
+        list_path = self.metadata.get("browser_json_request_list_path")
+        list_count = self.metadata.get("browser_json_request_list_count")
+        if list_path is not None or list_count is not None:
+            import re
+            if (not capture or self.metadata.get("browser_json_method", "GET") != "POST"
+                    or not isinstance(list_path, str) or len(list_path) > 300
+                    or not re.fullmatch(r"[A-Za-z0-9_]+(?:\.(?:[A-Za-z0-9_]+|\*))*", list_path)
+                    or type(list_count) is not int or not 0 <= list_count <= 100):
+                raise ValueError("browser JSON list matching requires a bounded POST path and integer count")
         return self
 
 

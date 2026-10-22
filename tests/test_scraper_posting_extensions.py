@@ -161,3 +161,57 @@ def test_explicit_city_attribute_country_produces_structured_location_without_fi
     assert jobs[1].location_addresses == []
     with pytest.raises(ValidationError):
         recipe(metadata={"location_country":"Canada"})
+
+
+def test_browser_capture_rejects_initial_unfiltered_response_and_waits_for_declared_query():
+    from types import SimpleNamespace
+    from server.scrapers.runtime import _browser_json_matches
+    selected = recipe(strategy="playwright", mapping={"items":"jobs"}, metadata={"public_browser":True,"partial_listing":True,"browser_json_url":"https://employer.test/jobs","browser_json_method":"POST","browser_json_request_path":"query.filters.*.city","browser_json_request_value":"Lachute"})
+    def response(body):
+        return SimpleNamespace(url="https://employer.test/jobs",request=SimpleNamespace(method="POST",post_data_json=body))
+    assert not _browser_json_matches(response({"query":{"filters":[]}}), selected)
+    assert not _browser_json_matches(response({"query":{"filters":[{"city":"Montreal"}]}}), selected)
+    assert _browser_json_matches(response({"query":{"filters":[{"city":"Lachute"}]}}), selected)
+    assert _browser_json_matches(response({"query":{"filters":[{"brand":"Super C"},{"city":"Lachute"}]}}), selected)
+    assert not _browser_json_matches(response(None), selected)
+    for values in [{"browser_json_request_path":"city"}, {"browser_json_request_value":"Lachute"}, {"browser_json_request_path":"../city","browser_json_request_value":"Lachute"}]:
+        with pytest.raises(ValidationError):
+            recipe(metadata=values)
+
+
+def test_json_location_mappings_keep_each_posting_country_and_region_without_global_defaults():
+    selected = recipe(mapping={"items":"jobs","source_id":"id","url":"url","location":"address.city","location_country":"address.country","location_region":"address.region"})
+    jobs = generic_json({"jobs":[{"id":"ca","title":"Associate","url":"https://employer.test/ca","address":{"city":"London","region":"Ontario","country":"Canada"}},{"id":"gb","title":"Associate","url":"https://employer.test/gb","address":{"city":"London","country":"United Kingdom"}},{"id":"missing","title":"Associate","url":"https://employer.test/missing","address":{}}]}, selected)
+    assert jobs[0].location == "London, Ontario, Canada"
+    assert jobs[1].location == "London, United Kingdom"
+    assert [a.model_dump() for a in jobs[0].location_addresses] == [{"country":"Canada","city":"London"}]
+    assert jobs[1].location_addresses[0].country == "United Kingdom"
+    assert jobs[2].location == "Unspecified" and not jobs[2].location_addresses
+
+
+def test_browser_json_missing_collection_is_a_failure_while_an_explicit_empty_list_is_valid():
+    import json
+    from types import SimpleNamespace
+    from server.scrapers.runtime import _read_browser_json, ScraperExecutionError
+    selected = recipe(strategy="playwright",mapping={"items":"jobs"},metadata={"partial_listing":True,"browser_json_url":"https://employer.test/jobs"})
+    def response(value):
+        return SimpleNamespace(url="https://employer.test/jobs",request=SimpleNamespace(method="GET"),status=200,headers={"content-type":"application/json"},body=lambda:json.dumps(value).encode())
+    assert _read_browser_json(response({"jobs":[]}), selected) == {"jobs":[]}
+    with pytest.raises(ScraperExecutionError, match="omitted its declared listing collection"):
+        _read_browser_json(response({"error":"unavailable"}), selected)
+
+
+def test_browser_request_shape_distinguishes_main_jobs_from_sidebar_widget():
+    from types import SimpleNamespace
+    from server.scrapers.runtime import _browser_json_matches
+    meta={"partial_listing":True,"browser_json_url":"https://employer.test/jobs","browser_json_method":"POST","browser_json_request_path":"query.filters.*.city","browser_json_request_value":"Lachute","browser_json_request_list_path":"query.filters","browser_json_request_list_count":2}
+    selected=recipe(strategy="playwright",mapping={"items":"jobs"},metadata=meta)
+    def response(filters):
+        return SimpleNamespace(url="https://employer.test/jobs",request=SimpleNamespace(method="POST",post_data_json={"query":{"filters":filters}}))
+    main=[{"brand":"Super C"},{"city":"Lachute"}]
+    assert _browser_json_matches(response(main),selected)
+    assert _browser_json_matches(response(list(reversed(main))),selected)
+    assert not _browser_json_matches(response(main+[{"should":[{"department":"IT"}]}]),selected)
+    for count in [True,-1,101,"2"]:
+        with pytest.raises(ValidationError):
+            recipe(strategy="playwright",mapping={"items":"jobs"},metadata={**meta,"browser_json_request_list_count":count})

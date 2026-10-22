@@ -23,7 +23,7 @@ SelectorKey = Literal[
     "salary_currency", "salary_period",
 ]
 MappingKey = Literal[
-    "items", "source_id", "title", "location", "url", "description",
+    "items", "source_id", "title", "location", "location_country", "location_region", "url", "description",
     "posted_date", "employment_type", "remote_mode", "salary_min", "salary_max",
     "salary_currency", "salary_period",
 ]
