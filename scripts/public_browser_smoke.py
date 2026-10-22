@@ -12,6 +12,13 @@ clean={k:v for k,v in os.environ.items() if k.upper() in keys};os.environ.clear(
 original=runtime._read_browser_json
 def diagnostic(response,selected):
  payload=json.loads(response.body());collections=runtime._browser_json_path_values(payload,selected.mapping['items']);rows=collections[0] if len(collections)==1 and isinstance(collections[0],list) else []
+ body=response.request.post_data_json or {}
+ allowed={'must','should','must_not','match','term','terms','bool','filter','brandname','city','province','region','jobtype','jobcategories','department'}
+ def filters(value):
+  if isinstance(value,dict):return {k:filters(v) if k in allowed else '[omitted]' for k,v in value.items()}
+  if isinstance(value,list):return [filters(v) for v in value[:20]]
+  return value if isinstance(value,(str,int,float,bool,type(None))) else '[omitted]'
+ print(json.dumps({'diagnostic':'public_request_scope','index':body.get('index_name'),'offset':body.get('offset'),'limit':body.get('limit'),'search':body.get('search'),'filters':filters((body.get('query') or {}).get('filter_query'))},ensure_ascii=True)[:3000],flush=True)
  summary={'diagnostic':'public_listing_shape','keys':list(payload)[:30] if isinstance(payload,dict) else [],'raw_count':len(rows),'samples':[{k:r[k] for k in ('title','city','brandname','locations') if k in r} for r in rows[:2] if isinstance(r,dict)]}
  print(json.dumps(summary,ensure_ascii=True)[:5000],flush=True)
  return original(response,selected)
