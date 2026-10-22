@@ -51,9 +51,14 @@ def main() -> None:
         if len(monitors) != len(wanted):
             parser.error("--monitor must name eligible pinned IDs")
     now = datetime.now(timezone.utc)
-    # Oldest actual attempt first. Sources never reached before the shared
-    # deadline retain their place for the next run rather than starving.
-    monitors.sort(key=lambda item: (state.get("sources", {}).get(item[0]["id"], {}).get("last_attempt_at") or "", item[0]["id"]))
+    # Refresh newly reviewed revisions first, then use oldest actual attempt.
+    # Sources not reached before the deadline retain priority for the next run.
+    def collection_priority(item):
+        entry = item[0]
+        previous = state.get("sources", {}).get(entry["id"], {})
+        changed = previous.get("revision") != entry["revision"]
+        return (0 if changed else 1, previous.get("last_attempt_at") or "", entry["id"])
+    monitors.sort(key=collection_priority)
     generation = args.generation or now.strftime("%Y%m%dT%H%M%S")
     results = collect(monitors, now=now, minutes=args.minutes,
                       source_caches=state.get("source_caches", {}),

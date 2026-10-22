@@ -161,3 +161,19 @@ def test_explicit_city_attribute_country_produces_structured_location_without_fi
     assert jobs[1].location_addresses == []
     with pytest.raises(ValidationError):
         recipe(metadata={"location_country":"Canada"})
+
+
+def test_browser_capture_rejects_initial_unfiltered_response_and_waits_for_declared_query():
+    from types import SimpleNamespace
+    from server.scrapers.runtime import _browser_json_matches
+    selected = recipe(strategy="playwright", mapping={"items":"jobs"}, metadata={"public_browser":True,"partial_listing":True,"browser_json_url":"https://employer.test/jobs","browser_json_method":"POST","browser_json_request_path":"query.filters.*.city","browser_json_request_value":"Lachute"})
+    def response(body):
+        return SimpleNamespace(url="https://employer.test/jobs",request=SimpleNamespace(method="POST",post_data_json=body))
+    assert not _browser_json_matches(response({"query":{"filters":[]}}), selected)
+    assert not _browser_json_matches(response({"query":{"filters":[{"city":"Montreal"}]}}), selected)
+    assert _browser_json_matches(response({"query":{"filters":[{"city":"Lachute"}]}}), selected)
+    assert _browser_json_matches(response({"query":{"filters":[{"brand":"Super C"},{"city":"Lachute"}]}}), selected)
+    assert not _browser_json_matches(response(None), selected)
+    for values in [{"browser_json_request_path":"city"}, {"browser_json_request_value":"Lachute"}, {"browser_json_request_path":"../city","browser_json_request_value":"Lachute"}]:
+        with pytest.raises(ValidationError):
+            recipe(metadata=values)

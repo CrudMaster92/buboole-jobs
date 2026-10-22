@@ -553,3 +553,23 @@ def test_same_application_url_keeps_all_current_explicit_offices_without_carryin
     assert {a["city"] for a in posting["location_addresses"]} == {"Lachute", "Terrebonne"}
     next_state = merge(state, [result([second])], 2)
     assert next(iter(next_state["jobs"].values()))["job"]["location_addresses"] == second["location_addresses"]
+
+
+def test_cli_prioritizes_changed_reviewed_revision_before_older_unchanged_source(tmp_path, monkeypatch):
+    import sys
+    from server.public_jobs import __main__ as cli
+    lock_path, state_path = tmp_path / "lock.json", tmp_path / "state.json"
+    lock_path.write_bytes(json_bytes({"catalog_commit":"a"*40,"collections":[],"excluded":[]}))
+    state = empty_state()
+    base = {key:value for key,value in MONITOR.items() if key != "collection_ids"}
+    state["sources"] = {name:{**base,"id":name,"status":"partial","complete":False,"job_count":0,"warnings":[],"last_success_at":None,"last_attempt_at":attempt} for name,attempt in [("changed","2026-09-26T11:00:00Z"),("old","2026-09-20T00:00:00Z")]}
+    state_path.write_bytes(json_bytes(state))
+    monkeypatch.setattr(cli, "load_monitors", lambda *args: [({**MONITOR,"id":"old"},None),({**MONITOR,"id":"changed","revision":2},None)])
+    observed = []
+    def collect(selected, **kwargs):
+        observed.extend(entry["id"] for entry, recipe in selected)
+        return [clean_result(result([job()]))]
+    monkeypatch.setattr(cli, "collect", collect)
+    monkeypatch.setattr(sys,"argv",["public-jobs","build","--catalog",str(tmp_path),"--lock",str(lock_path),"--state",str(state_path),"--output",str(tmp_path/"site"),"--generation","priority-test"])
+    cli.main()
+    assert observed == ["changed","old"]

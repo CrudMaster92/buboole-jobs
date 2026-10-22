@@ -478,8 +478,28 @@ def _apply_source_filter(jobs: list, recipe: ScraperRecipe) -> list:
 
 
 def _browser_json_matches(response, recipe: ScraperRecipe) -> bool:
-    return (response.url == recipe.metadata.get("browser_json_url")
-            and response.request.method == recipe.metadata.get("browser_json_method", "GET"))
+    if not (response.url == recipe.metadata.get("browser_json_url")
+            and response.request.method == recipe.metadata.get("browser_json_method", "GET")):
+        return False
+    match_path = recipe.metadata.get("browser_json_request_path")
+    if match_path:
+        try:
+            payload = response.request.post_data_json
+        except Exception:
+            return False
+        values = [payload]
+        for part in match_path.split("."):
+            selected = []
+            for value in values:
+                if part == "*" and isinstance(value, list):
+                    selected.extend(value)
+                elif isinstance(value, dict) and part in value:
+                    selected.append(value[part])
+                elif isinstance(value, list) and part.isdigit() and int(part) < len(value):
+                    selected.append(value[int(part)])
+            values = selected
+        return recipe.metadata["browser_json_request_value"] in values
+    return True
 
 
 def _read_browser_json(response, recipe: ScraperRecipe):

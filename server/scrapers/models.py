@@ -321,6 +321,15 @@ class ScraperRecipe(StrictModel):
                 raise ValueError("browser_json_url requires bounded Playwright JSON capture on the page host with explicit items and partial_listing")
             if self.source_filter and any(rule.phase == "detail" for rule in self.source_filter.predicates):
                 raise ValueError("browser JSON ownership predicates must use listing evidence")
+        match_path = self.metadata.get("browser_json_request_path")
+        match_value = self.metadata.get("browser_json_request_value")
+        if match_path is not None or match_value is not None:
+            import re
+            if (not capture or self.metadata.get("browser_json_method", "GET") != "POST"
+                    or not isinstance(match_path, str) or len(match_path) > 300
+                    or not re.fullmatch(r"[A-Za-z0-9_]+(?:\.(?:[A-Za-z0-9_]+|\*))*", match_path)
+                    or not isinstance(match_value, str) or not match_value or len(match_value) > 300):
+                raise ValueError("browser JSON request matching requires a bounded POST JSON path and string value")
         return self
 
 
