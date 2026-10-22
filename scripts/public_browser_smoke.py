@@ -5,7 +5,11 @@ root=Path(__file__).resolve().parents[1];sys.path.insert(0,str(root))
 from server.public_jobs.catalog import load_monitors
 from server.public_jobs.browser import BrowserBudget,eligible
 from server.scrapers import runtime
-lock=json.loads((root/'catalog-lock.json').read_text());selected=[p for p in lock['monitors'] if p['id']=='super-c-lachute'];assert len(selected)==1
+lock=json.loads((root/'catalog-lock.json').read_text());selected=[p for p in lock['monitors'] if p['id']=='super-c-lachute']
+if not selected:
+ print(json.dumps({'diagnostic':'regional_source_held','source':'super-c-lachute','reason':'Source personalizes non-Canadian visitors to restricted occupations; new source is not activated.'}),flush=True)
+ sys.exit(0)
+assert len(selected)==1
 monitor,recipe=load_monitors(root/'.catalog',{**lock,'monitors':selected})[0];assert eligible(recipe)
 keys={'PATH','SYSTEMROOT','WINDIR','TEMP','TMP','HOME','USERPROFILE','LOCALAPPDATA','PLAYWRIGHT_BROWSERS_PATH'}
 clean={k:v for k,v in os.environ.items() if k.upper() in keys};os.environ.clear();os.environ.update(clean)
