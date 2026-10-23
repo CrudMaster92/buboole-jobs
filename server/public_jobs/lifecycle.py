@@ -24,9 +24,10 @@ def apply_results(state: dict, results: list[dict], *, generation: str, now: dat
         source = dict(result["source"])
         monitor_id = source["id"]
         previous = sources.get(monitor_id, {})
-        source["last_attempt_at"] = moment
+        source_moment = timestamp(min(parse_time(result.get("source_observed_at", moment)), parse_time(moment)))
+        source["last_attempt_at"] = source_moment
         success = source["status"] in {"complete", "partial"}
-        source["last_success_at"] = moment if success else previous.get("last_success_at")
+        source["last_success_at"] = timestamp(max(parse_time(source_moment), parse_time(previous.get("last_success_at") or source_moment))) if success else previous.get("last_success_at")
         sources[monitor_id] = source
         if not success:
             continue

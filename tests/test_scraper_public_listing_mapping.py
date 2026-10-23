@@ -47,7 +47,9 @@ def test_html_employer_filter_fails_closed_and_removes_session_urls():
     html = '''<article id="1"><h3>Nurse</h3><b class="employer">Public Employer</b>
       <a href="/posting/1;jsessionid=anonymous-session?source=search">Apply</a></article>
       <article id="2"><h3>Nurse</h3><b class="employer">Public Employer Agency</b><a href="/posting/2">Apply</a></article>
-      <article id="3"><h3>Nurse</h3><a href="/posting/3">Apply</a></article>'''
+      <article id="3"><h3>Nurse</h3><a href="/posting/3">Apply</a></article>
+      <script type="application/ld+json">{"@type":"JobPosting","title":"Other employer recommendation",
+      "url":"https://employer.test/posting/unrelated","hiringOrganization":{"name":"Other employer"}}</script>'''
     selected = recipe(strategy="generic_html", request={"url": "https://employer.test/jobs"}, mapping={},
                       selectors={"item": "article", "title": "h3", "link": "a"},
                       source_filter={"predicates": [{"path": "employer", "values": ["public employer"]}]},
