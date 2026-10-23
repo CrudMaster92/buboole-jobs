@@ -321,6 +321,10 @@ def _filter_listing_payload(payload: Any, recipe: ScraperRecipe) -> Any:
         if not isinstance(selector, str) or not selector.strip() or any(rule.path != "employer" for rule in predicates):
             raise ScraperExecutionError("HTML ownership predicates require listing_employer_selector and employer paths")
         soup = BeautifulSoup(filtered, "html.parser")
+        # Page-wide structured postings have not passed these row-level
+        # employer checks. Keep explicit HTML ownership authoritative.
+        for script in soup.select('script[type="application/ld+json"]'):
+            script.decompose()
         for item in soup.select(recipe.selectors.get("item", ".job")):
             employer = item.select_one(selector)
             evidence = {"employer": employer.get_text(" ", strip=True) if employer else None}

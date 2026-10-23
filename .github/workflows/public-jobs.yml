@@ -60,7 +60,7 @@ jobs:
           set -o pipefail
           /usr/bin/time -v -o public-build-resources.txt \
             python -m server.public_jobs build --compress-details --compress-search --catalog .catalog --lock catalog-lock.json \
-            --state .feed-state/state.json --output _site \
+            --state .feed-state/state.json --output _site --regional-observations regional-sources \
             --minutes "${{ github.event_name == 'push' && '5' || '40' }}" \
             --generation "$(date -u +%Y%m%dT%H%M%S)-${{ github.run_id }}-${{ github.run_attempt }}" \
             2>&1 | tee public-build.log
