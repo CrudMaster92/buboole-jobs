@@ -32,6 +32,29 @@ def posting(index):
             "bulletFields": [f"R{index}"], "description": "Public role description"}
 
 
+@pytest.mark.parametrize("mode", ["all", "bounded"])
+def test_workday_requisition_after_category_keeps_distinct_jobs(mode):
+    config = recipe(coverage_mode=mode, pagination={"kind": "offset", "parameter": "offset",
+        "page_size_parameter": "limit", "page_size": 20, "max_pages": 2})
+    jobs = [{**posting(i), "bulletFields": ["Media Planning", f"R{i}", "Agency"]} for i in range(5)]
+    def handler(request):
+        return httpx.Response(200, json={"total": 5, "jobPostings": jobs})
+    with httpx.Client(transport=httpx.MockTransport(handler)) as client:
+        result = run_scraper(config, client=client, detail_cache={})
+    assert result.complete
+    assert {job.source_id for job in result.jobs} == {f"R{i}" for i in range(5)}
+
+
+def test_workday_unproven_bullets_use_distinct_public_paths():
+    from server.scrapers.adapters import workday_source_id
+    for number in (1, 2):
+        raw = {"externalPath": f"/job/City/Planner_internal-{number}",
+               "bulletFields": ["Media Planning", "Agency"]}
+        assert workday_source_id(raw) == raw["externalPath"]
+    assert workday_source_id({"jobPostingInfo": {"jobReqId": "R9"},
+                              "bulletFields": ["Media Planning"]}) == "R9"
+
+
 def test_seeded_parent_evidence_does_not_stop_a_repair_on_a_known_page():
     cache, offsets, paused = {}, [], False
     config = recipe(pagination={'kind': 'offset', 'parameter': 'offset',
