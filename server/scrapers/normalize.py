@@ -274,6 +274,10 @@ def make_job(
         normalized_max = normalized_min
     if normalized_max is not None and normalized_min is None:
         normalized_min = normalized_max
+    # Employer data and prose can contain reversed or mixed-unit ranges.
+    # Preserve the posting without publishing an invented correction.
+    if normalized_min is not None and normalized_max is not None and normalized_min > normalized_max:
+        normalized_min = normalized_max = None
     period_texts = [salary_min, salary_max]
     if inferred_min is not None or inferred_max is not None:
         period_texts.append(_salary_amount_context(description_text, inferred_min, inferred_max))
