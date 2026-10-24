@@ -5,6 +5,25 @@ from pydantic import ValidationError
 from server.scrapers import ScraperRecipe, run_scraper
 
 
+@pytest.mark.parametrize("strategy", ["generic_json", "ashby"])
+def test_invalid_salary_range_keeps_posting_and_valid_sibling(strategy):
+    bad = {"id": "bad", "title": "Engineer", "url": "/jobs/bad",
+           "jobUrl": "https://employer.test/jobs/bad", "location": "Remote",
+           "descriptionHtml": "Salary: $200,000 - $100,000 per year.",
+           "description": "Salary: $200,000 - $100,000 per year."}
+    good = {**bad, "id": "good", "url": "/jobs/good",
+            "jobUrl": "https://employer.test/jobs/good",
+            "descriptionHtml": "Salary: $100,000 - $200,000 per year.",
+            "description": "Salary: $100,000 - $200,000 per year."}
+    selected = recipe(strategy=strategy, mapping={"items": "jobs", "source_id": "id", "title": "title", "url": "url"})
+    client = httpx.Client(transport=httpx.MockTransport(lambda request: httpx.Response(200, json={"jobs": [bad, good]}, request=request)))
+    result = run_scraper(selected, client=client)
+    assert len(result.jobs) == 2
+    assert result.jobs[0].salary_min is None and result.jobs[0].salary_max is None
+    assert "$200,000 - $100,000" in result.jobs[0].description
+    assert (result.jobs[1].salary_min, result.jobs[1].salary_max) == (100000, 200000)
+
+
 def recipe(**updates):
     return ScraperRecipe.model_validate({
         "company": "Public employer", "careers_url": "https://employer.test/jobs",
