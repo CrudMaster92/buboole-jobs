@@ -141,6 +141,29 @@ def workday_public_url(path: str, recipe: ScraperRecipe) -> str:
     return f'{endpoint.scheme}://{endpoint.netloc}{prefix}{path}'
 
 
+def workday_source_id(raw: dict[str, Any]) -> str:
+    """Requisition bullets can follow job category/agency display fields."""
+    info = raw.get("jobPostingInfo") or raw
+    explicit = first(info, "jobReqId", "jobPostingId")
+    if explicit:
+        return str(explicit)
+    path = raw.get("externalPath") or raw.get("url") or ""
+    bullets = raw.get("bulletFields") or []
+    if not isinstance(bullets, list):
+        bullets = []
+    suffix = urlsplit(str(path)).path.rsplit("/", 1)[-1].rsplit("_", 1)
+    if len(suffix) == 2 and suffix[1]:
+        for value in bullets:
+            if isinstance(value, str) and value and (suffix[1] == value or suffix[1].startswith(value + "-")):
+                return value
+        # The public posting path remains a stable identity when no bullet is
+        # evidenced as its requisition ID; never deduplicate by job category.
+        return str(path)
+    if len(bullets) == 1 and bullets[0]:
+        return str(bullets[0])
+    return str(path or (bullets[0] if bullets else ""))
+
+
 def workday(data: dict[str, Any], recipe: ScraperRecipe) -> list[JobRecord]:
     jobs = []
     for raw in data.get("jobPostings", []):
@@ -148,7 +171,7 @@ def workday(data: dict[str, Any], recipe: ScraperRecipe) -> list[JobRecord]:
         info = raw.get("jobPostingInfo") or raw
         if not (info.get("title") or raw.get("title")) or not path:
             continue
-        jobs.append(make_job(company=recipe.company, source="workday", source_id=first(info, "jobReqId", "jobPostingId") or raw.get("bulletFields", [None])[0] or path, title=info.get("title") or raw.get("title"), location=info.get("location") or raw.get("locationsText") or raw.get("location"), url=info.get("externalUrl") or workday_public_url(path,recipe), base_url=recipe.careers_url, description=info.get("jobDescription") or raw.get("description"), posted_date=info.get("startDate") or raw.get("postedOn"), employment_type=info.get("timeType") or raw.get("timeType")))
+        jobs.append(make_job(company=recipe.company, source="workday", source_id=workday_source_id(raw), title=info.get("title") or raw.get("title"), location=info.get("location") or raw.get("locationsText") or raw.get("location"), url=info.get("externalUrl") or workday_public_url(path,recipe), base_url=recipe.careers_url, description=info.get("jobDescription") or raw.get("description"), posted_date=info.get("startDate") or raw.get("postedOn"), employment_type=info.get("timeType") or raw.get("timeType")))
     return jobs
 
 
