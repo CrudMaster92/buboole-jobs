@@ -178,7 +178,7 @@ def traverse(recipe: ScraperRecipe, client, cache: dict, normalize: Callable,
                 path = raw.get('externalPath') or raw.get('url')
                 fields = raw.get('bulletFields') or []
                 info = raw.get('jobPostingInfo') or raw
-                identifier = str(info.get('jobReqId') or info.get('jobPostingId') or (fields[0] if fields else '') or path or '')
+                identifier = adapters.workday_source_id(raw)
                 if identifier:
                     identity = 'req:' + identifier
                     if path and identifier in missing and (info.get('title') or raw.get('title')):
