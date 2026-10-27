@@ -1,0 +1,373 @@
+{
+  "catalog_commit": "05303a55815b10221903a6f2fc400745cc268624",
+  "catalog_pr": "https://github.com/CrudMaster92/buboole-presets/pull/50",
+  "previous_pins": 966,
+  "added_pins": 30,
+  "total_pins": 996,
+  "new_pin_hashes_and_runtime_contracts_validated": true,
+  "existing_pins_unchanged": true,
+  "runtime_unchanged": true,
+  "runtime_revision": "677ab9551c04255e7cbb2d8c8a55ecc7e1cd402d695ce0cc40e6134c09d0846a",
+  "new_sources": [
+    {
+      "id": "apotex",
+      "company_id": "apotex",
+      "company_name": "Apotex",
+      "revision": 1,
+      "path": "companies/apotex/monitors/apotex.json",
+      "sha256": "9a35b77a1062ffc805397ca1ac695d3894e5cb4c9683bb529f6bb2a785926ae1",
+      "collection_ids": [
+        "canadian-employers-new-30-20261027"
+      ],
+      "catalog_commit": "05303a55815b10221903a6f2fc400745cc268624"
+    },
+    {
+      "id": "ballet-bc",
+      "company_id": "ballet-bc",
+      "company_name": "Ballet BC",
+      "revision": 1,
+      "path": "companies/ballet-bc/monitors/ballet-bc.json",
+      "sha256": "7ca5003891551fd813e5375dc0bd326b97f82682f553be9ecbdde208d4f838ef",
+      "collection_ids": [
+        "canadian-employers-new-30-20261027"
+      ],
+      "catalog_commit": "05303a55815b10221903a6f2fc400745cc268624"
+    },
+    {
+      "id": "cambridge-memorial-hospital",
+      "company_id": "cambridge-memorial-hospital",
+      "company_name": "Cambridge Memorial Hospital",
+      "revision": 1,
+      "path": "companies/cambridge-memorial-hospital/monitors/cambridge-memorial-hospital.json",
+      "sha256": "1337c4fe92d7f1c4c5cce43b9b8fbd858d8be4caa033cc9b9ce413a348a1d399",
+      "collection_ids": [
+        "canadian-employers-new-30-20261027"
+      ],
+      "catalog_commit": "05303a55815b10221903a6f2fc400745cc268624"
+    },
+    {
+      "id": "campbellford-memorial-hospital",
+      "company_id": "campbellford-memorial-hospital",
+      "company_name": "Campbellford Memorial Hospital",
+      "revision": 1,
+      "path": "companies/campbellford-memorial-hospital/monitors/campbellford-memorial-hospital.json",
+      "sha256": "dcad749a51efb3c5a6246784fc0081e4f10761ad95c96c86090409e44dc837ae",
+      "collection_ids": [
+        "canadian-employers-new-30-20261027"
+      ],
+      "catalog_commit": "05303a55815b10221903a6f2fc400745cc268624"
+    },
+    {
+      "id": "central-toronto-youth-services",
+      "company_id": "central-toronto-youth-services",
+      "company_name": "Central Toronto Youth Services",
+      "revision": 1,
+      "path": "companies/central-toronto-youth-services/monitors/central-toronto-youth-services.json",
+      "sha256": "add0d478cb965321150a12057aabea4ae3bb768b6c74137419be32b3d887f318",
+      "collection_ids": [
+        "canadian-employers-new-30-20261027"
+      ],
+      "catalog_commit": "05303a55815b10221903a6f2fc400745cc268624"
+    },
+    {
+      "id": "city-of-chilliwack",
+      "company_id": "city-of-chilliwack",
+      "company_name": "City of Chilliwack",
+      "revision": 1,
+      "path": "companies/city-of-chilliwack/monitors/city-of-chilliwack.json",
+      "sha256": "5b2bc7d473fac56476b0837c4fca0b69830c74be40584d1df2c66fb50101a4cf",
+      "collection_ids": [
+        "canadian-employers-new-30-20261027"
+      ],
+      "catalog_commit": "05303a55815b10221903a6f2fc400745cc268624"
+    },
+    {
+      "id": "city-of-langley",
+      "company_id": "city-of-langley",
+      "company_name": "City of Langley",
+      "revision": 1,
+      "path": "companies/city-of-langley/monitors/city-of-langley.json",
+      "sha256": "2a32539ca3b596e89dd417f1485172882e7adafc946d93fd877d622f25b50cba",
+      "collection_ids": [
+        "canadian-employers-new-30-20261027"
+      ],
+      "catalog_commit": "05303a55815b10221903a6f2fc400745cc268624"
+    },
+    {
+      "id": "city-of-maple-ridge",
+      "company_id": "city-of-maple-ridge",
+      "company_name": "City of Maple Ridge",
+      "revision": 1,
+      "path": "companies/city-of-maple-ridge/monitors/city-of-maple-ridge.json",
+      "sha256": "b0232d873e74f5d41550bcab583106ef67702ad45e02f02547ec5cd779655ee5",
+      "collection_ids": [
+        "canadian-employers-new-30-20261027"
+      ],
+      "catalog_commit": "05303a55815b10221903a6f2fc400745cc268624"
+    },
+    {
+      "id": "city-of-north-vancouver",
+      "company_id": "city-of-north-vancouver",
+      "company_name": "City of North Vancouver",
+      "revision": 1,
+      "path": "companies/city-of-north-vancouver/monitors/city-of-north-vancouver.json",
+      "sha256": "07bb4220dc4844e69f750179b4a2a2bc34dd00ca5fdf02b2c09020c828ea47c0",
+      "collection_ids": [
+        "canadian-employers-new-30-20261027"
+      ],
+      "catalog_commit": "05303a55815b10221903a6f2fc400745cc268624"
+    },
+    {
+      "id": "city-of-parksville",
+      "company_id": "city-of-parksville",
+      "company_name": "City of Parksville",
+      "revision": 1,
+      "path": "companies/city-of-parksville/monitors/city-of-parksville.json",
+      "sha256": "a7f17cb4c463077723b7480c3eee185f4dad1ef53fd1bac73acbbf35a759aa27",
+      "collection_ids": [
+        "canadian-employers-new-30-20261027"
+      ],
+      "catalog_commit": "05303a55815b10221903a6f2fc400745cc268624"
+    },
+    {
+      "id": "college-of-new-caledonia",
+      "company_id": "college-of-new-caledonia",
+      "company_name": "College of New Caledonia",
+      "revision": 1,
+      "path": "companies/college-of-new-caledonia/monitors/college-of-new-caledonia.json",
+      "sha256": "b56472af99575907239a373ac1bdd22e8e611f5e8f6b9bf31bfd0a991b97c1c1",
+      "collection_ids": [
+        "canadian-employers-new-30-20261027"
+      ],
+      "catalog_commit": "05303a55815b10221903a6f2fc400745cc268624"
+    },
+    {
+      "id": "contemporary-calgary",
+      "company_id": "contemporary-calgary",
+      "company_name": "Contemporary Calgary",
+      "revision": 1,
+      "path": "companies/contemporary-calgary/monitors/contemporary-calgary.json",
+      "sha256": "e0a2b58ef972e0c623ebce2ee5b5e0642848e39c23a4e707e094bd92ada782d7",
+      "collection_ids": [
+        "canadian-employers-new-30-20261027"
+      ],
+      "catalog_commit": "05303a55815b10221903a6f2fc400745cc268624"
+    },
+    {
+      "id": "district-of-saanich",
+      "company_id": "district-of-saanich",
+      "company_name": "District of Saanich",
+      "revision": 1,
+      "path": "companies/district-of-saanich/monitors/district-of-saanich.json",
+      "sha256": "293e7f8849646cc99f2f0e7c4c050ebe3d5c9cab5c6005ff7b2339d01c5ef1d3",
+      "collection_ids": [
+        "canadian-employers-new-30-20261027"
+      ],
+      "catalog_commit": "05303a55815b10221903a6f2fc400745cc268624"
+    },
+    {
+      "id": "flemingdon-health-centre",
+      "company_id": "flemingdon-health-centre",
+      "company_name": "Flemingdon Health Centre",
+      "revision": 1,
+      "path": "companies/flemingdon-health-centre/monitors/flemingdon-health-centre.json",
+      "sha256": "ebbe52a897b5867e53c6ffaf99f0221bba390e99c66a4a4bc838ac735b87f621",
+      "collection_ids": [
+        "canadian-employers-new-30-20261027"
+      ],
+      "catalog_commit": "05303a55815b10221903a6f2fc400745cc268624"
+    },
+    {
+      "id": "genome-quebec",
+      "company_id": "genome-quebec",
+      "company_name": "Genome Quebec",
+      "revision": 1,
+      "path": "companies/genome-quebec/monitors/genome-quebec.json",
+      "sha256": "15fd0bc62f986d136e4241e945323797a2999a55a06f526e388a364393f31b25",
+      "collection_ids": [
+        "canadian-employers-new-30-20261027"
+      ],
+      "catalog_commit": "05303a55815b10221903a6f2fc400745cc268624"
+    },
+    {
+      "id": "groupe-guilbault",
+      "company_id": "groupe-guilbault",
+      "company_name": "Groupe Guilbault",
+      "revision": 1,
+      "path": "companies/groupe-guilbault/monitors/groupe-guilbault.json",
+      "sha256": "266dbca2da6be9bc6fffae3f574a1bb03aae209735f058272100e81d7aa70f2b",
+      "collection_ids": [
+        "canadian-employers-new-30-20261027"
+      ],
+      "catalog_commit": "05303a55815b10221903a6f2fc400745cc268624"
+    },
+    {
+      "id": "headwaters-health-care-centre",
+      "company_id": "headwaters-health-care-centre",
+      "company_name": "Headwaters Health Care Centre",
+      "revision": 1,
+      "path": "companies/headwaters-health-care-centre/monitors/headwaters-health-care-centre.json",
+      "sha256": "731d3a7d85c702e94878770c1c3cfa61e70f54bf7a5589beba9d663dab8ff194",
+      "collection_ids": [
+        "canadian-employers-new-30-20261027"
+      ],
+      "catalog_commit": "05303a55815b10221903a6f2fc400745cc268624"
+    },
+    {
+      "id": "joseph-brant-hospital",
+      "company_id": "joseph-brant-hospital",
+      "company_name": "Joseph Brant Hospital",
+      "revision": 1,
+      "path": "companies/joseph-brant-hospital/monitors/joseph-brant-hospital.json",
+      "sha256": "975fe149716c9e861c812c016e0076ae449ed75d88d2dceab4faf12152679afd",
+      "collection_ids": [
+        "canadian-employers-new-30-20261027"
+      ],
+      "catalog_commit": "05303a55815b10221903a6f2fc400745cc268624"
+    },
+    {
+      "id": "lakeridge-health",
+      "company_id": "lakeridge-health",
+      "company_name": "Lakeridge Health",
+      "revision": 1,
+      "path": "companies/lakeridge-health/monitors/lakeridge-health.json",
+      "sha256": "5d670cf4edd6e018dc354ab1a81193a6fd8a860059595e4805dbec72f95acc11",
+      "collection_ids": [
+        "canadian-employers-new-30-20261027"
+      ],
+      "catalog_commit": "05303a55815b10221903a6f2fc400745cc268624"
+    },
+    {
+      "id": "lumenus-community-services",
+      "company_id": "lumenus-community-services",
+      "company_name": "Lumenus Community Services",
+      "revision": 1,
+      "path": "companies/lumenus-community-services/monitors/lumenus-community-services.json",
+      "sha256": "5ce4554e94e739b84b47b1026ae7eaa822aa16cf3b49da3e41defee20658cabd",
+      "collection_ids": [
+        "canadian-employers-new-30-20261027"
+      ],
+      "catalog_commit": "05303a55815b10221903a6f2fc400745cc268624"
+    },
+    {
+      "id": "national-music-centre",
+      "company_id": "national-music-centre",
+      "company_name": "National Music Centre",
+      "revision": 1,
+      "path": "companies/national-music-centre/monitors/national-music-centre.json",
+      "sha256": "717a4c46414ecc9df1b0371d992e47e4bf5936e3a7df430046e95825736014a3",
+      "collection_ids": [
+        "canadian-employers-new-30-20261027"
+      ],
+      "catalog_commit": "05303a55815b10221903a6f2fc400745cc268624"
+    },
+    {
+      "id": "niagara-health",
+      "company_id": "niagara-health",
+      "company_name": "Niagara Health",
+      "revision": 1,
+      "path": "companies/niagara-health/monitors/niagara-health.json",
+      "sha256": "fd442c0b62117e3b92522fadd3819e45b68284914107e56cc2fdd94170143aac",
+      "collection_ids": [
+        "canadian-employers-new-30-20261027"
+      ],
+      "catalog_commit": "05303a55815b10221903a6f2fc400745cc268624"
+    },
+    {
+      "id": "ocean-choice-international",
+      "company_id": "ocean-choice-international",
+      "company_name": "Ocean Choice International",
+      "revision": 1,
+      "path": "companies/ocean-choice-international/monitors/ocean-choice-international.json",
+      "sha256": "7a1cb1dfefd448d7300a233fb506121d86e03ba85221b4a19b8d27aab4f878dd",
+      "collection_ids": [
+        "canadian-employers-new-30-20261027"
+      ],
+      "catalog_commit": "05303a55815b10221903a6f2fc400745cc268624"
+    },
+    {
+      "id": "polycultural-immigrant-and-community-services",
+      "company_id": "polycultural-immigrant-and-community-services",
+      "company_name": "Polycultural Immigrant and Community Services",
+      "revision": 1,
+      "path": "companies/polycultural-immigrant-and-community-services/monitors/polycultural-immigrant-and-community-services.json",
+      "sha256": "20c919050f1c3531233c22a08218dde1779e088c8a5dee303eb7744114de2511",
+      "collection_ids": [
+        "canadian-employers-new-30-20261027"
+      ],
+      "catalog_commit": "05303a55815b10221903a6f2fc400745cc268624"
+    },
+    {
+      "id": "region-of-waterloo",
+      "company_id": "region-of-waterloo",
+      "company_name": "Region of Waterloo",
+      "revision": 1,
+      "path": "companies/region-of-waterloo/monitors/region-of-waterloo.json",
+      "sha256": "9f232e0da0efd6c9628c0a11681e646d0eab59e8385ca29d439e4f4f77926308",
+      "collection_ids": [
+        "canadian-employers-new-30-20261027"
+      ],
+      "catalog_commit": "05303a55815b10221903a6f2fc400745cc268624"
+    },
+    {
+      "id": "royal-ottawa-health-care-group",
+      "company_id": "royal-ottawa-health-care-group",
+      "company_name": "Royal Ottawa Health Care Group",
+      "revision": 1,
+      "path": "companies/royal-ottawa-health-care-group/monitors/royal-ottawa-health-care-group.json",
+      "sha256": "5704f8b6b4519a1cfc80f3a89884518b068bbe012fe99a45a3a7a26ef088fcae",
+      "collection_ids": [
+        "canadian-employers-new-30-20261027"
+      ],
+      "catalog_commit": "05303a55815b10221903a6f2fc400745cc268624"
+    },
+    {
+      "id": "soulpepper-theatre",
+      "company_id": "soulpepper-theatre",
+      "company_name": "Soulpepper Theatre",
+      "revision": 1,
+      "path": "companies/soulpepper-theatre/monitors/soulpepper-theatre.json",
+      "sha256": "11a4c7990c0a52232a275e8ddc09d69e9be32b7d3418413a75ae3d014a33bfa4",
+      "collection_ids": [
+        "canadian-employers-new-30-20261027"
+      ],
+      "catalog_commit": "05303a55815b10221903a6f2fc400745cc268624"
+    },
+    {
+      "id": "transport-bourassa",
+      "company_id": "transport-bourassa",
+      "company_name": "Transport Bourassa",
+      "revision": 1,
+      "path": "companies/transport-bourassa/monitors/transport-bourassa.json",
+      "sha256": "70617b00ee92b158e2155ee5f6d37f639601b4df8e71cbf5942ac64bb129a440",
+      "collection_ids": [
+        "canadian-employers-new-30-20261027"
+      ],
+      "catalog_commit": "05303a55815b10221903a6f2fc400745cc268624"
+    },
+    {
+      "id": "west-neighbourhood-house",
+      "company_id": "west-neighbourhood-house",
+      "company_name": "West Neighbourhood House",
+      "revision": 1,
+      "path": "companies/west-neighbourhood-house/monitors/west-neighbourhood-house.json",
+      "sha256": "97fae38f96aad00f6eba4844ab97e5e0a53633a874ad8fbc1e39c6fa8f623950",
+      "collection_ids": [
+        "canadian-employers-new-30-20261027"
+      ],
+      "catalog_commit": "05303a55815b10221903a6f2fc400745cc268624"
+    },
+    {
+      "id": "westburne",
+      "company_id": "westburne",
+      "company_name": "Westburne",
+      "revision": 1,
+      "path": "companies/westburne/monitors/westburne.json",
+      "sha256": "eeeace0f4a8abe14a8f6931f44731d03e6b1dca9a4211be5f86b896e17e80754",
+      "collection_ids": [
+        "canadian-employers-new-30-20261027"
+      ],
+      "catalog_commit": "05303a55815b10221903a6f2fc400745cc268624"
+    }
+  ]
+}
