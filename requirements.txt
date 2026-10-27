@@ -1,6 +1,7 @@
 # HTTP sources plus explicitly reviewed isolated browser sources.
 beautifulsoup4==4.15.0
 httpx==0.28.1
+ijson==3.4.0
 pydantic==2.13.4
 jsonschema==4.25.1
 playwright==1.62.0

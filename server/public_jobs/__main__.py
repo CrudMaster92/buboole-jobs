@@ -8,11 +8,27 @@ import os
 from datetime import datetime, timezone
 from pathlib import Path
 
+import ijson
+
 from .catalog import build_lock, load_monitors, read_json
 from .collector import collect
 from .lifecycle import apply_results, empty_state
 from .publish import publish, retain_generations
 from .schema import json_bytes, write_json
+
+
+def read_state(path: Path) -> dict:
+    """Parse durable state without allocating a whole UTF-8/Unicode document."""
+    try:
+        with path.open("rb") as source:
+            documents = ijson.items(source, "", use_float=True)
+            value = next(documents)
+            # Exhaust the parser so trailing content cannot be silently accepted.
+            if next(documents, None) is not None or not isinstance(value, dict):
+                raise ValueError("Public state must be one JSON object")
+            return value
+    except (ijson.JSONError, StopIteration) as exc:
+        raise ValueError("Invalid public state JSON") from exc
 
 
 def main() -> None:
@@ -66,7 +82,9 @@ def main() -> None:
         parser.error("--minutes must be between 1 and 45")
     lock = read_json(args.lock)
     monitors = load_monitors(args.catalog.resolve(), lock)
-    state = read_json(args.state) if args.state.exists() else empty_state()
+    print(json.dumps({"stage": "loading_state", "state_bytes": args.state.stat().st_size if args.state.exists() else 0}), flush=True)
+    state = read_state(args.state) if args.state.exists() else empty_state()
+    print(json.dumps({"stage": "state_loaded", "jobs": len(state.get("jobs", {}))}), flush=True)
     if args.monitor:
         if args.state.exists():
             parser.error("Restricted smoke runs require a new isolated state file")
