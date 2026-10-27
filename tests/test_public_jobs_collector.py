@@ -15,6 +15,46 @@ from server.scrapers.models import JobRecord, ScrapeResult, ScraperRecipe
 NOW = datetime(2026, 9, 26, 12, tzinfo=timezone.utc)
 
 
+def test_durable_state_read_is_incremental_and_preserves_values(tmp_path, monkeypatch):
+    import tracemalloc
+    from pathlib import Path
+    from server.public_jobs.__main__ import read_state
+    value = {"jobs": {str(i): {"description": '雪 🌍 "quoted" \\ paragraph\n' * 200}
+                       for i in range(1000)}, "sources": {}, "number": 1.25,
+             "integer": 1234567890123, "null": None, "boolean": True}
+    target = tmp_path / "state.json"
+    encoded = json_bytes(value)
+    target.write_bytes(encoded)
+    def no_document_read(*args, **kwargs):
+        raise AssertionError("State must not allocate the whole document as text")
+    monkeypatch.setattr(Path, "read_text", no_document_read)
+    tracemalloc.start()
+    try:
+        restored = read_state(target)
+        _, peak = tracemalloc.get_traced_memory()
+    finally:
+        tracemalloc.stop()
+    assert restored == value
+    # Parsed strings remain resident, but there is no additional full text copy.
+    tracemalloc.start()
+    try:
+        previous_loader = json.loads(encoded.decode("utf-8"))
+        _, previous_peak = tracemalloc.get_traced_memory()
+    finally:
+        tracemalloc.stop()
+    assert previous_loader == restored
+    assert peak < previous_peak * 0.7
+
+
+@pytest.mark.parametrize("content", [b'{"jobs":', b'{} {}', b'[]'])
+def test_durable_state_read_rejects_invalid_or_trailing_content(tmp_path, content):
+    from server.public_jobs.__main__ import read_state
+    target = tmp_path / "state.json"
+    target.write_bytes(content)
+    with pytest.raises(ValueError):
+        read_state(target)
+
+
 def test_durable_state_json_is_identical_without_a_whole_document_allocation(tmp_path):
     import tracemalloc
     from server.public_jobs.schema import write_json

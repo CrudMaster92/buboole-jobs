@@ -55,7 +55,11 @@ jobs:
           git -C .catalog checkout --detach FETCH_HEAD
       - name: Collect and validate static publication
         id: collect
+        env:
+          PYTHONUNBUFFERED: '1'
         run: |
+          free -m
+          df -h .
           python -c "from pathlib import Path; Path('_site/build-report.json').unlink(missing_ok=True)"
           set -o pipefail
           /usr/bin/time -v -o public-build-resources.txt \
