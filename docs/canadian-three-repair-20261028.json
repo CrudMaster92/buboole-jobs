@@ -1,0 +1,46 @@
+{
+  "catalog_commit": "5ee60d72a63ba7e8ad39dc8dfbaecd11d670800a",
+  "catalog_pr": "https://github.com/CrudMaster92/buboole-presets/pull/52",
+  "unchanged_pins": 1170,
+  "total_pins": 1173,
+  "updated_sources": [
+    {
+      "id": "central-toronto-youth-services",
+      "company_id": "central-toronto-youth-services",
+      "company_name": "Central Toronto Youth Services",
+      "revision": 2,
+      "path": "companies/central-toronto-youth-services/monitors/central-toronto-youth-services.json",
+      "sha256": "381fda8f9bc2c720d96e09b4d141732b208f21569ef46cbf0e448708ad98cf1c",
+      "collection_ids": [
+        "canadian-employers-new-30-20261027"
+      ],
+      "catalog_commit": "5ee60d72a63ba7e8ad39dc8dfbaecd11d670800a"
+    },
+    {
+      "id": "city-of-langley",
+      "company_id": "city-of-langley",
+      "company_name": "City of Langley",
+      "revision": 2,
+      "path": "companies/city-of-langley/monitors/city-of-langley.json",
+      "sha256": "521dc8d6b8aead564aaf1f5f8e161c0a151748f9817be854aa14092f54e43643",
+      "collection_ids": [
+        "canadian-employers-new-30-20261027"
+      ],
+      "catalog_commit": "5ee60d72a63ba7e8ad39dc8dfbaecd11d670800a"
+    },
+    {
+      "id": "district-of-saanich",
+      "company_id": "district-of-saanich",
+      "company_name": "District of Saanich",
+      "revision": 2,
+      "path": "companies/district-of-saanich/monitors/district-of-saanich.json",
+      "sha256": "3acc0272e438be136bfb70f2de98882e0b918490ce515cdcc609d50156d7af2f",
+      "collection_ids": [
+        "canadian-employers-new-30-20261027"
+      ],
+      "catalog_commit": "5ee60d72a63ba7e8ad39dc8dfbaecd11d670800a"
+    }
+  ],
+  "exact_blob_hash_and_recipe_validation": true,
+  "runtime_unchanged": true
+}
