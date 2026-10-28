@@ -106,7 +106,7 @@ jobs:
   publish:
     needs: build
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 30
     permissions:
       contents: write
       pages: write
@@ -135,7 +135,9 @@ jobs:
           git -C .publish-state commit -m "Public jobs state ${{ github.run_id }}"
           git -C .publish-state remote add origin "https://github.com/${{ github.repository }}.git"
           auth="$(printf 'x-access-token:%s' "$GH_TOKEN" | base64 -w0)"
-          git -C .publish-state -c "http.extraheader=AUTHORIZATION: basic $auth" push --force-with-lease="refs/heads/feed-state:$old_ref" origin HEAD:feed-state
+          # State and snapshot payloads are already compressed. Avoid expensive
+          # delta searches across them while retaining the exact branch lease.
+          git -C .publish-state -c pack.window=0 -c pack.threads=2 -c "http.extraheader=AUTHORIZATION: basic $auth" push --force-with-lease="refs/heads/feed-state:$old_ref" origin HEAD:feed-state
       - name: Deploy validated snapshot
         id: deployment
         uses: actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e # v4
