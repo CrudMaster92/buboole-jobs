@@ -1,0 +1,338 @@
+{
+  "catalog_commit": "bd0af40fca2440121fd3888f8d71013d35124394",
+  "catalog_pr": "https://github.com/CrudMaster92/buboole-presets/pull/53",
+  "previous_pins": 1173,
+  "added_pins": 27,
+  "new_companies": 25,
+  "total_pins": 1200,
+  "new_pin_hashes_and_runtime_contracts_validated": true,
+  "existing_pins_unchanged": true,
+  "runtime_unchanged": true,
+  "runtime_revision": "f3b4f2500d7a51bf5aa45fd2a2aa0a44d79b7a1f573950fbd9f3bc4d5af48f97",
+  "new_sources": [
+    {
+      "id": "aliments-krispy-kernels",
+      "company_id": "aliments-krispy-kernels",
+      "company_name": "Aliments Krispy Kernels",
+      "revision": 1,
+      "path": "companies/aliments-krispy-kernels/monitors/aliments-krispy-kernels.json",
+      "sha256": "9cbfd64a50107854245ffb553cf1e5ce2f92f3f51517339034a6c98d870b4751",
+      "collection_ids": [
+        "complete-boards-25-20261028"
+      ],
+      "catalog_commit": "bd0af40fca2440121fd3888f8d71013d35124394"
+    },
+    {
+      "id": "axine-water-technologies",
+      "company_id": "axine-water-technologies",
+      "company_name": "Axine Water Technologies",
+      "revision": 1,
+      "path": "companies/axine-water-technologies/monitors/axine-water-technologies.json",
+      "sha256": "4af74d97198ffb5e6d0ef49b9691cac243064357e14e1c5998416effafc1c365",
+      "collection_ids": [
+        "complete-boards-25-20261028"
+      ],
+      "catalog_commit": "bd0af40fca2440121fd3888f8d71013d35124394"
+    },
+    {
+      "id": "biontech",
+      "company_id": "biontech",
+      "company_name": "BioNTech",
+      "revision": 1,
+      "path": "companies/biontech/monitors/biontech.json",
+      "sha256": "fb0a283f1951e410f3b3ee77ea8003f02a9927cfede4bee30250bbb210da1d98",
+      "collection_ids": [
+        "complete-boards-25-20261028"
+      ],
+      "catalog_commit": "bd0af40fca2440121fd3888f8d71013d35124394"
+    },
+    {
+      "id": "biscuits-leclerc-fr",
+      "company_id": "biscuits-leclerc",
+      "company_name": "Biscuits Leclerc",
+      "revision": 1,
+      "path": "companies/biscuits-leclerc/monitors/biscuits-leclerc-fr.json",
+      "sha256": "a0b596c68f50e1eb9c8348e23bd8bc1c17154990ca33ecb1ffa8739008d385f1",
+      "collection_ids": [
+        "complete-boards-25-20261028"
+      ],
+      "catalog_commit": "bd0af40fca2440121fd3888f8d71013d35124394"
+    },
+    {
+      "id": "biscuits-leclerc",
+      "company_id": "biscuits-leclerc",
+      "company_name": "Biscuits Leclerc",
+      "revision": 1,
+      "path": "companies/biscuits-leclerc/monitors/biscuits-leclerc.json",
+      "sha256": "6d508bb68fb8a89ad3d17f576c2fc6072f7782dfd50bff9f2f01fb85cace5f22",
+      "collection_ids": [
+        "complete-boards-25-20261028"
+      ],
+      "catalog_commit": "bd0af40fca2440121fd3888f8d71013d35124394"
+    },
+    {
+      "id": "degelman-industries",
+      "company_id": "degelman-industries",
+      "company_name": "Degelman Industries",
+      "revision": 1,
+      "path": "companies/degelman-industries/monitors/degelman-industries.json",
+      "sha256": "3088d93ab4f3fb8040c2360c62b14be765f4f3391759c8e4e48347357e810424",
+      "collection_ids": [
+        "complete-boards-25-20261028"
+      ],
+      "catalog_commit": "bd0af40fca2440121fd3888f8d71013d35124394"
+    },
+    {
+      "id": "glotman-simpson",
+      "company_id": "glotman-simpson",
+      "company_name": "Glotman Simpson",
+      "revision": 1,
+      "path": "companies/glotman-simpson/monitors/glotman-simpson.json",
+      "sha256": "2b2c8090c37f8d3c892fdb6d84f5510e3ab6a0a7eda17fa9308f719cb403c0de",
+      "collection_ids": [
+        "complete-boards-25-20261028"
+      ],
+      "catalog_commit": "bd0af40fca2440121fd3888f8d71013d35124394"
+    },
+    {
+      "id": "groupe-c-t-inox",
+      "company_id": "groupe-c-t-inox",
+      "company_name": "Groupe Côté Inox",
+      "revision": 1,
+      "path": "companies/groupe-c-t-inox/monitors/groupe-c-t-inox.json",
+      "sha256": "f76a315839bd088bc47fa2381ba21c5bc9159ef2f607fb0a4d063a02a492154b",
+      "collection_ids": [
+        "complete-boards-25-20261028"
+      ],
+      "catalog_commit": "bd0af40fca2440121fd3888f8d71013d35124394"
+    },
+    {
+      "id": "groupe-deschenes",
+      "company_id": "groupe-deschenes",
+      "company_name": "Groupe Deschenes",
+      "revision": 1,
+      "path": "companies/groupe-deschenes/monitors/groupe-deschenes.json",
+      "sha256": "e5095c7a7e343d78b34f2b615f7cdeb45ef5f5a06c65a68d4d1628a8e789ea4a",
+      "collection_ids": [
+        "complete-boards-25-20261028"
+      ],
+      "catalog_commit": "bd0af40fca2440121fd3888f8d71013d35124394"
+    },
+    {
+      "id": "groupe-gilbert",
+      "company_id": "groupe-gilbert",
+      "company_name": "Groupe Gilbert",
+      "revision": 1,
+      "path": "companies/groupe-gilbert/monitors/groupe-gilbert.json",
+      "sha256": "5170db7a60facf55387a3fe539f12132eef86ab481c6ed5136691a646e140259",
+      "collection_ids": [
+        "complete-boards-25-20261028"
+      ],
+      "catalog_commit": "bd0af40fca2440121fd3888f8d71013d35124394"
+    },
+    {
+      "id": "groupe-ppd-en",
+      "company_id": "groupe-ppd",
+      "company_name": "Groupe PPD",
+      "revision": 1,
+      "path": "companies/groupe-ppd/monitors/groupe-ppd-en.json",
+      "sha256": "ce15d906a1f25a745ea8c0fca5ea45b926433edf0d6e9107e43d26c2d6831c01",
+      "collection_ids": [
+        "complete-boards-25-20261028"
+      ],
+      "catalog_commit": "bd0af40fca2440121fd3888f8d71013d35124394"
+    },
+    {
+      "id": "groupe-ppd-fr",
+      "company_id": "groupe-ppd",
+      "company_name": "Groupe PPD",
+      "revision": 1,
+      "path": "companies/groupe-ppd/monitors/groupe-ppd-fr.json",
+      "sha256": "960e12399ac6a2aa60d33e2b5fab9bfbcc0e18bec35f306e08a879e885a3e5e9",
+      "collection_ids": [
+        "complete-boards-25-20261028"
+      ],
+      "catalog_commit": "bd0af40fca2440121fd3888f8d71013d35124394"
+    },
+    {
+      "id": "groupe-tyt",
+      "company_id": "groupe-tyt",
+      "company_name": "Groupe TYT",
+      "revision": 1,
+      "path": "companies/groupe-tyt/monitors/groupe-tyt.json",
+      "sha256": "547ae7385480fbf5a40fb7e56faf0b9a63d9467dbfb8cbbf8ae52aa108780d66",
+      "collection_ids": [
+        "complete-boards-25-20261028"
+      ],
+      "catalog_commit": "bd0af40fca2440121fd3888f8d71013d35124394"
+    },
+    {
+      "id": "industries-bonneville",
+      "company_id": "industries-bonneville",
+      "company_name": "Industries Bonneville",
+      "revision": 1,
+      "path": "companies/industries-bonneville/monitors/industries-bonneville.json",
+      "sha256": "d5ce122c5b3a170ef32ad1b03e0fd31ea571265922752b2edccd22b66d01d5ee",
+      "collection_ids": [
+        "complete-boards-25-20261028"
+      ],
+      "catalog_commit": "bd0af40fca2440121fd3888f8d71013d35124394"
+    },
+    {
+      "id": "industries-mailhot",
+      "company_id": "industries-mailhot",
+      "company_name": "Industries Mailhot",
+      "revision": 1,
+      "path": "companies/industries-mailhot/monitors/industries-mailhot.json",
+      "sha256": "72098b6b3e9f93d838433d8326c1b4b04e2221f636ee30706aa4e257942d9bc4",
+      "collection_ids": [
+        "complete-boards-25-20261028"
+      ],
+      "catalog_commit": "bd0af40fca2440121fd3888f8d71013d35124394"
+    },
+    {
+      "id": "kpmb-architects",
+      "company_id": "kpmb-architects",
+      "company_name": "KPMB Architects",
+      "revision": 1,
+      "path": "companies/kpmb-architects/monitors/kpmb-architects.json",
+      "sha256": "5a22646559cde6dd955bcf0fdcd0f0932a10d2d9ec235359ece7f55c6ff5bc3b",
+      "collection_ids": [
+        "complete-boards-25-20261028"
+      ],
+      "catalog_commit": "bd0af40fca2440121fd3888f8d71013d35124394"
+    },
+    {
+      "id": "macdon-industries",
+      "company_id": "macdon-industries",
+      "company_name": "MacDon Industries",
+      "revision": 1,
+      "path": "companies/macdon-industries/monitors/macdon-industries.json",
+      "sha256": "a37f5c8b7110d8c8ef4f7a26c54f56c6602ebad62b41897fb9432ece25dc8fc7",
+      "collection_ids": [
+        "complete-boards-25-20261028"
+      ],
+      "catalog_commit": "bd0af40fca2440121fd3888f8d71013d35124394"
+    },
+    {
+      "id": "manac",
+      "company_id": "manac",
+      "company_name": "Manac",
+      "revision": 1,
+      "path": "companies/manac/monitors/manac.json",
+      "sha256": "b0754f6dc17732a3d3c0b1b025c06e7151e2ba53e02e7fb06f3623c82f96e77a",
+      "collection_ids": [
+        "complete-boards-25-20261028"
+      ],
+      "catalog_commit": "bd0af40fca2440121fd3888f8d71013d35124394"
+    },
+    {
+      "id": "marmen",
+      "company_id": "marmen",
+      "company_name": "Marmen",
+      "revision": 1,
+      "path": "companies/marmen/monitors/marmen.json",
+      "sha256": "ee62f37e1628e24301ff534ee082f880559af1fe665637b5942402360469e8ea",
+      "collection_ids": [
+        "complete-boards-25-20261028"
+      ],
+      "catalog_commit": "bd0af40fca2440121fd3888f8d71013d35124394"
+    },
+    {
+      "id": "pattison-outdoor",
+      "company_id": "pattison-outdoor",
+      "company_name": "Pattison Outdoor",
+      "revision": 1,
+      "path": "companies/pattison-outdoor/monitors/pattison-outdoor.json",
+      "sha256": "a9cbbc8cad05c1c552ce2215aab11d514c54bb1aa91957244ea495f5dd6189a6",
+      "collection_ids": [
+        "complete-boards-25-20261028"
+      ],
+      "catalog_commit": "bd0af40fca2440121fd3888f8d71013d35124394"
+    },
+    {
+      "id": "plastiques-gagnon",
+      "company_id": "plastiques-gagnon",
+      "company_name": "Plastiques Gagnon",
+      "revision": 1,
+      "path": "companies/plastiques-gagnon/monitors/plastiques-gagnon.json",
+      "sha256": "bef8f697da65ebec04d544e25609d8df971983d8f19b3c29e9c876215b4ce265",
+      "collection_ids": [
+        "complete-boards-25-20261028"
+      ],
+      "catalog_commit": "bd0af40fca2440121fd3888f8d71013d35124394"
+    },
+    {
+      "id": "proco",
+      "company_id": "proco",
+      "company_name": "Proco",
+      "revision": 1,
+      "path": "companies/proco/monitors/proco.json",
+      "sha256": "89edb856c64bbfd018cee50733ded44d7364cb0aff5b606f40144a0eb6fe6038",
+      "collection_ids": [
+        "complete-boards-25-20261028"
+      ],
+      "catalog_commit": "bd0af40fca2440121fd3888f8d71013d35124394"
+    },
+    {
+      "id": "propair",
+      "company_id": "propair",
+      "company_name": "Propair",
+      "revision": 1,
+      "path": "companies/propair/monitors/propair.json",
+      "sha256": "b56ac96c33c2505629f960428d2317e6917f402b83de35edf9df343124aa456f",
+      "collection_ids": [
+        "complete-boards-25-20261028"
+      ],
+      "catalog_commit": "bd0af40fca2440121fd3888f8d71013d35124394"
+    },
+    {
+      "id": "prorec",
+      "company_id": "prorec",
+      "company_name": "Prorec",
+      "revision": 1,
+      "path": "companies/prorec/monitors/prorec.json",
+      "sha256": "1218ca145a02aafb7b75c50aa7b6bea062e4b8f0b8fb0b629099a68243d0b0e7",
+      "collection_ids": [
+        "complete-boards-25-20261028"
+      ],
+      "catalog_commit": "bd0af40fca2440121fd3888f8d71013d35124394"
+    },
+    {
+      "id": "rmh-industries",
+      "company_id": "rmh-industries",
+      "company_name": "RMH Industries",
+      "revision": 1,
+      "path": "companies/rmh-industries/monitors/rmh-industries.json",
+      "sha256": "1f67dd8669a442fa1594b4ecf99ac0b54f01a17769962f6c7527ecf8caf05b8d",
+      "collection_ids": [
+        "complete-boards-25-20261028"
+      ],
+      "catalog_commit": "bd0af40fca2440121fd3888f8d71013d35124394"
+    },
+    {
+      "id": "viandes-dubreton",
+      "company_id": "viandes-dubreton",
+      "company_name": "Viandes duBreton",
+      "revision": 1,
+      "path": "companies/viandes-dubreton/monitors/viandes-dubreton.json",
+      "sha256": "6f429b6f7d631ca84f2424bd5f5083d1ffa3bd0167a491eb4099850674c3e00c",
+      "collection_ids": [
+        "complete-boards-25-20261028"
+      ],
+      "catalog_commit": "bd0af40fca2440121fd3888f8d71013d35124394"
+    },
+    {
+      "id": "vitacore-industries",
+      "company_id": "vitacore-industries",
+      "company_name": "Vitacore Industries",
+      "revision": 1,
+      "path": "companies/vitacore-industries/monitors/vitacore-industries.json",
+      "sha256": "ee89f2f31c4b19c114eacc4116557a8fb9b95830822a4379cd5333a52bcccc4c",
+      "collection_ids": [
+        "complete-boards-25-20261028"
+      ],
+      "catalog_commit": "bd0af40fca2440121fd3888f8d71013d35124394"
+    }
+  ]
+}
