@@ -31,6 +31,14 @@
         },
         {
           "run": "PYTHONPATH=. python -u scripts/check_additional_sources.py"
+        },
+        {
+          "uses": "actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02",
+          "with": {
+            "name": "additional-source-results",
+            "path": "additional-source-results.json",
+            "retention-days": 3
+          }
         }
       ]
     }

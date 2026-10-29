@@ -1,29 +1,19 @@
-import json,time,traceback,httpx
+import json,time,concurrent.futures as cf
 from pathlib import Path
-from bs4 import BeautifulSoup
-import bs4,soupsieve
-from server.public_jobs.catalog import load_monitors
+from datetime import datetime,timezone
+from urllib.parse import urlsplit
+from server.scrapers import ScraperRecipe,run_scraper
 from server.public_jobs.collector import PublicClient,HostLimiter
-from server.scrapers import run_scraper
-from server.scrapers.http import bounded_request
-print('VERSIONS',bs4.__version__,soupsieve.__version__,flush=True)
-ids={'armatures-bois-francs','groupe-morin','laser-amp','laser-amp-en','laserax','laserax-en','laserax-de'}
-lock=json.loads(Path('catalog-lock.json').read_text());lock['monitors']=[s for s in lock['monitors'] if s['id'] in ids]
-monitors=load_monitors(Path('.catalog'),lock)
-print('SPEC TYPE',type(monitors),flush=True)
-for m,r in monitors:
- print('MONITOR',m['id'],flush=True)
- for sel in r.selectors.values():
-  try:soupsieve.compile(sel)
-  except Exception:traceback.print_exc()
- try:
-  resp=httpx.get(r.request.url,params=r.request.params,timeout=35,follow_redirects=True);print('RAW',resp.status_code,resp.url,'redirects',[(h.status_code,h.url,h.headers.get('Location')) for h in resp.history], 'title',str(BeautifulSoup(resp.content,'html.parser').title),flush=True)
- except Exception:traceback.print_exc()
- try:
-  with PublicClient(HostLimiter(),time.monotonic()+120) as client:
-   raw=bounded_request(r.request,r.allowed_hosts,client=client);print('BOUNDED',raw.status_code,raw.url,flush=True)
- except Exception:traceback.print_exc()
- try:
-  with PublicClient(HostLimiter(),time.monotonic()+150) as client:out=run_scraper(r,client=client,detail_cache={})
-  print('RESULT',len(out.jobs),out.complete,out.warnings,flush=True)
- except Exception:traceback.print_exc()
+specs=json.loads(Path('scripts/additional-source-candidates.json').read_text());limiter=HostLimiter()
+def one(s):
+ r=ScraperRecipe.model_validate(s['recipe']);cache={}
+ for attempt in range(10):
+  with PublicClient(limiter,time.monotonic()+180) as client:out=run_scraper(r,client=client,detail_cache=cache)
+  if not out.continuation_ready:break
+ assert out.complete and out.jobs and not out.continuation_ready,(s['id'],out.complete,out.warnings)
+ assert all(urlsplit(j.source_url).hostname in r.allowed_hosts for j in out.jobs)
+ row={'id':s['id'],'checked_at':datetime.now(timezone.utc).isoformat(),'complete':out.complete,'job_count':len(out.jobs),'pages':out.pages_fetched,'warnings':out.warnings,'titles':[j.title for j in out.jobs],'source_urls':[j.source_url for j in out.jobs]}
+ print('VERIFIED_SOURCE '+json.dumps(row,ensure_ascii=False),flush=True);return row
+with cf.ThreadPoolExecutor(max_workers=3) as pool:rows=list(pool.map(one,specs))
+Path('additional-source-results.json').write_text(json.dumps(rows,indent=2,ensure_ascii=False)+'\n')
+print('ALL_CANDIDATES_COMPLETE',len(rows),sum(r['job_count'] for r in rows))
