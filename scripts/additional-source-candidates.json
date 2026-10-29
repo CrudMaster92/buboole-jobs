@@ -643,105 +643,100 @@
     }
   },
   {
-    "id": "groupe-honco",
+    "id": "tc-industries",
     "company": {
-      "id": "groupe-honco",
-      "name": "Groupe Honco",
-      "domain": "groupehonco.com",
+      "id": "tc-industries",
+      "name": "TC Industries",
+      "domain": "tcindustries.com",
       "a": "",
       "b": "",
       "hub": "Global",
       "pages": [
         {
-          "url": "https://groupehonco.com/carrieres/",
+          "url": "https://tcindustries.com/careers/",
           "status": 200,
-          "file": "C:\\Users\\jomen\\OneDrive\\Documents\\ChatGPT\\Job Claw (Site)\\research\\next-25-20261028\\pages\\groupe-honco-0.html",
+          "file": "C:\\Users\\jomen\\OneDrive\\Documents\\ChatGPT\\Job Claw (Site)\\research\\next-25-20261028\\pages\\tc-industries-0.html",
           "links": [
             {
-              "text": "Aller au contenu",
-              "url": "https://groupehonco.com/carrieres/#content"
+              "text": "Apply Today",
+              "url": "https://tcindustries.com/careers/"
             },
             {
-              "text": "Carrières",
-              "url": "https://groupehonco.com/carrieres/"
-            },
-            {
-              "text": "Carrières",
-              "url": "https://groupehonco.com/carrieres/"
-            },
-            {
-              "text": "www.jobdacier.com",
-              "url": "http://www.jobdacier.com"
-            },
-            {
-              "text": "Voir les offres",
-              "url": "https://jobdacier.com/"
-            },
-            {
-              "text": "Je m'abonne",
-              "url": "https://jobdacier.com/infolettre/"
-            },
-            {
-              "text": "En savoir plus",
-              "url": "https://jobdacier.com"
-            },
-            {
-              "text": "Carrières",
-              "url": "https://groupehonco.com/carrieres/"
-            },
-            {
-              "text": "je M'abonne",
-              "url": "http://landing.honco.ca/emploi-construction-batiment-acier"
-            },
-            {
-              "text": "Facebook-f",
-              "url": "https://www.facebook.com/jobdacier"
+              "text": "Careers",
+              "url": "https://tcindustries.com/contact/careers/"
             }
           ],
-          "iframes": [
-            "https://www.googletagmanager.com/ns.html?id=GTM-P8RHS644"
-          ]
+          "iframes": []
+        },
+        {
+          "url": "https://tcindustries.com/careers/",
+          "status": 200,
+          "file": "C:\\Users\\jomen\\OneDrive\\Documents\\ChatGPT\\Job Claw (Site)\\research\\next-25-20261028\\pages\\tc-industries-1.html",
+          "links": [
+            {
+              "text": "Apply Today",
+              "url": "https://tcindustries.com/careers/"
+            },
+            {
+              "text": "Careers",
+              "url": "https://tcindustries.com/contact/careers/"
+            }
+          ],
+          "iframes": []
         }
       ]
     },
     "recipe": {
       "version": 1,
       "coverage_mode": "all",
-      "company": "Groupe Honco",
-      "careers_url": "https://jobdacier.com/carrieres",
-      "strategy": "generic_html",
+      "company": "TC Industries",
+      "careers_url": "https://workforcenow.adp.com/mascsr/default/mdf/recruitment/recruitment.html?cid=9e6c3835-f8f3-4797-8a07-263db5c91b1f&ccId=19000101_000001&lang=en_US",
+      "strategy": "generic_json",
       "allowed_hosts": [
-        "jobdacier.com"
+        "tcindustries.com",
+        "workforcenow.adp.com"
       ],
       "request": {
-        "url": "https://jobdacier.com/carrieres/",
+        "url": "https://workforcenow.adp.com/mascsr/default/careercenter/public/events/staffing/v1/job-requisitions",
         "method": "GET",
-        "headers": {
-          "Accept": "text/html"
+        "headers": {},
+        "params": {
+          "cid": "9e6c3835-f8f3-4797-8a07-263db5c91b1f",
+          "ccId": "19000101_000001",
+          "lang": "en_US"
         },
-        "params": {},
         "json_body": null,
         "timeout_seconds": 20.0,
         "max_response_bytes": 20000000
       },
       "pagination": {
-        "kind": "none",
-        "parameter": null,
-        "page_size_parameter": null,
-        "page_size": 100,
+        "kind": "offset",
+        "parameter": "$skip",
+        "page_size_parameter": "$top",
+        "page_size": 20,
         "max_pages": null,
         "next_path": null
       },
       "source_key": null,
       "source_filter": null,
       "selectors": {
-        "item": "a.gtm-cta-2",
-        "title": ".c-text-titre span",
-        "link": ":scope",
-        "location": ".c-text-uppercase span"
+        "item": "tr:has(.jv-job-list-name)",
+        "title": ".jv-job-list-name a",
+        "link": ".jv-job-list-name a",
+        "location": ".jv-job-list-location"
       },
-      "mapping": {},
-      "metadata": {}
+      "mapping": {
+        "items": "jobRequisitions",
+        "source_id": "itemID",
+        "title": "requisitionTitle",
+        "url": "customFieldGroup.stringFields.0.stringValue",
+        "location": "requisitionLocations.0.nameCode.shortName",
+        "posted_date": "postDate",
+        "employment_type": "workLevelCode.shortName"
+      },
+      "metadata": {
+        "posting_url_template": "https://workforcenow.adp.com/mascsr/default/mdf/recruitment/recruitment.html?cid=9e6c3835-f8f3-4797-8a07-263db5c91b1f&ccId=19000101_000001&lang=en_US&jobId={url}"
+      }
     }
   },
   {
@@ -843,7 +838,7 @@
           "_fields": "id,title,link,content"
         },
         "json_body": null,
-        "timeout_seconds": 45,
+        "timeout_seconds": 30,
         "max_response_bytes": 20000000
       },
       "pagination": {
