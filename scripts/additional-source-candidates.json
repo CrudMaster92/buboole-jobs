@@ -1,124 +1,721 @@
 [
   {
-    "id": "armatures-bois-francs",
+    "id": "inogec",
     "company": {
-      "id": "armatures-bois-francs",
-      "name": "Armatures Bois-Francs",
-      "domain": "abf-inc.com",
+      "id": "inogec",
+      "name": "INOGEC",
+      "domain": "inogec.com",
       "a": "",
       "b": "",
-      "hub": "Quebec",
+      "hub": "Global",
       "pages": [
         {
-          "url": "https://abf-inc.com/carriere/",
+          "url": "https://www.inogec.com/careers",
           "status": 200,
-          "file": "C:\\Users\\jomen\\OneDrive\\Documents\\ChatGPT\\Job Claw (Site)\\research\\next-25-20261028\\pages\\armatures-bois-francs-0.html",
+          "file": "C:\\Users\\jomen\\OneDrive\\Documents\\ChatGPT\\Job Claw (Site)\\research\\next-25-20261028\\pages\\inogec-0.html",
           "links": [
             {
-              "text": "Aller au contenu",
-              "url": "https://abf-inc.com/carriere/#content"
+              "text": "Skip to Content",
+              "url": "https://www.inogec.com/careers#wrap"
             },
             {
-              "text": "Carrière",
-              "url": "https://abf-inc.com/carriere/"
+              "text": "AGV",
+              "url": "https://www.inogec.com/careers"
             },
             {
-              "text": "English",
-              "url": "https://abf-inc.com/en/career/"
+              "text": "Equipment",
+              "url": "https://www.inogec.com/careers"
             },
             {
-              "text": "Carrière",
-              "url": "https://abf-inc.com/carriere/"
+              "text": "02 Gantry & manipulators Lift, position, and assemble with precision.",
+              "url": "https://www.inogec.com/equipment/gantry"
             },
             {
-              "text": "English",
-              "url": "https://abf-inc.com/en/career/"
+              "text": "Careers",
+              "url": "https://www.inogec.com/careers"
             },
             {
-              "text": "Carrière",
-              "url": "https://abf-inc.com/carriere/"
+              "text": "Français",
+              "url": "https://www.inogec.com/fr/careers"
             },
             {
-              "text": "Carrière",
-              "url": "https://abf-inc.com/carriere/"
+              "text": "FR",
+              "url": "https://www.inogec.com/fr/careers"
             },
             {
-              "text": "English",
-              "url": "https://abf-inc.com/en/career/"
+              "text": "Join the team",
+              "url": "https://www.inogec.com/careers#join"
             },
             {
-              "text": "English",
-              "url": "https://abf-inc.com/en/career/"
+              "text": "Life at Inogec",
+              "url": "https://www.inogec.com/careers#life"
             },
             {
-              "text": "",
-              "url": "https://abf-inc.com/carriere/camionneur%c2%b7euse-repartiteur%c2%b7trice/"
+              "text": "What we offer",
+              "url": "https://www.inogec.com/careers#conditions"
             },
             {
-              "text": "",
-              "url": "https://abf-inc.com/carriere/chef%c2%b7fe-dequipe-duplicate/"
+              "text": "Join us",
+              "url": "https://www.inogec.com/careers#join"
             },
             {
-              "text": "",
-              "url": "https://abf-inc.com/carriere/conseiller%c2%b7ere-rh/"
+              "text": "See openings on Jobillico",
+              "url": "https://www.jobillico.com/fr/employeurs/inogec-inc/voir-liste-emplois"
             },
             {
-              "text": "",
-              "url": "https://abf-inc.com/carriere/coordonnateur%c2%b7trice-sst/"
-            },
-            {
-              "text": "Candidature spontanée",
-              "url": "https://abf-inc.com/carriere/#candidatureSpon"
-            },
-            {
-              "text": "Postuler maintenant",
-              "url": "https://abf-inc.com/carriere/#candidatureSpon"
+              "text": "Careers",
+              "url": "https://www.inogec.com/careers"
             }
           ],
           "iframes": []
+        },
+        {
+          "url": "https://www.inogec.com/fr/careers",
+          "status": 200,
+          "file": "C:\\Users\\jomen\\OneDrive\\Documents\\ChatGPT\\Job Claw (Site)\\research\\next-25-20261028\\pages\\inogec-1.html",
+          "links": [
+            {
+              "text": "Passer au contenu",
+              "url": "https://www.inogec.com/fr/careers#wrap"
+            },
+            {
+              "text": "AGV",
+              "url": "https://www.inogec.com/fr/careers"
+            },
+            {
+              "text": "Équipements",
+              "url": "https://www.inogec.com/fr/careers"
+            },
+            {
+              "text": "02 Portiques & manipulateurs Lever, positionner et assembler avec précision.",
+              "url": "https://www.inogec.com/fr/equipment/gantry"
+            },
+            {
+              "text": "Carrières",
+              "url": "https://www.inogec.com/fr/careers"
+            },
+            {
+              "text": "English",
+              "url": "https://www.inogec.com/careers"
+            },
+            {
+              "text": "EN",
+              "url": "https://www.inogec.com/careers"
+            },
+            {
+              "text": "Joindre l’équipe",
+              "url": "https://www.inogec.com/fr/careers#join"
+            },
+            {
+              "text": "La vie chez Inogec",
+              "url": "https://www.inogec.com/fr/careers#life"
+            },
+            {
+              "text": "Ce que nous offrons",
+              "url": "https://www.inogec.com/fr/careers#conditions"
+            },
+            {
+              "text": "Joignez-nous",
+              "url": "https://www.inogec.com/fr/careers#join"
+            },
+            {
+              "text": "Voir les postes sur Jobillico",
+              "url": "https://www.jobillico.com/fr/employeurs/inogec-inc/voir-liste-emplois"
+            },
+            {
+              "text": "Voir les postes sur Indeed",
+              "url": "https://emplois.ca.indeed.com/cmp/Inogec-Inc.-1"
+            },
+            {
+              "text": "Carrières",
+              "url": "https://www.inogec.com/fr/careers"
+            }
+          ],
+          "iframes": []
+        },
+        {
+          "url": "https://www.inogec.com/careers#wrap",
+          "status": 200,
+          "file": "C:\\Users\\jomen\\OneDrive\\Documents\\ChatGPT\\Job Claw (Site)\\research\\next-25-20261028\\pages\\inogec-2.html",
+          "links": [
+            {
+              "text": "Skip to Content",
+              "url": "https://www.inogec.com/careers#wrap"
+            },
+            {
+              "text": "AGV",
+              "url": "https://www.inogec.com/careers"
+            },
+            {
+              "text": "Equipment",
+              "url": "https://www.inogec.com/careers"
+            },
+            {
+              "text": "02 Gantry & manipulators Lift, position, and assemble with precision.",
+              "url": "https://www.inogec.com/equipment/gantry"
+            },
+            {
+              "text": "Careers",
+              "url": "https://www.inogec.com/careers"
+            },
+            {
+              "text": "Français",
+              "url": "https://www.inogec.com/fr/careers"
+            },
+            {
+              "text": "FR",
+              "url": "https://www.inogec.com/fr/careers"
+            },
+            {
+              "text": "Join the team",
+              "url": "https://www.inogec.com/careers#join"
+            },
+            {
+              "text": "Life at Inogec",
+              "url": "https://www.inogec.com/careers#life"
+            },
+            {
+              "text": "What we offer",
+              "url": "https://www.inogec.com/careers#conditions"
+            },
+            {
+              "text": "Join us",
+              "url": "https://www.inogec.com/careers#join"
+            },
+            {
+              "text": "See openings on Jobillico",
+              "url": "https://www.jobillico.com/fr/employeurs/inogec-inc/voir-liste-emplois"
+            },
+            {
+              "text": "Careers",
+              "url": "https://www.inogec.com/careers"
+            }
+          ],
+          "iframes": []
+        },
+        {
+          "url": "https://www.inogec.com/careers#join",
+          "status": 200,
+          "file": "C:\\Users\\jomen\\OneDrive\\Documents\\ChatGPT\\Job Claw (Site)\\research\\next-25-20261028\\pages\\inogec-3.html",
+          "links": [
+            {
+              "text": "Skip to Content",
+              "url": "https://www.inogec.com/careers#wrap"
+            },
+            {
+              "text": "AGV",
+              "url": "https://www.inogec.com/careers"
+            },
+            {
+              "text": "Equipment",
+              "url": "https://www.inogec.com/careers"
+            },
+            {
+              "text": "02 Gantry & manipulators Lift, position, and assemble with precision.",
+              "url": "https://www.inogec.com/equipment/gantry"
+            },
+            {
+              "text": "Careers",
+              "url": "https://www.inogec.com/careers"
+            },
+            {
+              "text": "Français",
+              "url": "https://www.inogec.com/fr/careers"
+            },
+            {
+              "text": "FR",
+              "url": "https://www.inogec.com/fr/careers"
+            },
+            {
+              "text": "Join the team",
+              "url": "https://www.inogec.com/careers#join"
+            },
+            {
+              "text": "Life at Inogec",
+              "url": "https://www.inogec.com/careers#life"
+            },
+            {
+              "text": "What we offer",
+              "url": "https://www.inogec.com/careers#conditions"
+            },
+            {
+              "text": "Join us",
+              "url": "https://www.inogec.com/careers#join"
+            },
+            {
+              "text": "See openings on Jobillico",
+              "url": "https://www.jobillico.com/fr/employeurs/inogec-inc/voir-liste-emplois"
+            },
+            {
+              "text": "Careers",
+              "url": "https://www.inogec.com/careers"
+            }
+          ],
+          "iframes": []
+        },
+        {
+          "url": "https://www.inogec.com/careers#life",
+          "status": 200,
+          "file": "C:\\Users\\jomen\\OneDrive\\Documents\\ChatGPT\\Job Claw (Site)\\research\\next-25-20261028\\pages\\inogec-4.html",
+          "links": [
+            {
+              "text": "Skip to Content",
+              "url": "https://www.inogec.com/careers#wrap"
+            },
+            {
+              "text": "AGV",
+              "url": "https://www.inogec.com/careers"
+            },
+            {
+              "text": "Equipment",
+              "url": "https://www.inogec.com/careers"
+            },
+            {
+              "text": "02 Gantry & manipulators Lift, position, and assemble with precision.",
+              "url": "https://www.inogec.com/equipment/gantry"
+            },
+            {
+              "text": "Careers",
+              "url": "https://www.inogec.com/careers"
+            },
+            {
+              "text": "Français",
+              "url": "https://www.inogec.com/fr/careers"
+            },
+            {
+              "text": "FR",
+              "url": "https://www.inogec.com/fr/careers"
+            },
+            {
+              "text": "Join the team",
+              "url": "https://www.inogec.com/careers#join"
+            },
+            {
+              "text": "Life at Inogec",
+              "url": "https://www.inogec.com/careers#life"
+            },
+            {
+              "text": "What we offer",
+              "url": "https://www.inogec.com/careers#conditions"
+            },
+            {
+              "text": "Join us",
+              "url": "https://www.inogec.com/careers#join"
+            },
+            {
+              "text": "See openings on Jobillico",
+              "url": "https://www.jobillico.com/fr/employeurs/inogec-inc/voir-liste-emplois"
+            },
+            {
+              "text": "Careers",
+              "url": "https://www.inogec.com/careers"
+            }
+          ],
+          "iframes": []
+        },
+        {
+          "url": "https://www.inogec.com/careers#conditions",
+          "status": 200,
+          "file": "C:\\Users\\jomen\\OneDrive\\Documents\\ChatGPT\\Job Claw (Site)\\research\\next-25-20261028\\pages\\inogec-5.html",
+          "links": [
+            {
+              "text": "Skip to Content",
+              "url": "https://www.inogec.com/careers#wrap"
+            },
+            {
+              "text": "AGV",
+              "url": "https://www.inogec.com/careers"
+            },
+            {
+              "text": "Equipment",
+              "url": "https://www.inogec.com/careers"
+            },
+            {
+              "text": "02 Gantry & manipulators Lift, position, and assemble with precision.",
+              "url": "https://www.inogec.com/equipment/gantry"
+            },
+            {
+              "text": "Careers",
+              "url": "https://www.inogec.com/careers"
+            },
+            {
+              "text": "Français",
+              "url": "https://www.inogec.com/fr/careers"
+            },
+            {
+              "text": "FR",
+              "url": "https://www.inogec.com/fr/careers"
+            },
+            {
+              "text": "Join the team",
+              "url": "https://www.inogec.com/careers#join"
+            },
+            {
+              "text": "Life at Inogec",
+              "url": "https://www.inogec.com/careers#life"
+            },
+            {
+              "text": "What we offer",
+              "url": "https://www.inogec.com/careers#conditions"
+            },
+            {
+              "text": "Join us",
+              "url": "https://www.inogec.com/careers#join"
+            },
+            {
+              "text": "See openings on Jobillico",
+              "url": "https://www.jobillico.com/fr/employeurs/inogec-inc/voir-liste-emplois"
+            },
+            {
+              "text": "Careers",
+              "url": "https://www.inogec.com/careers"
+            }
+          ],
+          "iframes": []
+        },
+        {
+          "url": "https://www.jobillico.com/fr/employeurs/inogec-inc/voir-liste-emplois",
+          "status": 200,
+          "file": "C:\\Users\\jomen\\OneDrive\\Documents\\ChatGPT\\Job Claw (Site)\\research\\next-25-20261028\\pages\\inogec-6.html",
+          "links": [
+            {
+              "text": "",
+              "url": "https://www.jobillico.com/fr/"
+            },
+            {
+              "text": "Emplois Temps plein",
+              "url": "https://www.jobillico.com/recherche-emploi/temps-plein"
+            },
+            {
+              "text": "Emplois Temps partiel",
+              "url": "https://www.jobillico.com/recherche-emploi/temps-partiel"
+            },
+            {
+              "text": "Emplois Télétravail",
+              "url": "https://www.jobillico.com/recherche-emploi/teletravail"
+            },
+            {
+              "text": "Guide carrière",
+              "url": "https://www.jobillico.com/guide-carriere"
+            },
+            {
+              "text": "Salaires au Canada",
+              "url": "https://www.jobillico.com/salaires"
+            },
+            {
+              "text": "Blog J!",
+              "url": "https://www.jobillico.com/blog/"
+            },
+            {
+              "text": "Publier une offre",
+              "url": "https://www.jobillico.com/fr/joindre-reseau"
+            },
+            {
+              "text": "Guide carrière",
+              "url": "https://www.jobillico.com/guide-carriere"
+            },
+            {
+              "text": "Salaires au Canada",
+              "url": "https://www.jobillico.com/salaires"
+            },
+            {
+              "text": "Blog J!",
+              "url": "https://www.jobillico.com/blog/"
+            },
+            {
+              "text": "Publier une offre",
+              "url": "https://www.jobillico.com/fr/joindre-reseau"
+            },
+            {
+              "text": "Emplois étudiants",
+              "url": "https://www.jobillico.com/recherche-emploi/emploi+etudiant"
+            },
+            {
+              "text": "Emplois temps partiel",
+              "url": "https://www.jobillico.com/recherche-emploi/temps+partiel"
+            },
+            {
+              "text": "Emplois à Toronto",
+              "url": "https://www.jobillico.com/recherche-emploi/toronto/ontario"
+            },
+            {
+              "text": "Emplois à Montréal",
+              "url": "https://www.jobillico.com/recherche-emploi/montreal/quebec"
+            },
+            {
+              "text": "Emplois à Mississauga",
+              "url": "https://www.jobillico.com/recherche-emploi/mississauga/ontario"
+            },
+            {
+              "text": "Emplois à Québec",
+              "url": "https://www.jobillico.com/recherche-emploi/quebec/quebec"
+            },
+            {
+              "text": "Emplois à Laval",
+              "url": "https://www.jobillico.com/recherche-emploi/laval/quebec"
+            },
+            {
+              "text": "Voir plus d'emplois par ville",
+              "url": "https://www.jobillico.com/choisir-ville"
+            },
+            {
+              "text": "Emplois en vente",
+              "url": "https://www.jobillico.com/recherche-emploi/ventes"
+            },
+            {
+              "text": "Emplois en assurance",
+              "url": "https://www.jobillico.com/recherche-emploi/assurance+..+actuariat"
+            },
+            {
+              "text": "Emplois en comptabilité",
+              "url": "https://www.jobillico.com/recherche-emploi/comptabilite"
+            },
+            {
+              "text": "Emplois en transport",
+              "url": "https://www.jobillico.com/recherche-emploi/transports"
+            },
+            {
+              "text": "Voir plus d'emplois par profession",
+              "url": "https://www.jobillico.com/choisir-secteur-activite"
+            },
+            {
+              "text": "Notre réseau d’employeurs",
+              "url": "https://www.jobillico.com/recherche-entreprise"
+            },
+            {
+              "text": "Employeurs en assurance",
+              "url": "https://www.jobillico.com/recherche-entreprise/assurances"
+            },
+            {
+              "text": "Employeurs en commerce de détail",
+              "url": "https://www.jobillico.com/recherche-entreprise/commerce+de+detail"
+            },
+            {
+              "text": "Employeurs en industries manufacturières",
+              "url": "https://www.jobillico.com/recherche-entreprise/industries+manufacturieres"
+            },
+            {
+              "text": "Employeurs en transport",
+              "url": "https://www.jobillico.com/recherche-entreprise/transport+et+entreposage"
+            },
+            {
+              "text": "Voir plus d'employeurs par industrie",
+              "url": "https://www.jobillico.com/choisir-industrie"
+            },
+            {
+              "text": "Se connecter",
+              "url": "https://www.jobillico.com/connexion"
+            },
+            {
+              "text": "Recherche entreprise",
+              "url": "https://www.jobillico.com/recherche-entreprise"
+            },
+            {
+              "text": "INOGEC inc.",
+              "url": "https://www.jobillico.com/voir-entreprise/inogec-inc"
+            },
+            {
+              "text": "Suivre l'entreprise sur jobillico",
+              "url": "https://www.jobillico.com/entreprise/suivre/48492/liste-emplois/inogec-inc"
+            },
+            {
+              "text": "Ingénieur(e) Concepteur(trice) en électricité et automatisation",
+              "url": "https://www.jobillico.com/fr/offre-d-emploi/inogec-inc/ingenieur-e-concepteur-trice-en-electricite-et-automatisation-/17596110"
+            },
+            {
+              "text": "INOGEC inc.",
+              "url": "https://www.jobillico.com/voir-entreprise/inogec-inc"
+            },
+            {
+              "text": "conditions d'utilisations",
+              "url": "https://www.jobillico.com/termes-conditions"
+            },
+            {
+              "text": "politique de confidentialité",
+              "url": "https://www.jobillico.com/politique-de-confidentialite"
+            },
+            {
+              "text": "politique relative aux fichier témoins",
+              "url": "https://www.jobillico.com/politique-fichiers-temoins"
+            },
+            {
+              "text": "Mot de passe oublié?",
+              "url": "https://www.jobillico.com/connexion/oublier"
+            },
+            {
+              "text": "conditions d'utilisations",
+              "url": "https://www.jobillico.com/termes-conditions"
+            },
+            {
+              "text": "politique de confidentialité",
+              "url": "https://www.jobillico.com/politique-de-confidentialite"
+            },
+            {
+              "text": "politique relative aux fichier témoins",
+              "url": "https://www.jobillico.com/politique-fichiers-temoins"
+            },
+            {
+              "text": "Carrières à Québec",
+              "url": "https://www.jobillico.com/fr/employeurs/jobillico-inc/voir-liste-emplois"
+            },
+            {
+              "text": "Entreprises au Canada",
+              "url": "https://www.jobillico.com/entreprise-canada"
+            },
+            {
+              "text": "Devenir un partenaire",
+              "url": "https://www.jobillico.com/partenaires/inscription"
+            },
+            {
+              "text": "Emplois à Toronto",
+              "url": "https://www.jobillico.com/recherche-emploi/toronto/ontario"
+            },
+            {
+              "text": "Emplois à Montréal",
+              "url": "https://www.jobillico.com/recherche-emploi/montreal/quebec"
+            },
+            {
+              "text": "Emplois à Mississauga",
+              "url": "https://www.jobillico.com/recherche-emploi/mississauga/ontario"
+            },
+            {
+              "text": "Emplois à Québec",
+              "url": "https://www.jobillico.com/recherche-emploi/quebec/quebec"
+            },
+            {
+              "text": "Emplois à Laval",
+              "url": "https://www.jobillico.com/recherche-emploi/laval/quebec"
+            },
+            {
+              "text": "Voir plus d'emplois par ville >",
+              "url": "https://www.jobillico.com/choisir-ville"
+            },
+            {
+              "text": "Emplois en vente",
+              "url": "https://www.jobillico.com/recherche-emploi/ventes"
+            },
+            {
+              "text": "Emplois en assurance",
+              "url": "https://www.jobillico.com/recherche-emploi/assurance+..+actuariat"
+            },
+            {
+              "text": "Emplois en comptabilité",
+              "url": "https://www.jobillico.com/recherche-emploi/comptabilite"
+            },
+            {
+              "text": "Emplois en transport",
+              "url": "https://www.jobillico.com/recherche-emploi/transports"
+            },
+            {
+              "text": "Voir plus d'emplois par profession >",
+              "url": "https://www.jobillico.com/choisir-secteur-activite"
+            },
+            {
+              "text": "",
+              "url": "http://www.facebook.com/jobillico"
+            },
+            {
+              "text": "",
+              "url": "https://twitter.com/jobillico"
+            },
+            {
+              "text": "",
+              "url": "https://www.pinterest.com/jobillicoemploi/"
+            },
+            {
+              "text": "",
+              "url": "https://www.instagram.com/jobillico/"
+            },
+            {
+              "text": "English",
+              "url": "https://www.jobillico.com/en/employers/inogec-inc/view-all-jobs"
+            },
+            {
+              "text": "Nous contacter",
+              "url": "https://www.jobillico.com/fr/contact-candidat"
+            },
+            {
+              "text": "Politique de confidentialité",
+              "url": "https://www.jobillico.com/politique-de-confidentialite"
+            },
+            {
+              "text": "Termes et Conditions",
+              "url": "https://www.jobillico.com/termes-conditions"
+            },
+            {
+              "text": "Politique sur les fichiers témoins",
+              "url": "https://www.jobillico.com/politique-fichiers-temoins"
+            },
+            {
+              "text": "FAQ",
+              "url": "https://www.jobillico.com/fr/faq"
+            },
+            {
+              "text": "conditions d'utilisations",
+              "url": "https://www.jobillico.com/termes-conditions"
+            },
+            {
+              "text": "politique de confidentialité",
+              "url": "https://www.jobillico.com/politique-de-confidentialite"
+            },
+            {
+              "text": "politique relative aux fichier témoins",
+              "url": "https://www.jobillico.com/politique-fichiers-temoins"
+            },
+            {
+              "text": "Conditions d’utilisation",
+              "url": "https://www.jobillico.com/termes-conditions"
+            }
+          ],
+          "iframes": [
+            "https://www.googletagmanager.com/ns.html?id=GTM-TRSKJGR"
+          ]
         }
+      ],
+      "aliases": [
+        "INOGEC inc."
       ]
     },
     "recipe": {
       "version": 1,
       "coverage_mode": "all",
-      "company": "Armatures Bois-Francs",
-      "careers_url": "https://abf-inc.com/carriere",
+      "company": "INOGEC",
+      "careers_url": "https://www.jobillico.com/fr/employeurs/inogec-inc/voir-liste-emplois",
       "strategy": "generic_html",
       "allowed_hosts": [
-        "abf-inc.com"
+        "www.jobillico.com"
       ],
       "request": {
-        "url": "https://abf-inc.com/carriere/",
+        "url": "https://www.jobillico.com/fr/employeurs/inogec-inc/voir-liste-emplois",
         "method": "GET",
         "headers": {
-          "Accept": "text/html"
+          "Accept-Encoding": "gzip, deflate"
         },
         "params": {},
         "json_body": null,
         "timeout_seconds": 30.0,
-        "max_response_bytes": 20000000
+        "max_response_bytes": 10000000
       },
       "pagination": {
         "kind": "none",
         "parameter": null,
         "page_size_parameter": null,
-        "page_size": 100,
+        "page_size": 1,
         "max_pages": null,
         "next_path": null
       },
       "source_key": null,
       "source_filter": null,
       "selectors": {
-        "item": ".jet-listing-grid__item",
-        "title": ".elementor-widget-text-editor:nth-of-type(1) .elementor-widget-container",
-        "link": "a.jet-engine-listing-overlay-link",
-        "location": ".elementor-widget-text-editor:nth-of-type(2) .elementor-widget-container",
-        "employment_type": ".elementor-widget-text-editor:nth-of-type(3) .elementor-widget-container"
+        "item": "li:has(p.date):has(a[href*=\"/fr/offre-d-emploi/inogec-inc/\"]), li:has(p.date):has(a[href*=\"/fr/opportunite-d-emploi/inogec-inc/\"])",
+        "title": "a[href*=\"/fr/offre-d-emploi/inogec-inc/\"]",
+        "link": "a[href*=\"/fr/offre-d-emploi/inogec-inc/\"]",
+        "location": "p:not(.date)",
+        "posted_date": "p.date"
       },
       "mapping": {},
       "metadata": {
-        "source_id_attribute": "data-post-id"
+        "partial_listing": false
       }
     }
   }

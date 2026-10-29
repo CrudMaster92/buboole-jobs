@@ -10,7 +10,7 @@ def one(s):
  for attempt in range(10):
   with PublicClient(limiter,time.monotonic()+180) as client:out=run_scraper(r,client=client,detail_cache=cache)
   if not out.continuation_ready:break
- expected={'garaga':15,'tc-industries':8,'armatures-bois-francs':4,'laser-amp':1,'laser-amp-en':1}
+ expected={'inogec':1,'garaga':15,'tc-industries':8,'armatures-bois-francs':4,'laser-amp':1,'laser-amp-en':1}
  assert out.complete and len(out.jobs)==expected[s['id']] and not out.continuation_ready,(s['id'],len(out.jobs),expected[s['id']],out.complete,out.warnings)
  assert all(urlsplit(j.source_url).hostname in r.allowed_hosts for j in out.jobs)
  row={'id':s['id'],'checked_at':datetime.now(timezone.utc).isoformat(),'complete':out.complete,'job_count':len(out.jobs),'pages':out.pages_fetched,'warnings':out.warnings,'titles':[j.title for j in out.jobs],'source_urls':[j.source_url for j in out.jobs]}
