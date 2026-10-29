@@ -708,8 +708,8 @@
       "source_filter": null,
       "selectors": {
         "item": "li:has(p.date):has(a[href*=\"/fr/offre-d-emploi/inogec-inc/\"]), li:has(p.date):has(a[href*=\"/fr/opportunite-d-emploi/inogec-inc/\"])",
-        "title": "a[href*=\"/fr/offre-d-emploi/inogec-inc/\"]",
-        "link": "a[href*=\"/fr/offre-d-emploi/inogec-inc/\"]",
+        "title": "a[href*=\"/fr/offre-d-emploi/inogec-inc/\"], a[href*=\"/fr/opportunite-d-emploi/inogec-inc/\"]",
+        "link": "a[href*=\"/fr/offre-d-emploi/inogec-inc/\"], a[href*=\"/fr/opportunite-d-emploi/inogec-inc/\"]",
         "location": "p:not(.date)",
         "posted_date": "p.date"
       },
