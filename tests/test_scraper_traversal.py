@@ -1016,3 +1016,36 @@ def test_generic_reported_total_requires_distinct_postings_not_just_page_offsets
     with httpx.Client(transport=httpx.MockTransport(handler)) as client:
         result=run_scraper(selected,client=client,detail_cache={})
     assert len(result.jobs)==3 and not result.complete
+
+
+def test_unavailable_descriptions_resume_then_allow_fresh_board_discovery():
+    config = recipe('generic_json', metadata={}, pagination={'kind':'none'},
+                    mapping={'items':'jobs','source_id':'id'})
+    cache, listings, details = {}, [], []
+    paused = False
+    def handler(request):
+        nonlocal paused
+        if request.method == 'POST':
+            listings.append(1)
+            count = 2 if len(listings) == 1 else 3
+            return httpx.Response(200, json={'jobs':[
+                {'id':str(i),'title':f'Engineer {i}','url':f'https://acme.example/job/{i}'}
+                for i in range(1,count+1)]})
+        identifier = request.url.path.rsplit('/',1)[-1]
+        details.append(identifier)
+        if identifier == '2' and not paused:
+            paused = True
+            raise ScraperYieldError('slice ended')
+        return httpx.Response(200, text='<html>No structured description available</html>')
+    with httpx.Client(transport=httpx.MockTransport(handler)) as client:
+        first = run_scraper(config, client=client, detail_cache=cache)
+        assert first.complete and first.continuation_ready
+        assert not cache[CACHE_KEY].get('refresh_listing_next_run')
+        second = run_scraper(config, client=client, detail_cache=cache)
+        assert not second.complete and not second.continuation_ready
+        assert cache[CACHE_KEY]['refresh_listing_next_run']
+        third = run_scraper(config, client=client, detail_cache=cache)
+    assert third.complete and not third.continuation_ready
+    assert {job.source_id for job in third.jobs} == {'1','2','3'}
+    assert len(listings) == 2 and details == ['1','2','2','3']
+    assert any('description' in warning for warning in third.warnings)
