@@ -1,4 +1,4 @@
-import json,time,traceback,requests
+import json,time,traceback,httpx
 from pathlib import Path
 from bs4 import BeautifulSoup
 import bs4,soupsieve
@@ -17,11 +17,11 @@ for m,r in monitors:
   try:soupsieve.compile(sel)
   except Exception:traceback.print_exc()
  try:
-  resp=requests.get(r.request.url,params=r.request.params,timeout=35);print('RAW',resp.status_code,resp.url,'redirects',[(h.status_code,h.url,h.headers.get('Location')) for h in resp.history], 'title',str(BeautifulSoup(resp.content,'html.parser').title),flush=True)
+  resp=httpx.get(r.request.url,params=r.request.params,timeout=35,follow_redirects=True);print('RAW',resp.status_code,resp.url,'redirects',[(h.status_code,h.url,h.headers.get('Location')) for h in resp.history], 'title',str(BeautifulSoup(resp.content,'html.parser').title),flush=True)
  except Exception:traceback.print_exc()
  try:
   with PublicClient(HostLimiter(),time.monotonic()+120) as client:
-   raw=bounded_request(r.request,r.allowed_hosts,client);print('BOUNDED',raw.status_code,raw.url,flush=True)
+   raw=bounded_request(r.request,r.allowed_hosts,client=client);print('BOUNDED',raw.status_code,raw.url,flush=True)
  except Exception:traceback.print_exc()
  try:
   with PublicClient(HostLimiter(),time.monotonic()+150) as client:out=run_scraper(r,client=client,detail_cache={})
