@@ -1,0 +1,350 @@
+{
+  "checked_at": "2026-10-29T19:17:31.455367+00:00",
+  "catalog_commit": "4eb9577fe6384234789b5d8bf0566158f223fe22",
+  "previous_pins": 1290,
+  "added_pins": 28,
+  "total_pins": 1318,
+  "new_companies": 25,
+  "existing_pins_unchanged": true,
+  "new_pin_hashes_and_runtime_contracts_validated": true,
+  "runtime_unchanged": true,
+  "runtime_revision": "658d022cbe149ac00ad3931651f0dba9243ebea6751fb513c5bba8e61b0ddcf5",
+  "new_sources": [
+    {
+      "id": "bmr-pierre-naud",
+      "company_id": "bmr-pierre-naud",
+      "company_name": "BMR Pierre Naud",
+      "revision": 1,
+      "path": "companies/bmr-pierre-naud/monitors/bmr-pierre-naud.json",
+      "sha256": "3022bd65cac1b6cd7e8fa127debb0d4577468cbf13533a9a76efa1e6766cbb54",
+      "collection_ids": [
+        "additional-complete-boards-25-20261029"
+      ],
+      "catalog_commit": "4eb9577fe6384234789b5d8bf0566158f223fe22"
+    },
+    {
+      "id": "bosse-frere-inc",
+      "company_id": "bosse-frere-inc",
+      "company_name": "Bossé & Frère inc.",
+      "revision": 1,
+      "path": "companies/bosse-frere-inc/monitors/bosse-frere-inc.json",
+      "sha256": "2944d765a548be54f34bd6cc0d003db6c170f281befa34c00a20be8a65cce4ee",
+      "collection_ids": [
+        "additional-complete-boards-25-20261029"
+      ],
+      "catalog_commit": "4eb9577fe6384234789b5d8bf0566158f223fe22"
+    },
+    {
+      "id": "brochot-industries-inc",
+      "company_id": "brochot-industries-inc",
+      "company_name": "Brochot Industries inc.",
+      "revision": 1,
+      "path": "companies/brochot-industries-inc/monitors/brochot-industries-inc.json",
+      "sha256": "4f6a9cd0103da8ae5a55d0360ac84cec6addaf835fa269cf4790062e6272b18a",
+      "collection_ids": [
+        "additional-complete-boards-25-20261029"
+      ],
+      "catalog_commit": "4eb9577fe6384234789b5d8bf0566158f223fe22"
+    },
+    {
+      "id": "centre-damitie-autochtone-de-lanaudiere-caal",
+      "company_id": "centre-damitie-autochtone-de-lanaudiere-caal",
+      "company_name": "Centre d’amitié Autochtone de Lanaudière (CAAL)",
+      "revision": 1,
+      "path": "companies/centre-damitie-autochtone-de-lanaudiere-caal/monitors/centre-damitie-autochtone-de-lanaudiere-caal.json",
+      "sha256": "d130434724262bea118b9efbe471174e3d7142cdddbd067786227400092cf570",
+      "collection_ids": [
+        "additional-complete-boards-25-20261029"
+      ],
+      "catalog_commit": "4eb9577fe6384234789b5d8bf0566158f223fe22"
+    },
+    {
+      "id": "chsld-cote-jardins-inc",
+      "company_id": "chsld-cote-jardins-inc",
+      "company_name": "CHSLD Côté-Jardins inc.",
+      "revision": 1,
+      "path": "companies/chsld-cote-jardins-inc/monitors/chsld-cote-jardins-inc.json",
+      "sha256": "15ec402f6ce5289b8a07d0b49679e9d58039b7d3c0bc837ec1f36f0cf7f5e0b0",
+      "collection_ids": [
+        "additional-complete-boards-25-20261029"
+      ],
+      "catalog_commit": "4eb9577fe6384234789b5d8bf0566158f223fe22"
+    },
+    {
+      "id": "construction-pavage-portneuf-inc",
+      "company_id": "construction-pavage-portneuf-inc",
+      "company_name": "Construction & Pavage Portneuf inc.",
+      "revision": 1,
+      "path": "companies/construction-pavage-portneuf-inc/monitors/construction-pavage-portneuf-inc.json",
+      "sha256": "e36955db4ea4f4f80273a3e8acc25171c124a96680a566526a5f062cc65cfe8e",
+      "collection_ids": [
+        "additional-complete-boards-25-20261029"
+      ],
+      "catalog_commit": "4eb9577fe6384234789b5d8bf0566158f223fe22"
+    },
+    {
+      "id": "coopsco-sainte-foy",
+      "company_id": "coopsco-sainte-foy",
+      "company_name": "Coopsco Sainte-Foy",
+      "revision": 1,
+      "path": "companies/coopsco-sainte-foy/monitors/coopsco-sainte-foy.json",
+      "sha256": "3a5d409b0b30c375caa4e0702da65e3a1b087165e1629bb576f4483ae34ceecd",
+      "collection_ids": [
+        "additional-complete-boards-25-20261029"
+      ],
+      "catalog_commit": "4eb9577fe6384234789b5d8bf0566158f223fe22"
+    },
+    {
+      "id": "darocha-webster-paysages",
+      "company_id": "darocha-webster-paysages",
+      "company_name": "DaRocha Webster Paysages",
+      "revision": 1,
+      "path": "companies/darocha-webster-paysages/monitors/darocha-webster-paysages.json",
+      "sha256": "2831e51f8c6b30e982b791d7a7460f9a7a516b8025136516a161b92aec3f27aa",
+      "collection_ids": [
+        "additional-complete-boards-25-20261029"
+      ],
+      "catalog_commit": "4eb9577fe6384234789b5d8bf0566158f223fe22"
+    },
+    {
+      "id": "equilibre-biomecanique-et-apnee-du-sommeil",
+      "company_id": "equilibre-biomecanique-et-apnee-du-sommeil",
+      "company_name": "Équilibre - Biomécanique et Apnée du Sommeil",
+      "revision": 1,
+      "path": "companies/equilibre-biomecanique-et-apnee-du-sommeil/monitors/equilibre-biomecanique-et-apnee-du-sommeil.json",
+      "sha256": "ae61a6248e87cb2b83121d455bb516ca959e930f2de078e8356da448e70e8895",
+      "collection_ids": [
+        "additional-complete-boards-25-20261029"
+      ],
+      "catalog_commit": "4eb9577fe6384234789b5d8bf0566158f223fe22"
+    },
+    {
+      "id": "groupe-korok",
+      "company_id": "groupe-korok",
+      "company_name": "Groupe KOROK",
+      "revision": 1,
+      "path": "companies/groupe-korok/monitors/groupe-korok.json",
+      "sha256": "2f237f65ca982ebba07149f406f538d2a7d2086f26f1a22e866be24ce045c30e",
+      "collection_ids": [
+        "additional-complete-boards-25-20261029"
+      ],
+      "catalog_commit": "4eb9577fe6384234789b5d8bf0566158f223fe22"
+    },
+    {
+      "id": "groupe-noel-inc",
+      "company_id": "groupe-noel-inc",
+      "company_name": "Groupe Noël inc.",
+      "revision": 1,
+      "path": "companies/groupe-noel-inc/monitors/groupe-noel-inc.json",
+      "sha256": "d4b0816fb920832be7cd598dc2300532b2935207e2f9a5a3cb0e9623ad29b628",
+      "collection_ids": [
+        "additional-complete-boards-25-20261029"
+      ],
+      "catalog_commit": "4eb9577fe6384234789b5d8bf0566158f223fe22"
+    },
+    {
+      "id": "groupe-support-plus-labmetal-2017-inc-fr-opportunities",
+      "company_id": "groupe-support-plus-labmetal-2017-inc",
+      "company_name": "Groupe Support Plus - Labmétal (2017) inc.",
+      "revision": 1,
+      "path": "companies/groupe-support-plus-labmetal-2017-inc/monitors/groupe-support-plus-labmetal-2017-inc-fr-opportunities.json",
+      "sha256": "183d3b75def76a5566a9e7875a66f3699df4698c5945d2d5bf4be41858c0f264",
+      "collection_ids": [
+        "additional-complete-boards-25-20261029"
+      ],
+      "catalog_commit": "4eb9577fe6384234789b5d8bf0566158f223fe22"
+    },
+    {
+      "id": "groupe-support-plus-labmetal-2017-inc",
+      "company_id": "groupe-support-plus-labmetal-2017-inc",
+      "company_name": "Groupe Support Plus - Labmétal (2017) inc.",
+      "revision": 1,
+      "path": "companies/groupe-support-plus-labmetal-2017-inc/monitors/groupe-support-plus-labmetal-2017-inc.json",
+      "sha256": "76a696d2c6085578a6266bde92831ff58a344b58157ed4bfedd6915d60f40974",
+      "collection_ids": [
+        "additional-complete-boards-25-20261029"
+      ],
+      "catalog_commit": "4eb9577fe6384234789b5d8bf0566158f223fe22"
+    },
+    {
+      "id": "hamel-propane",
+      "company_id": "hamel-propane",
+      "company_name": "Hamel Propane",
+      "revision": 1,
+      "path": "companies/hamel-propane/monitors/hamel-propane.json",
+      "sha256": "ef47170ab29ce99da00c2489b3865279de306f494bbc0a4346dd491447c1993a",
+      "collection_ids": [
+        "additional-complete-boards-25-20261029"
+      ],
+      "catalog_commit": "4eb9577fe6384234789b5d8bf0566158f223fe22"
+    },
+    {
+      "id": "hardy-construction",
+      "company_id": "hardy-construction",
+      "company_name": "Hardy Construction",
+      "revision": 1,
+      "path": "companies/hardy-construction/monitors/hardy-construction.json",
+      "sha256": "1da7719960a58f6889d4a26449a5a4f58b063312995744fd8fcd707a0ba64e9e",
+      "collection_ids": [
+        "additional-complete-boards-25-20261029"
+      ],
+      "catalog_commit": "4eb9577fe6384234789b5d8bf0566158f223fe22"
+    },
+    {
+      "id": "horizon-vertical-inc",
+      "company_id": "horizon-vertical-inc",
+      "company_name": "Horizon Vertical inc.",
+      "revision": 1,
+      "path": "companies/horizon-vertical-inc/monitors/horizon-vertical-inc.json",
+      "sha256": "838666ee7d827885a97c24780d153fa31a7eb8eb534c61c6e0cb5eb4c89a2879",
+      "collection_ids": [
+        "additional-complete-boards-25-20261029"
+      ],
+      "catalog_commit": "4eb9577fe6384234789b5d8bf0566158f223fe22"
+    },
+    {
+      "id": "lcn-inc",
+      "company_id": "lcn-inc",
+      "company_name": "LCN inc.",
+      "revision": 1,
+      "path": "companies/lcn-inc/monitors/lcn-inc.json",
+      "sha256": "97d3da3f47dae381742be4f87aeacc57b007a79a10fe3261ba6253eea8f464b7",
+      "collection_ids": [
+        "additional-complete-boards-25-20261029"
+      ],
+      "catalog_commit": "4eb9577fe6384234789b5d8bf0566158f223fe22"
+    },
+    {
+      "id": "les-constructions-edguy-inc-native",
+      "company_id": "les-constructions-edguy-inc",
+      "company_name": "Les Constructions Edguy inc.",
+      "revision": 1,
+      "path": "companies/les-constructions-edguy-inc/monitors/les-constructions-edguy-inc-native.json",
+      "sha256": "cb462522f9f4dfce2dcb1d5a03a07a3f5fd7caa5cb255fa08efdb9cd26fe95e6",
+      "collection_ids": [
+        "additional-complete-boards-25-20261029"
+      ],
+      "catalog_commit": "4eb9577fe6384234789b5d8bf0566158f223fe22"
+    },
+    {
+      "id": "les-constructions-edguy-inc",
+      "company_id": "les-constructions-edguy-inc",
+      "company_name": "Les Constructions Edguy inc.",
+      "revision": 1,
+      "path": "companies/les-constructions-edguy-inc/monitors/les-constructions-edguy-inc.json",
+      "sha256": "e69820e5cb3f1785d192a5c1dc8d49b6d4a6a2e403a670509b45a97f293c718c",
+      "collection_ids": [
+        "additional-complete-boards-25-20261029"
+      ],
+      "catalog_commit": "4eb9577fe6384234789b5d8bf0566158f223fe22"
+    },
+    {
+      "id": "les-fondations-andre-lemaire-2012-inc",
+      "company_id": "les-fondations-andre-lemaire-2012-inc",
+      "company_name": "Les fondations André Lemaire 2012 inc.",
+      "revision": 1,
+      "path": "companies/les-fondations-andre-lemaire-2012-inc/monitors/les-fondations-andre-lemaire-2012-inc.json",
+      "sha256": "3e14ce2273a9c3d60bbcf3cf40a6430f24cf66210ad77898a6ef1e16ed00d130",
+      "collection_ids": [
+        "additional-complete-boards-25-20261029"
+      ],
+      "catalog_commit": "4eb9577fe6384234789b5d8bf0566158f223fe22"
+    },
+    {
+      "id": "lsm-son-lumieres",
+      "company_id": "lsm-son-lumieres",
+      "company_name": "LSM Son & Lumières",
+      "revision": 1,
+      "path": "companies/lsm-son-lumieres/monitors/lsm-son-lumieres.json",
+      "sha256": "d307110a8e9a964d67530f787c41af42564f2d2a69cc3398d374cc4616dbd4b8",
+      "collection_ids": [
+        "additional-complete-boards-25-20261029"
+      ],
+      "catalog_commit": "4eb9577fe6384234789b5d8bf0566158f223fe22"
+    },
+    {
+      "id": "metal-laurentide-inc",
+      "company_id": "metal-laurentide-inc",
+      "company_name": "Métal Laurentide inc.",
+      "revision": 1,
+      "path": "companies/metal-laurentide-inc/monitors/metal-laurentide-inc.json",
+      "sha256": "58bfa6306b102296629e512ab9dfc977d5c2f3c836bcd07b914ce0e458d6063f",
+      "collection_ids": [
+        "additional-complete-boards-25-20261029"
+      ],
+      "catalog_commit": "4eb9577fe6384234789b5d8bf0566158f223fe22"
+    },
+    {
+      "id": "oberson",
+      "company_id": "oberson",
+      "company_name": "Oberson",
+      "revision": 1,
+      "path": "companies/oberson/monitors/oberson.json",
+      "sha256": "f2124c56f82b08026b74df0e0cc99cd7c8f18ce672f2ab27c7502cee3b97689d",
+      "collection_ids": [
+        "additional-complete-boards-25-20261029"
+      ],
+      "catalog_commit": "4eb9577fe6384234789b5d8bf0566158f223fe22"
+    },
+    {
+      "id": "seminaire-de-quebec",
+      "company_id": "seminaire-de-quebec",
+      "company_name": "Séminaire de Québec",
+      "revision": 1,
+      "path": "companies/seminaire-de-quebec/monitors/seminaire-de-quebec.json",
+      "sha256": "2ec1654d79e0ac73afea90856530e8c3d5382bb9cbaf91fff616d81961a04b2b",
+      "collection_ids": [
+        "additional-complete-boards-25-20261029"
+      ],
+      "catalog_commit": "4eb9577fe6384234789b5d8bf0566158f223fe22"
+    },
+    {
+      "id": "stellaire-construction-fr-opportunities",
+      "company_id": "stellaire-construction",
+      "company_name": "Stellaire Construction",
+      "revision": 1,
+      "path": "companies/stellaire-construction/monitors/stellaire-construction-fr-opportunities.json",
+      "sha256": "1c8b33d462bc10419573ca56c2c0879269f24244dfdd7efe5ace6b2138472ba6",
+      "collection_ids": [
+        "additional-complete-boards-25-20261029"
+      ],
+      "catalog_commit": "4eb9577fe6384234789b5d8bf0566158f223fe22"
+    },
+    {
+      "id": "stellaire-construction",
+      "company_id": "stellaire-construction",
+      "company_name": "Stellaire Construction",
+      "revision": 1,
+      "path": "companies/stellaire-construction/monitors/stellaire-construction.json",
+      "sha256": "3d3ba4b494b02bec4d41961488bb5b93a2fe9f7f7b4d5e09e393edc392884302",
+      "collection_ids": [
+        "additional-complete-boards-25-20261029"
+      ],
+      "catalog_commit": "4eb9577fe6384234789b5d8bf0566158f223fe22"
+    },
+    {
+      "id": "transkid",
+      "company_id": "transkid",
+      "company_name": "Transkid",
+      "revision": 1,
+      "path": "companies/transkid/monitors/transkid.json",
+      "sha256": "4e8ffd4616e8867c681c03943d6c4af9a3258e957c066f17e6d6e0bfc1292d3c",
+      "collection_ids": [
+        "additional-complete-boards-25-20261029"
+      ],
+      "catalog_commit": "4eb9577fe6384234789b5d8bf0566158f223fe22"
+    },
+    {
+      "id": "usibeauce-m-g-inc",
+      "company_id": "usibeauce-m-g-inc",
+      "company_name": "Usibeauce M.G. inc.",
+      "revision": 1,
+      "path": "companies/usibeauce-m-g-inc/monitors/usibeauce-m-g-inc.json",
+      "sha256": "03af45a800e0943148a12daf186b110c59bdd29bda0662348190f864bafd8472",
+      "collection_ids": [
+        "additional-complete-boards-25-20261029"
+      ],
+      "catalog_commit": "4eb9577fe6384234789b5d8bf0566158f223fe22"
+    }
+  ]
+}
