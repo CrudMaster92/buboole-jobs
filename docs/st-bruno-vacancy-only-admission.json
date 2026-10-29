@@ -1,0 +1,53 @@
+{
+  "catalog_commit": "aaf5784859cdcf4c891f14c777aef5df9d86a0b9",
+  "changed_source": "usine-de-congelation-de-st-bruno-inc",
+  "revision": 2,
+  "jobs": 13,
+  "complete": true,
+  "with_description": 13,
+  "all_other_1289_pins_preserved": true,
+  "original_1261_pins_preserved": true,
+  "all_29_batch_hashes_loaded": true,
+  "excluded_nonjob_source_id": "17539770",
+  "catalog_pr": "https://github.com/CrudMaster92/buboole-presets/pull/60",
+  "initial_publication_cancelled_before_deployment": true,
+  "proof": {
+    "checked_at": "2026-10-29T19:05:40.793921+00:00",
+    "revision": 2,
+    "independent_listing_ids": [
+      "10641051",
+      "17020552",
+      "17020555",
+      "17020657",
+      "17074469",
+      "17074481",
+      "17548383",
+      "17548506",
+      "17548599",
+      "17551236",
+      "17551260",
+      "17594769",
+      "17623842"
+    ],
+    "normalized_listing_ids": [
+      "10641051",
+      "17020552",
+      "17020555",
+      "17020657",
+      "17074469",
+      "17074481",
+      "17548383",
+      "17548506",
+      "17548599",
+      "17551236",
+      "17551260",
+      "17594769",
+      "17623842"
+    ],
+    "excluded_non_jobs": {
+      "17539770": "General unsolicited application; not an advertised vacancy."
+    },
+    "complete": true,
+    "full_descriptions": 13
+  }
+}
