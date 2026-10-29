@@ -1,0 +1,470 @@
+{
+  "catalog_commit": "60835af5d693e7ec6c83937f67f47b96f02aeb73",
+  "catalog_pr": "https://github.com/CrudMaster92/buboole-presets/pull/54",
+  "previous_pins": 1200,
+  "added_pins": 38,
+  "new_companies": 25,
+  "total_pins": 1238,
+  "new_pin_hashes_and_runtime_contracts_validated": true,
+  "existing_pins_unchanged": true,
+  "runtime_unchanged": true,
+  "runtime_revision": "f3b4f2500d7a51bf5aa45fd2a2aa0a44d79b7a1f573950fbd9f3bc4d5af48f97",
+  "new_sources": [
+    {
+      "id": "acier-select-en",
+      "company_id": "acier-select",
+      "company_name": "Acier Sélect",
+      "revision": 1,
+      "path": "companies/acier-select/monitors/acier-select-en.json",
+      "sha256": "4ce96b10808da63d2ef1d45dc30cee5ab0c07a458270e4e8ef31f3600c687879",
+      "collection_ids": [
+        "additional-complete-boards-25-20261028"
+      ],
+      "catalog_commit": "60835af5d693e7ec6c83937f67f47b96f02aeb73"
+    },
+    {
+      "id": "acier-select",
+      "company_id": "acier-select",
+      "company_name": "Acier Sélect",
+      "revision": 1,
+      "path": "companies/acier-select/monitors/acier-select.json",
+      "sha256": "52cfb1c7c1eadd91901c13ff4c32a0721829a28c2547e2f4166a88299a060dd5",
+      "collection_ids": [
+        "additional-complete-boards-25-20261028"
+      ],
+      "catalog_commit": "60835af5d693e7ec6c83937f67f47b96f02aeb73"
+    },
+    {
+      "id": "armatures-bois-francs",
+      "company_id": "armatures-bois-francs",
+      "company_name": "Armatures Bois-Francs",
+      "revision": 1,
+      "path": "companies/armatures-bois-francs/monitors/armatures-bois-francs.json",
+      "sha256": "5b56ffc03728eeaaeab2053942b1974378664dc253999cdeb6bab56c19bd03c6",
+      "collection_ids": [
+        "additional-complete-boards-25-20261028"
+      ],
+      "catalog_commit": "60835af5d693e7ec6c83937f67f47b96f02aeb73"
+    },
+    {
+      "id": "canatal-fr",
+      "company_id": "canatal",
+      "company_name": "Canatal",
+      "revision": 1,
+      "path": "companies/canatal/monitors/canatal-fr.json",
+      "sha256": "f8373b6a53bb8477efcf8620d6d9376405f5348743f7efd84ff4f45ec81d5896",
+      "collection_ids": [
+        "additional-complete-boards-25-20261028"
+      ],
+      "catalog_commit": "60835af5d693e7ec6c83937f67f47b96f02aeb73"
+    },
+    {
+      "id": "canatal",
+      "company_id": "canatal",
+      "company_name": "Canatal",
+      "revision": 1,
+      "path": "companies/canatal/monitors/canatal.json",
+      "sha256": "6b429022df101372fb1aedfa6cd6629e0ce14eef08f099545505da52ee4a264e",
+      "collection_ids": [
+        "additional-complete-boards-25-20261028"
+      ],
+      "catalog_commit": "60835af5d693e7ec6c83937f67f47b96f02aeb73"
+    },
+    {
+      "id": "d-v-electronics",
+      "company_id": "d-v-electronics",
+      "company_name": "D&V Electronics",
+      "revision": 1,
+      "path": "companies/d-v-electronics/monitors/d-v-electronics.json",
+      "sha256": "2c8b32d35158b2ae4b64f652f92b8c25559a3710683c12c76283e999a95b5806",
+      "collection_ids": [
+        "additional-complete-boards-25-20261028"
+      ],
+      "catalog_commit": "60835af5d693e7ec6c83937f67f47b96f02aeb73"
+    },
+    {
+      "id": "denison-mines",
+      "company_id": "denison-mines",
+      "company_name": "Denison Mines",
+      "revision": 1,
+      "path": "companies/denison-mines/monitors/denison-mines.json",
+      "sha256": "876ba3e7d5211367d75658787f73820d9552334833a5921cf090fb2589900582",
+      "collection_ids": [
+        "additional-complete-boards-25-20261028"
+      ],
+      "catalog_commit": "60835af5d693e7ec6c83937f67f47b96f02aeb73"
+    },
+    {
+      "id": "fenergic",
+      "company_id": "fenergic",
+      "company_name": "Fenergic",
+      "revision": 1,
+      "path": "companies/fenergic/monitors/fenergic.json",
+      "sha256": "3649939a5389a8dbd3faed22484e7cebc190b87eb721ca535e1dc82469ebec39",
+      "collection_ids": [
+        "additional-complete-boards-25-20261028"
+      ],
+      "catalog_commit": "60835af5d693e7ec6c83937f67f47b96f02aeb73"
+    },
+    {
+      "id": "fenplast",
+      "company_id": "fenplast",
+      "company_name": "Fenplast",
+      "revision": 1,
+      "path": "companies/fenplast/monitors/fenplast.json",
+      "sha256": "61fd5c5146c11e6195d2613d44ddfe4aa63c1790234d1ff948669376e008f4aa",
+      "collection_ids": [
+        "additional-complete-boards-25-20261028"
+      ],
+      "catalog_commit": "60835af5d693e7ec6c83937f67f47b96f02aeb73"
+    },
+    {
+      "id": "fonderie-lemoltech",
+      "company_id": "fonderie-lemoltech",
+      "company_name": "Fonderie Lemoltech",
+      "revision": 1,
+      "path": "companies/fonderie-lemoltech/monitors/fonderie-lemoltech.json",
+      "sha256": "0926709df7b3f95afa4d91c1a05999b3916d9d91c0407c6bbebd6cffdc4d6e45",
+      "collection_ids": [
+        "additional-complete-boards-25-20261028"
+      ],
+      "catalog_commit": "60835af5d693e7ec6c83937f67f47b96f02aeb73"
+    },
+    {
+      "id": "genik",
+      "company_id": "genik",
+      "company_name": "Génik",
+      "revision": 1,
+      "path": "companies/genik/monitors/genik.json",
+      "sha256": "47967d70887b54700746e775967d8041b011d80f3803e3e1ec7954acfbc9ce26",
+      "collection_ids": [
+        "additional-complete-boards-25-20261028"
+      ],
+      "catalog_commit": "60835af5d693e7ec6c83937f67f47b96f02aeb73"
+    },
+    {
+      "id": "groupe-ebm",
+      "company_id": "groupe-ebm",
+      "company_name": "Groupe EBM",
+      "revision": 1,
+      "path": "companies/groupe-ebm/monitors/groupe-ebm.json",
+      "sha256": "849e73384a3c252288a39908845e478c7925babeddc588246697331807566945",
+      "collection_ids": [
+        "additional-complete-boards-25-20261028"
+      ],
+      "catalog_commit": "60835af5d693e7ec6c83937f67f47b96f02aeb73"
+    },
+    {
+      "id": "groupe-ld-en",
+      "company_id": "groupe-ld",
+      "company_name": "Groupe LD",
+      "revision": 1,
+      "path": "companies/groupe-ld/monitors/groupe-ld-en.json",
+      "sha256": "fda89db3f1b750ab4b23c3b358fbff16d8dac3eb862a003d1bc16ed3107e2d20",
+      "collection_ids": [
+        "additional-complete-boards-25-20261028"
+      ],
+      "catalog_commit": "60835af5d693e7ec6c83937f67f47b96f02aeb73"
+    },
+    {
+      "id": "groupe-ld",
+      "company_id": "groupe-ld",
+      "company_name": "Groupe LD",
+      "revision": 1,
+      "path": "companies/groupe-ld/monitors/groupe-ld.json",
+      "sha256": "94f3166b9bf00df5ca443deb8d15ed683c11fa6f04484a9a3c25add57556cd71",
+      "collection_ids": [
+        "additional-complete-boards-25-20261028"
+      ],
+      "catalog_commit": "60835af5d693e7ec6c83937f67f47b96f02aeb73"
+    },
+    {
+      "id": "groupe-morin",
+      "company_id": "groupe-morin",
+      "company_name": "Groupe Morin",
+      "revision": 1,
+      "path": "companies/groupe-morin/monitors/groupe-morin.json",
+      "sha256": "9a71cc17efff39d95cfefaaf0d31f81decaa5e9dad2f315292fc7b9684448478",
+      "collection_ids": [
+        "additional-complete-boards-25-20261028"
+      ],
+      "catalog_commit": "60835af5d693e7ec6c83937f67f47b96f02aeb73"
+    },
+    {
+      "id": "isothermic-en",
+      "company_id": "isothermic",
+      "company_name": "Isothermic",
+      "revision": 1,
+      "path": "companies/isothermic/monitors/isothermic-en.json",
+      "sha256": "e17cbf86b626f4502f4cae40282c5eb68e18f4c67f3973e5bd5772b7873ad91b",
+      "collection_ids": [
+        "additional-complete-boards-25-20261028"
+      ],
+      "catalog_commit": "60835af5d693e7ec6c83937f67f47b96f02aeb73"
+    },
+    {
+      "id": "isothermic",
+      "company_id": "isothermic",
+      "company_name": "Isothermic",
+      "revision": 1,
+      "path": "companies/isothermic/monitors/isothermic.json",
+      "sha256": "6b9271f4d7726259b1fe9e0253b649b1929eb1300345f0da0d65dca5de081fdf",
+      "collection_ids": [
+        "additional-complete-boards-25-20261028"
+      ],
+      "catalog_commit": "60835af5d693e7ec6c83937f67f47b96f02aeb73"
+    },
+    {
+      "id": "laser-amp-en",
+      "company_id": "laser-amp",
+      "company_name": "Laser AMP",
+      "revision": 1,
+      "path": "companies/laser-amp/monitors/laser-amp-en.json",
+      "sha256": "64b69f42e1817ac3ed9f07892bd18a06d54994da926a82b02b9881da50c74128",
+      "collection_ids": [
+        "additional-complete-boards-25-20261028"
+      ],
+      "catalog_commit": "60835af5d693e7ec6c83937f67f47b96f02aeb73"
+    },
+    {
+      "id": "laser-amp",
+      "company_id": "laser-amp",
+      "company_name": "Laser AMP",
+      "revision": 1,
+      "path": "companies/laser-amp/monitors/laser-amp.json",
+      "sha256": "dcb9e65229f4242f782ec6a16baf0739eab90c412e7aaba8dc37cfedc5456efc",
+      "collection_ids": [
+        "additional-complete-boards-25-20261028"
+      ],
+      "catalog_commit": "60835af5d693e7ec6c83937f67f47b96f02aeb73"
+    },
+    {
+      "id": "laserax-de",
+      "company_id": "laserax",
+      "company_name": "Laserax",
+      "revision": 1,
+      "path": "companies/laserax/monitors/laserax-de.json",
+      "sha256": "a01d0e53593a933a989386ba9b3e8354e964524984f434e0ca80e0befc3e87c1",
+      "collection_ids": [
+        "additional-complete-boards-25-20261028"
+      ],
+      "catalog_commit": "60835af5d693e7ec6c83937f67f47b96f02aeb73"
+    },
+    {
+      "id": "laserax-en",
+      "company_id": "laserax",
+      "company_name": "Laserax",
+      "revision": 1,
+      "path": "companies/laserax/monitors/laserax-en.json",
+      "sha256": "0d82b3c4de10fab4a283e9a01805a577b173e6b038c4715ef09c1bb5f764db7a",
+      "collection_ids": [
+        "additional-complete-boards-25-20261028"
+      ],
+      "catalog_commit": "60835af5d693e7ec6c83937f67f47b96f02aeb73"
+    },
+    {
+      "id": "laserax",
+      "company_id": "laserax",
+      "company_name": "Laserax",
+      "revision": 1,
+      "path": "companies/laserax/monitors/laserax.json",
+      "sha256": "35835a97ea7ae184d43da24e8f3cd8966883112996a7aed12d2ebfd70e02a70f",
+      "collection_ids": [
+        "additional-complete-boards-25-20261028"
+      ],
+      "catalog_commit": "60835af5d693e7ec6c83937f67f47b96f02aeb73"
+    },
+    {
+      "id": "lorendo-en",
+      "company_id": "lorendo",
+      "company_name": "Lorendo",
+      "revision": 1,
+      "path": "companies/lorendo/monitors/lorendo-en.json",
+      "sha256": "bca13afc58f29bc73de3bcda02008e1517f9525ec629ed8f4ba9db193de35a65",
+      "collection_ids": [
+        "additional-complete-boards-25-20261028"
+      ],
+      "catalog_commit": "60835af5d693e7ec6c83937f67f47b96f02aeb73"
+    },
+    {
+      "id": "lorendo",
+      "company_id": "lorendo",
+      "company_name": "Lorendo",
+      "revision": 1,
+      "path": "companies/lorendo/monitors/lorendo.json",
+      "sha256": "e347c8a9a3f8d8b3067b2f6262d4324051f6f3f181da79eef83e19731f76d778",
+      "collection_ids": [
+        "additional-complete-boards-25-20261028"
+      ],
+      "catalog_commit": "60835af5d693e7ec6c83937f67f47b96f02aeb73"
+    },
+    {
+      "id": "metal-duquet-en",
+      "company_id": "metal-duquet",
+      "company_name": "Métal Duquet",
+      "revision": 1,
+      "path": "companies/metal-duquet/monitors/metal-duquet-en.json",
+      "sha256": "b99f7c593626fddcc87a796758a57009cf10db442601958186dd825ee6cc7a17",
+      "collection_ids": [
+        "additional-complete-boards-25-20261028"
+      ],
+      "catalog_commit": "60835af5d693e7ec6c83937f67f47b96f02aeb73"
+    },
+    {
+      "id": "metal-duquet",
+      "company_id": "metal-duquet",
+      "company_name": "Métal Duquet",
+      "revision": 1,
+      "path": "companies/metal-duquet/monitors/metal-duquet.json",
+      "sha256": "3e4e32cae16428329cf41cb6616b6905bd8563ddd7acf1672c51798d10334750",
+      "collection_ids": [
+        "additional-complete-boards-25-20261028"
+      ],
+      "catalog_commit": "60835af5d693e7ec6c83937f67f47b96f02aeb73"
+    },
+    {
+      "id": "metal-sartigan-en",
+      "company_id": "metal-sartigan",
+      "company_name": "Métal Sartigan",
+      "revision": 1,
+      "path": "companies/metal-sartigan/monitors/metal-sartigan-en.json",
+      "sha256": "2ad8fc7660fb6a000c481c014efa7426eed87d1a8c19bbbdb13f51dfa607ea94",
+      "collection_ids": [
+        "additional-complete-boards-25-20261028"
+      ],
+      "catalog_commit": "60835af5d693e7ec6c83937f67f47b96f02aeb73"
+    },
+    {
+      "id": "metal-sartigan",
+      "company_id": "metal-sartigan",
+      "company_name": "Métal Sartigan",
+      "revision": 1,
+      "path": "companies/metal-sartigan/monitors/metal-sartigan.json",
+      "sha256": "756266b3f2248fc5d2fcc2a0720ef81a29c306e4dbe34948a2b540836c532e57",
+      "collection_ids": [
+        "additional-complete-boards-25-20261028"
+      ],
+      "catalog_commit": "60835af5d693e7ec6c83937f67f47b96f02aeb73"
+    },
+    {
+      "id": "mp-filtri-fr",
+      "company_id": "mp-filtri",
+      "company_name": "MP Filtri",
+      "revision": 1,
+      "path": "companies/mp-filtri/monitors/mp-filtri-fr.json",
+      "sha256": "6afae739aa17b860d03a86f2bce344fc4070e6f88abed6cbe049fb105b5d0a34",
+      "collection_ids": [
+        "additional-complete-boards-25-20261028"
+      ],
+      "catalog_commit": "60835af5d693e7ec6c83937f67f47b96f02aeb73"
+    },
+    {
+      "id": "mp-filtri",
+      "company_id": "mp-filtri",
+      "company_name": "MP Filtri",
+      "revision": 1,
+      "path": "companies/mp-filtri/monitors/mp-filtri.json",
+      "sha256": "32fb4983bc27296085c47b37cf9bfd723550c15b12031d4b9d3e6e764e3e7e3c",
+      "collection_ids": [
+        "additional-complete-boards-25-20261028"
+      ],
+      "catalog_commit": "60835af5d693e7ec6c83937f67f47b96f02aeb73"
+    },
+    {
+      "id": "nano-one-materials",
+      "company_id": "nano-one-materials",
+      "company_name": "Nano One Materials",
+      "revision": 1,
+      "path": "companies/nano-one-materials/monitors/nano-one-materials.json",
+      "sha256": "9336e63fd3595e21bc288e68020be6c78fa0c9e68b11d4850959f1046293ce7e",
+      "collection_ids": [
+        "additional-complete-boards-25-20261028"
+      ],
+      "catalog_commit": "60835af5d693e7ec6c83937f67f47b96f02aeb73"
+    },
+    {
+      "id": "o-sole-mio",
+      "company_id": "o-sole-mio",
+      "company_name": "O'Sole Mio",
+      "revision": 1,
+      "path": "companies/o-sole-mio/monitors/o-sole-mio.json",
+      "sha256": "6a63167d645a85bc799fd775433dd2ab17733ceb361186ddd4f94390344d36c3",
+      "collection_ids": [
+        "additional-complete-boards-25-20261028"
+      ],
+      "catalog_commit": "60835af5d693e7ec6c83937f67f47b96f02aeb73"
+    },
+    {
+      "id": "pneus-ratte",
+      "company_id": "pneus-ratte",
+      "company_name": "Pneus Ratté",
+      "revision": 1,
+      "path": "companies/pneus-ratte/monitors/pneus-ratte.json",
+      "sha256": "1ab8cf6fc0ff8493bae510c9192c6a5eae41b1d787674f7461d7f4b15dd1c118",
+      "collection_ids": [
+        "additional-complete-boards-25-20261028"
+      ],
+      "catalog_commit": "60835af5d693e7ec6c83937f67f47b96f02aeb73"
+    },
+    {
+      "id": "portes-lambton-en",
+      "company_id": "portes-lambton",
+      "company_name": "Portes Lambton",
+      "revision": 1,
+      "path": "companies/portes-lambton/monitors/portes-lambton-en.json",
+      "sha256": "215d36e7d2a2681401709f8f401e05787b7781264f70bf05577a73b34e964064",
+      "collection_ids": [
+        "additional-complete-boards-25-20261028"
+      ],
+      "catalog_commit": "60835af5d693e7ec6c83937f67f47b96f02aeb73"
+    },
+    {
+      "id": "portes-lambton",
+      "company_id": "portes-lambton",
+      "company_name": "Portes Lambton",
+      "revision": 1,
+      "path": "companies/portes-lambton/monitors/portes-lambton.json",
+      "sha256": "ad1d56547ff4dd82d719e615d41353991ce680219fbda3ab288782a9f5368285",
+      "collection_ids": [
+        "additional-complete-boards-25-20261028"
+      ],
+      "catalog_commit": "60835af5d693e7ec6c83937f67f47b96f02aeb73"
+    },
+    {
+      "id": "soudure-metalco",
+      "company_id": "soudure-metalco",
+      "company_name": "Soudure MetalCo",
+      "revision": 1,
+      "path": "companies/soudure-metalco/monitors/soudure-metalco.json",
+      "sha256": "74e65602905148b38cbd14404b00ac9772f84193a88833c3d3533859ddf4f01e",
+      "collection_ids": [
+        "additional-complete-boards-25-20261028"
+      ],
+      "catalog_commit": "60835af5d693e7ec6c83937f67f47b96f02aeb73"
+    },
+    {
+      "id": "usinage-laurentides-fr",
+      "company_id": "usinage-laurentides",
+      "company_name": "Usinage Laurentides",
+      "revision": 1,
+      "path": "companies/usinage-laurentides/monitors/usinage-laurentides-fr.json",
+      "sha256": "55520eb720089d6b2573307ff7aeb75d26d20a0b47b5c52f78623345d837ee3a",
+      "collection_ids": [
+        "additional-complete-boards-25-20261028"
+      ],
+      "catalog_commit": "60835af5d693e7ec6c83937f67f47b96f02aeb73"
+    },
+    {
+      "id": "usinage-laurentides",
+      "company_id": "usinage-laurentides",
+      "company_name": "Usinage Laurentides",
+      "revision": 1,
+      "path": "companies/usinage-laurentides/monitors/usinage-laurentides.json",
+      "sha256": "659ffb8bad57a7b61c3fe6b97dce429cbce4bd14e1715ac74b07923e1f31850e",
+      "collection_ids": [
+        "additional-complete-boards-25-20261028"
+      ],
+      "catalog_commit": "60835af5d693e7ec6c83937f67f47b96f02aeb73"
+    }
+  ]
+}
