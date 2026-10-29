@@ -437,11 +437,12 @@ def run_scraper(
         result.complete = False
         result.warnings.append("Resuming metadata or descriptions from a prior listing snapshot; this is not a new absence check.")
     checkpoint = cache.get(traversal.CACHE_KEY)
-    if selected.coverage_mode == 'all' and checkpoint and not checkpoint.get('queue') and not checkpoint.get('inventory', {}).get('queue') and not checkpoint.get('metadata_inventory', {}).get('queue') and not result.continuation_ready and any(
+    if selected.coverage_mode == 'all' and checkpoint and not checkpoint.get('queue') and not checkpoint.get('inventory', {}).get('queue') and not checkpoint.get('metadata_inventory', {}).get('queue') and not result.continuation_ready and (listing_complete or any(
         not entry.get('resolved') for entry in checkpoint.get('missing_postings', {}).values()
-    ):
-        # A permanently bare source entry must not freeze discovery forever.
-        # Keep the current evidence, then start a fresh listing on the next run.
+    )):
+        # Unavailable descriptions or bare entries must not freeze discovery.
+        # Preserve detail retry state and this snapshot's absence semantics,
+        # but fetch a fresh listing after the current traversal has finished.
         checkpoint['refresh_listing_next_run'] = True
     _notify(progress, "complete", f"Found {len(result.jobs)} jobs", 100)
     return _scheduler_payload(result, selected) if scheduler_call else result

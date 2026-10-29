@@ -1,0 +1,28 @@
+{
+  "runtime_revision": "658d022cbe149ac00ad3931651f0dba9243ebea6751fb513c5bba8e61b0ddcf5",
+  "checked_at": "2026-10-29T18:47:49.235876+00:00",
+  "source": "lauzon-planchers-de-bois-exclusifs",
+  "runs": [
+    {
+      "run": 1,
+      "jobs": 21,
+      "pages": 0,
+      "complete": false,
+      "continuation": false,
+      "warnings": [
+        "description detail enrichment deferred 21 jobs until retry backoff ends",
+        "Resuming metadata or descriptions from a prior listing snapshot; this is not a new absence check."
+      ]
+    },
+    {
+      "run": 2,
+      "jobs": 21,
+      "pages": 1,
+      "complete": true,
+      "continuation": false,
+      "warnings": [
+        "description detail enrichment deferred 21 jobs until retry backoff ends"
+      ]
+    }
+  ]
+}

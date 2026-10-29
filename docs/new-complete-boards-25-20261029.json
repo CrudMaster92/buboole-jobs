@@ -1,0 +1,363 @@
+{
+  "checked_at": "2026-10-29T18:49:34.065712+00:00",
+  "catalog_commit": "4022f5e70d43867f018b1909430b6f889c7d3cc3",
+  "previous_pins": 1261,
+  "added_pins": 29,
+  "total_pins": 1290,
+  "new_companies": 25,
+  "existing_pins_unchanged": true,
+  "new_pin_hashes_and_runtime_contracts_validated": true,
+  "runtime_unchanged": false,
+  "runtime_change": "Canonical terminal snapshot refresh after unavailable descriptions; preserves absence semantics and retry caches; 203 runtime tests and live two-run refresh proof pass.",
+  "runtime_revision": "658d022cbe149ac00ad3931651f0dba9243ebea6751fb513c5bba8e61b0ddcf5",
+  "new_sources": [
+    {
+      "id": "atelier-d-usinage-poudrier",
+      "company_id": "atelier-d-usinage-poudrier",
+      "company_name": "Atelier d'usinage Poudrier",
+      "revision": 1,
+      "path": "companies/atelier-d-usinage-poudrier/monitors/atelier-d-usinage-poudrier.json",
+      "sha256": "f00aa252f73c32ae4cdabe6c8828e7032f5e40dca59c6b030596d8634f6561f6",
+      "collection_ids": [
+        "new-complete-boards-25-20261029"
+      ],
+      "catalog_commit": "4022f5e70d43867f018b1909430b6f889c7d3cc3"
+    },
+    {
+      "id": "centre-de-production-laflamme",
+      "company_id": "centre-de-production-laflamme",
+      "company_name": "Centre de Production Laflamme",
+      "revision": 1,
+      "path": "companies/centre-de-production-laflamme/monitors/centre-de-production-laflamme.json",
+      "sha256": "b23001fd4487b4efefef072de52901691af27f822a41a2b14a5113c6989b52c2",
+      "collection_ids": [
+        "new-complete-boards-25-20261029"
+      ],
+      "catalog_commit": "4022f5e70d43867f018b1909430b6f889c7d3cc3"
+    },
+    {
+      "id": "ciment-quebec-inc",
+      "company_id": "ciment-quebec-inc",
+      "company_name": "Ciment Québec inc.",
+      "revision": 1,
+      "path": "companies/ciment-quebec-inc/monitors/ciment-quebec-inc.json",
+      "sha256": "8d1ec33f751a8df2480bf2f6497c7059902f06b46c6e692a718f5b308dc5f255",
+      "collection_ids": [
+        "new-complete-boards-25-20261029"
+      ],
+      "catalog_commit": "4022f5e70d43867f018b1909430b6f889c7d3cc3"
+    },
+    {
+      "id": "ciment-quebec-unibeton",
+      "company_id": "ciment-quebec-inc",
+      "company_name": "Ciment Québec inc.",
+      "revision": 1,
+      "path": "companies/ciment-quebec-inc/monitors/ciment-quebec-unibeton.json",
+      "sha256": "ec584098ff2fe2e65bb3464aedfcadede4b288e7a0e62368161f98bed376c959",
+      "collection_ids": [
+        "new-complete-boards-25-20261029"
+      ],
+      "catalog_commit": "4022f5e70d43867f018b1909430b6f889c7d3cc3"
+    },
+    {
+      "id": "confort-expert-inc",
+      "company_id": "confort-expert-inc",
+      "company_name": "Confort Expert inc.",
+      "revision": 1,
+      "path": "companies/confort-expert-inc/monitors/confort-expert-inc.json",
+      "sha256": "8823ad8185a222a87a1a0f5c9b5d94b9404397f5959a0301840f77784816ca37",
+      "collection_ids": [
+        "new-complete-boards-25-20261029"
+      ],
+      "catalog_commit": "4022f5e70d43867f018b1909430b6f889c7d3cc3"
+    },
+    {
+      "id": "cvtech-ibc",
+      "company_id": "cvtech-ibc",
+      "company_name": "CVTech-IBC",
+      "revision": 1,
+      "path": "companies/cvtech-ibc/monitors/cvtech-ibc.json",
+      "sha256": "c07231281747dce205a0f589af4eae9f38b994495fc005e3b82ab66a4f27fac1",
+      "collection_ids": [
+        "new-complete-boards-25-20261029"
+      ],
+      "catalog_commit": "4022f5e70d43867f018b1909430b6f889c7d3cc3"
+    },
+    {
+      "id": "entreprises-g-n-p-inc-opportunities",
+      "company_id": "entreprises-g-n-p-inc",
+      "company_name": "Entreprises G.N.P. inc.",
+      "revision": 1,
+      "path": "companies/entreprises-g-n-p-inc/monitors/entreprises-g-n-p-inc-opportunities.json",
+      "sha256": "7d6f3c1e885784159d77a0922d121c935f5e06150763ca11722fe590f7c57bf9",
+      "collection_ids": [
+        "new-complete-boards-25-20261029"
+      ],
+      "catalog_commit": "4022f5e70d43867f018b1909430b6f889c7d3cc3"
+    },
+    {
+      "id": "entreprises-g-n-p-inc",
+      "company_id": "entreprises-g-n-p-inc",
+      "company_name": "Entreprises G.N.P. inc.",
+      "revision": 1,
+      "path": "companies/entreprises-g-n-p-inc/monitors/entreprises-g-n-p-inc.json",
+      "sha256": "15d3631c888e5f428bd3b98410206f4b2f5c3b4b485df5fe5a34addb3c8af112",
+      "collection_ids": [
+        "new-complete-boards-25-20261029"
+      ],
+      "catalog_commit": "4022f5e70d43867f018b1909430b6f889c7d3cc3"
+    },
+    {
+      "id": "groupe-aspec",
+      "company_id": "groupe-aspec",
+      "company_name": "Groupe Aspec",
+      "revision": 1,
+      "path": "companies/groupe-aspec/monitors/groupe-aspec.json",
+      "sha256": "c3142807529157454b58d413cd8664bba9a81fe37bd6afe9d45589a57ea4dfc1",
+      "collection_ids": [
+        "new-complete-boards-25-20261029"
+      ],
+      "catalog_commit": "4022f5e70d43867f018b1909430b6f889c7d3cc3"
+    },
+    {
+      "id": "groupe-dcm",
+      "company_id": "groupe-dcm",
+      "company_name": "Groupe DCM",
+      "revision": 1,
+      "path": "companies/groupe-dcm/monitors/groupe-dcm.json",
+      "sha256": "8ae92ec35e8efbe70f8b43d89defc08f8ea8088bea87cc13c14f3e508df3c6db",
+      "collection_ids": [
+        "new-complete-boards-25-20261029"
+      ],
+      "catalog_commit": "4022f5e70d43867f018b1909430b6f889c7d3cc3"
+    },
+    {
+      "id": "groupe-quebeco-inc-plomberie-st-jovite",
+      "company_id": "groupe-quebeco-inc-plomberie-st-jovite",
+      "company_name": "Groupe Québéco inc. - Plomberie St-Jovite",
+      "revision": 1,
+      "path": "companies/groupe-quebeco-inc-plomberie-st-jovite/monitors/groupe-quebeco-inc-plomberie-st-jovite.json",
+      "sha256": "0561999928d49f96f68acdb787b8ee767b35cd337cebd3507408b42aefef8336",
+      "collection_ids": [
+        "new-complete-boards-25-20261029"
+      ],
+      "catalog_commit": "4022f5e70d43867f018b1909430b6f889c7d3cc3"
+    },
+    {
+      "id": "hydrep-inc",
+      "company_id": "hydrep-inc",
+      "company_name": "Hydrep Inc.",
+      "revision": 1,
+      "path": "companies/hydrep-inc/monitors/hydrep-inc.json",
+      "sha256": "31110cea43d29eebb1520f18ff2801c48ddb05ec0c7a9f9d5a3b7f03e43a9984",
+      "collection_ids": [
+        "new-complete-boards-25-20261029"
+      ],
+      "catalog_commit": "4022f5e70d43867f018b1909430b6f889c7d3cc3"
+    },
+    {
+      "id": "imprimerie-numerix",
+      "company_id": "imprimerie-numerix",
+      "company_name": "Imprimerie Numérix",
+      "revision": 1,
+      "path": "companies/imprimerie-numerix/monitors/imprimerie-numerix.json",
+      "sha256": "e0c28778379add19c01d976f4dbc3e054e82ff4701ec3b37989d4f828aa9ec0c",
+      "collection_ids": [
+        "new-complete-boards-25-20261029"
+      ],
+      "catalog_commit": "4022f5e70d43867f018b1909430b6f889c7d3cc3"
+    },
+    {
+      "id": "industrie-cbm",
+      "company_id": "industrie-cbm",
+      "company_name": "Industrie CBM",
+      "revision": 1,
+      "path": "companies/industrie-cbm/monitors/industrie-cbm.json",
+      "sha256": "902ab5d05d735beadc127b7421016a71eabcd28da5cd98e6869272f347877427",
+      "collection_ids": [
+        "new-complete-boards-25-20261029"
+      ],
+      "catalog_commit": "4022f5e70d43867f018b1909430b6f889c7d3cc3"
+    },
+    {
+      "id": "industries-machinex-inc-en",
+      "company_id": "industries-machinex-inc",
+      "company_name": "Industries Machinex inc.",
+      "revision": 1,
+      "path": "companies/industries-machinex-inc/monitors/industries-machinex-inc-en.json",
+      "sha256": "96fbf7d90dfd0ad1b99f99c809696886f49ad4e390fe4f1227706e30d1d4b952",
+      "collection_ids": [
+        "new-complete-boards-25-20261029"
+      ],
+      "catalog_commit": "4022f5e70d43867f018b1909430b6f889c7d3cc3"
+    },
+    {
+      "id": "industries-machinex-inc-fr",
+      "company_id": "industries-machinex-inc",
+      "company_name": "Industries Machinex inc.",
+      "revision": 1,
+      "path": "companies/industries-machinex-inc/monitors/industries-machinex-inc-fr.json",
+      "sha256": "8ce90fd1f016a032f7d115a992040f38a67634bcf2543c82b2ff587812eb7493",
+      "collection_ids": [
+        "new-complete-boards-25-20261029"
+      ],
+      "catalog_commit": "4022f5e70d43867f018b1909430b6f889c7d3cc3"
+    },
+    {
+      "id": "lauzon-planchers-de-bois-exclusifs",
+      "company_id": "lauzon-planchers-de-bois-exclusifs",
+      "company_name": "Lauzon – Planchers de bois exclusifs",
+      "revision": 1,
+      "path": "companies/lauzon-planchers-de-bois-exclusifs/monitors/lauzon-planchers-de-bois-exclusifs.json",
+      "sha256": "5900a96ea812374eae7ae14e00bdbcf50038a5f4deb07cb4b1ec79f86ff15d67",
+      "collection_ids": [
+        "new-complete-boards-25-20261029"
+      ],
+      "catalog_commit": "4022f5e70d43867f018b1909430b6f889c7d3cc3"
+    },
+    {
+      "id": "les-distributions-alimentaires-roy",
+      "company_id": "les-distributions-alimentaires-roy",
+      "company_name": "Les distributions alimentaires Roy",
+      "revision": 1,
+      "path": "companies/les-distributions-alimentaires-roy/monitors/les-distributions-alimentaires-roy.json",
+      "sha256": "322e636dcf4b1c74317cc7e6aad9b41dfcb77a43c75b8896855ecf579f8b38dc",
+      "collection_ids": [
+        "new-complete-boards-25-20261029"
+      ],
+      "catalog_commit": "4022f5e70d43867f018b1909430b6f889c7d3cc3"
+    },
+    {
+      "id": "les-produits-forestiers-d-g-ltee",
+      "company_id": "les-produits-forestiers-d-g-ltee",
+      "company_name": "Les Produits Forestiers D&G Ltée.",
+      "revision": 1,
+      "path": "companies/les-produits-forestiers-d-g-ltee/monitors/les-produits-forestiers-d-g-ltee.json",
+      "sha256": "eef79070fb1a5d806c57374ee2d6fa4177db51b75d6b31da8edb61f951051977",
+      "collection_ids": [
+        "new-complete-boards-25-20261029"
+      ],
+      "catalog_commit": "4022f5e70d43867f018b1909430b6f889c7d3cc3"
+    },
+    {
+      "id": "loisirs-du-faubourg",
+      "company_id": "loisirs-du-faubourg",
+      "company_name": "Loisirs du Faubourg",
+      "revision": 1,
+      "path": "companies/loisirs-du-faubourg/monitors/loisirs-du-faubourg.json",
+      "sha256": "26097794542254a9cfb524eebd0fbf3adc564b1f97125451673b660b54b5f327",
+      "collection_ids": [
+        "new-complete-boards-25-20261029"
+      ],
+      "catalog_commit": "4022f5e70d43867f018b1909430b6f889c7d3cc3"
+    },
+    {
+      "id": "metal-pless",
+      "company_id": "metal-pless",
+      "company_name": "Metal Pless",
+      "revision": 1,
+      "path": "companies/metal-pless/monitors/metal-pless.json",
+      "sha256": "d3b252353b97d7de484f57fe4883d65018a018280f43d8273b7add44d2334cc0",
+      "collection_ids": [
+        "new-complete-boards-25-20261029"
+      ],
+      "catalog_commit": "4022f5e70d43867f018b1909430b6f889c7d3cc3"
+    },
+    {
+      "id": "mi-maintenance-industrielle-inc",
+      "company_id": "mi-maintenance-industrielle-inc",
+      "company_name": "Mi-Maintenance Industrielle inc.",
+      "revision": 1,
+      "path": "companies/mi-maintenance-industrielle-inc/monitors/mi-maintenance-industrielle-inc.json",
+      "sha256": "2d2b9497d451a55954d56259c7bad73724e3e5978b607366576b1f095293beeb",
+      "collection_ids": [
+        "new-complete-boards-25-20261029"
+      ],
+      "catalog_commit": "4022f5e70d43867f018b1909430b6f889c7d3cc3"
+    },
+    {
+      "id": "patates-dolbec",
+      "company_id": "patates-dolbec",
+      "company_name": "Patates Dolbec",
+      "revision": 1,
+      "path": "companies/patates-dolbec/monitors/patates-dolbec.json",
+      "sha256": "c73bd60321efa834f2e3facfacc13583bfaa2564bb8fe6cec1503f201c14fc87",
+      "collection_ids": [
+        "new-complete-boards-25-20261029"
+      ],
+      "catalog_commit": "4022f5e70d43867f018b1909430b6f889c7d3cc3"
+    },
+    {
+      "id": "pgs-experts-inc-et-pgs-industriel-inc",
+      "company_id": "pgs-experts-inc-et-pgs-industriel-inc",
+      "company_name": "PGS Experts inc. et PGS Industriel inc.",
+      "revision": 1,
+      "path": "companies/pgs-experts-inc-et-pgs-industriel-inc/monitors/pgs-experts-inc-et-pgs-industriel-inc.json",
+      "sha256": "393f893fc34bf9e890a5d07b35d691ac5ecefa142995f74dc3512e4b3581357e",
+      "collection_ids": [
+        "new-complete-boards-25-20261029"
+      ],
+      "catalog_commit": "4022f5e70d43867f018b1909430b6f889c7d3cc3"
+    },
+    {
+      "id": "rcm-architectural-inc-opportunities",
+      "company_id": "rcm-architectural-inc",
+      "company_name": "RCM Architectural inc.",
+      "revision": 1,
+      "path": "companies/rcm-architectural-inc/monitors/rcm-architectural-inc-opportunities.json",
+      "sha256": "5ce21498ae6aac7ed0849e5989ae6ae5707f4656316040336252a7c7bf6b847c",
+      "collection_ids": [
+        "new-complete-boards-25-20261029"
+      ],
+      "catalog_commit": "4022f5e70d43867f018b1909430b6f889c7d3cc3"
+    },
+    {
+      "id": "rcm-architectural-inc",
+      "company_id": "rcm-architectural-inc",
+      "company_name": "RCM Architectural inc.",
+      "revision": 1,
+      "path": "companies/rcm-architectural-inc/monitors/rcm-architectural-inc.json",
+      "sha256": "3207782a3ee53f632964d4670c7af0d601a178f8774e1ab5ce5f23881aada138",
+      "collection_ids": [
+        "new-complete-boards-25-20261029"
+      ],
+      "catalog_commit": "4022f5e70d43867f018b1909430b6f889c7d3cc3"
+    },
+    {
+      "id": "rexforet",
+      "company_id": "rexforet",
+      "company_name": "Rexforêt",
+      "revision": 1,
+      "path": "companies/rexforet/monitors/rexforet.json",
+      "sha256": "8445106f1bb87b59127f7d0b4ffdf1a10a87770d88c14ade535a665a9b02ce08",
+      "collection_ids": [
+        "new-complete-boards-25-20261029"
+      ],
+      "catalog_commit": "4022f5e70d43867f018b1909430b6f889c7d3cc3"
+    },
+    {
+      "id": "silo-j-m-lambert-inc-equipement-lambert",
+      "company_id": "silo-j-m-lambert-inc-equipement-lambert",
+      "company_name": "Silo J.M. Lambert inc. / Équipement Lambert",
+      "revision": 1,
+      "path": "companies/silo-j-m-lambert-inc-equipement-lambert/monitors/silo-j-m-lambert-inc-equipement-lambert.json",
+      "sha256": "49571280beb1749818e27fc1d147a9dc78a68da9afbd1cecc8f19458a5615e8d",
+      "collection_ids": [
+        "new-complete-boards-25-20261029"
+      ],
+      "catalog_commit": "4022f5e70d43867f018b1909430b6f889c7d3cc3"
+    },
+    {
+      "id": "usine-de-congelation-de-st-bruno-inc",
+      "company_id": "usine-de-congelation-de-st-bruno-inc",
+      "company_name": "Usine de Congélation de St-Bruno inc.",
+      "revision": 1,
+      "path": "companies/usine-de-congelation-de-st-bruno-inc/monitors/usine-de-congelation-de-st-bruno-inc.json",
+      "sha256": "092e20d8b2bd3e18663a548dc887d2f34cb403469e3322b27074ecceb961b8fc",
+      "collection_ids": [
+        "new-complete-boards-25-20261029"
+      ],
+      "catalog_commit": "4022f5e70d43867f018b1909430b6f889c7d3cc3"
+    }
+  ]
+}
