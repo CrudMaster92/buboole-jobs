@@ -1,0 +1,314 @@
+{
+  "checked_at": "2026-10-29T14:54:29.405046+00:00",
+  "catalog_commit": "5f08f5d45ea874f0da6df1120aed03c0b89372dd",
+  "previous_pins": 1236,
+  "added_pins": 25,
+  "total_pins": 1261,
+  "new_companies": 25,
+  "existing_pins_unchanged": true,
+  "new_pin_hashes_and_runtime_contracts_validated": true,
+  "runtime_unchanged": true,
+  "runtime_revision": "f3b4f2500d7a51bf5aa45fd2a2aa0a44d79b7a1f573950fbd9f3bc4d5af48f97",
+  "new_sources": [
+    {
+      "id": "acme-decors-inc",
+      "company_id": "acme-decors-inc",
+      "company_name": "Acmé Décors inc.",
+      "revision": 1,
+      "path": "companies/acme-decors-inc/monitors/acme-decors-inc.json",
+      "sha256": "30e26da87a2048b1c0d0cb98c7c32e13d2d26dc517b55e81d6c142f69a50168d",
+      "collection_ids": [
+        "full-public-boards-25-20261029"
+      ],
+      "catalog_commit": "5f08f5d45ea874f0da6df1120aed03c0b89372dd"
+    },
+    {
+      "id": "adapt-solutions",
+      "company_id": "adapt-solutions",
+      "company_name": "Adapt Solutions",
+      "revision": 1,
+      "path": "companies/adapt-solutions/monitors/adapt-solutions.json",
+      "sha256": "e3901a0530c0e203342e1f4a26b699bf39727226524d832ceb26a35a7a1248fa",
+      "collection_ids": [
+        "full-public-boards-25-20261029"
+      ],
+      "catalog_commit": "5f08f5d45ea874f0da6df1120aed03c0b89372dd"
+    },
+    {
+      "id": "amt-moulage-inc",
+      "company_id": "amt-moulage-inc",
+      "company_name": "AMT moulage inc.",
+      "revision": 1,
+      "path": "companies/amt-moulage-inc/monitors/amt-moulage-inc.json",
+      "sha256": "8d9121f7b2ce9d4c7e28a67f60c695fcfce24913c9338efc9120d58cb0e8bab9",
+      "collection_ids": [
+        "full-public-boards-25-20261029"
+      ],
+      "catalog_commit": "5f08f5d45ea874f0da6df1120aed03c0b89372dd"
+    },
+    {
+      "id": "blais-industries",
+      "company_id": "blais-industries",
+      "company_name": "Blais Industries",
+      "revision": 1,
+      "path": "companies/blais-industries/monitors/blais-industries.json",
+      "sha256": "793087b64272cfd52c8ac5e4ac8809f671490bba3a16b08d149f0ebf47104f37",
+      "collection_ids": [
+        "full-public-boards-25-20261029"
+      ],
+      "catalog_commit": "5f08f5d45ea874f0da6df1120aed03c0b89372dd"
+    },
+    {
+      "id": "canmec",
+      "company_id": "canmec",
+      "company_name": "CANMEC",
+      "revision": 1,
+      "path": "companies/canmec/monitors/canmec.json",
+      "sha256": "9be420a8712ca7c16c63124b9ed386f8d1ae008b599dcdfc841aec0c4c3f4e2f",
+      "collection_ids": [
+        "full-public-boards-25-20261029"
+      ],
+      "catalog_commit": "5f08f5d45ea874f0da6df1120aed03c0b89372dd"
+    },
+    {
+      "id": "caoutchoucs-et-plastiques-falpaco-inc",
+      "company_id": "caoutchoucs-et-plastiques-falpaco-inc",
+      "company_name": "Caoutchoucs et Plastiques Falpaco inc.",
+      "revision": 1,
+      "path": "companies/caoutchoucs-et-plastiques-falpaco-inc/monitors/caoutchoucs-et-plastiques-falpaco-inc.json",
+      "sha256": "57adc959b10ce22181512092b2f4f098066f648cbd958e02ee4e4e3e78d11782",
+      "collection_ids": [
+        "full-public-boards-25-20261029"
+      ],
+      "catalog_commit": "5f08f5d45ea874f0da6df1120aed03c0b89372dd"
+    },
+    {
+      "id": "chocolat-lamontagne-inc",
+      "company_id": "chocolat-lamontagne-inc",
+      "company_name": "Chocolat Lamontagne inc.",
+      "revision": 1,
+      "path": "companies/chocolat-lamontagne-inc/monitors/chocolat-lamontagne-inc.json",
+      "sha256": "06588ab24b2fd98821155552ba7e38a7240c3353ccc3e976230c0f460d91bcff",
+      "collection_ids": [
+        "full-public-boards-25-20261029"
+      ],
+      "catalog_commit": "5f08f5d45ea874f0da6df1120aed03c0b89372dd"
+    },
+    {
+      "id": "comact",
+      "company_id": "comact",
+      "company_name": "Comact",
+      "revision": 1,
+      "path": "companies/comact/monitors/comact.json",
+      "sha256": "d8602d8b8d3d43596de7566ce3ed19c1700d26f0efc712d08f66c06b4113fe29",
+      "collection_ids": [
+        "full-public-boards-25-20261029"
+      ],
+      "catalog_commit": "5f08f5d45ea874f0da6df1120aed03c0b89372dd"
+    },
+    {
+      "id": "durabac-inc",
+      "company_id": "durabac-inc",
+      "company_name": "Durabac inc.",
+      "revision": 1,
+      "path": "companies/durabac-inc/monitors/durabac-inc.json",
+      "sha256": "4a505304937e23b552474a088d7f0432f873bf42fadd28d32d1dd005a144a3d9",
+      "collection_ids": [
+        "full-public-boards-25-20261029"
+      ],
+      "catalog_commit": "5f08f5d45ea874f0da6df1120aed03c0b89372dd"
+    },
+    {
+      "id": "eloi-moisan-inc",
+      "company_id": "eloi-moisan-inc",
+      "company_name": "Éloi Moisan inc.",
+      "revision": 1,
+      "path": "companies/eloi-moisan-inc/monitors/eloi-moisan-inc.json",
+      "sha256": "3930ec65ba01fa791cba06399a793e5967262301f71e274898e873ea202728cf",
+      "collection_ids": [
+        "full-public-boards-25-20261029"
+      ],
+      "catalog_commit": "5f08f5d45ea874f0da6df1120aed03c0b89372dd"
+    },
+    {
+      "id": "fjordtech-industrie-inc",
+      "company_id": "fjordtech-industrie-inc",
+      "company_name": "Fjordtech Industrie Inc.",
+      "revision": 1,
+      "path": "companies/fjordtech-industrie-inc/monitors/fjordtech-industrie-inc.json",
+      "sha256": "0b04ec2165c72e7c365eaedf67a9891d6cbff46b3818b6c53770402f2b90502d",
+      "collection_ids": [
+        "full-public-boards-25-20261029"
+      ],
+      "catalog_commit": "5f08f5d45ea874f0da6df1120aed03c0b89372dd"
+    },
+    {
+      "id": "groupe-bibeau-inc",
+      "company_id": "groupe-bibeau-inc",
+      "company_name": "Groupe Bibeau inc.",
+      "revision": 1,
+      "path": "companies/groupe-bibeau-inc/monitors/groupe-bibeau-inc.json",
+      "sha256": "7699a7c8aa198c72ea74b453db826942d73fe5dc86f8af0c4357449a72cae3fb",
+      "collection_ids": [
+        "full-public-boards-25-20261029"
+      ],
+      "catalog_commit": "5f08f5d45ea874f0da6df1120aed03c0b89372dd"
+    },
+    {
+      "id": "groupe-p-bolduc",
+      "company_id": "groupe-p-bolduc",
+      "company_name": "Groupe P. Bolduc",
+      "revision": 1,
+      "path": "companies/groupe-p-bolduc/monitors/groupe-p-bolduc.json",
+      "sha256": "5e6765730c3b8966b945a1064d5a32758b712a02a8993881e5e144c64d9d8df1",
+      "collection_ids": [
+        "full-public-boards-25-20261029"
+      ],
+      "catalog_commit": "5f08f5d45ea874f0da6df1120aed03c0b89372dd"
+    },
+    {
+      "id": "lar-machinerie-inc",
+      "company_id": "lar-machinerie-inc",
+      "company_name": "LAR Machinerie inc.",
+      "revision": 1,
+      "path": "companies/lar-machinerie-inc/monitors/lar-machinerie-inc.json",
+      "sha256": "e477fdff3e90a1b234532f4cf25d3b6d3a58cb90b8ae8710f691b5a7fea2ebaf",
+      "collection_ids": [
+        "full-public-boards-25-20261029"
+      ],
+      "catalog_commit": "5f08f5d45ea874f0da6df1120aed03c0b89372dd"
+    },
+    {
+      "id": "les-equipements-lapierre-inc",
+      "company_id": "les-equipements-lapierre-inc",
+      "company_name": "Les Équipements Lapierre inc.",
+      "revision": 1,
+      "path": "companies/les-equipements-lapierre-inc/monitors/les-equipements-lapierre-inc.json",
+      "sha256": "b3df06fa5476e609b028783d3529da29da4c4e46c6d6ff511b4560cb4b88e244",
+      "collection_ids": [
+        "full-public-boards-25-20261029"
+      ],
+      "catalog_commit": "5f08f5d45ea874f0da6df1120aed03c0b89372dd"
+    },
+    {
+      "id": "les-produits-metalliques-roy",
+      "company_id": "les-produits-metalliques-roy",
+      "company_name": "Les Produits Métalliques Roy",
+      "revision": 1,
+      "path": "companies/les-produits-metalliques-roy/monitors/les-produits-metalliques-roy.json",
+      "sha256": "de19097a14e6625742f1669dc27f0260a5ec3dab5d00a64e16dae052dd323f57",
+      "collection_ids": [
+        "full-public-boards-25-20261029"
+      ],
+      "catalog_commit": "5f08f5d45ea874f0da6df1120aed03c0b89372dd"
+    },
+    {
+      "id": "mecanitec",
+      "company_id": "mecanitec",
+      "company_name": "Mécanitec",
+      "revision": 1,
+      "path": "companies/mecanitec/monitors/mecanitec.json",
+      "sha256": "820e1ddc96f46a3fd671eb43afc614d87161c6480a63545abd4b9adb6b18df3b",
+      "collection_ids": [
+        "full-public-boards-25-20261029"
+      ],
+      "catalog_commit": "5f08f5d45ea874f0da6df1120aed03c0b89372dd"
+    },
+    {
+      "id": "orizon-mobile",
+      "company_id": "orizon-mobile",
+      "company_name": "Orizon Mobile",
+      "revision": 1,
+      "path": "companies/orizon-mobile/monitors/orizon-mobile.json",
+      "sha256": "e509bfe285ad7be38efeb034211ed5dbc357a8a5645e5a209048b4ab084a11a6",
+      "collection_ids": [
+        "full-public-boards-25-20261029"
+      ],
+      "catalog_commit": "5f08f5d45ea874f0da6df1120aed03c0b89372dd"
+    },
+    {
+      "id": "rcm-modulaire-inc",
+      "company_id": "rcm-modulaire-inc",
+      "company_name": "RCM Modulaire inc.",
+      "revision": 1,
+      "path": "companies/rcm-modulaire-inc/monitors/rcm-modulaire-inc.json",
+      "sha256": "714b5a7ea6ee7778a9c215491ab5a3122fb904714d25ef6a4ab8033b0ccab926",
+      "collection_ids": [
+        "full-public-boards-25-20261029"
+      ],
+      "catalog_commit": "5f08f5d45ea874f0da6df1120aed03c0b89372dd"
+    },
+    {
+      "id": "tafisa-canada",
+      "company_id": "tafisa-canada",
+      "company_name": "Tafisa Canada",
+      "revision": 1,
+      "path": "companies/tafisa-canada/monitors/tafisa-canada.json",
+      "sha256": "4f7a31c99d22a577305e34de6dc9b637ab52f72db899cdf009449d1e4ccd9982",
+      "collection_ids": [
+        "full-public-boards-25-20261029"
+      ],
+      "catalog_commit": "5f08f5d45ea874f0da6df1120aed03c0b89372dd"
+    },
+    {
+      "id": "tapis-venture-inc",
+      "company_id": "tapis-venture-inc",
+      "company_name": "Tapis Venture inc.",
+      "revision": 1,
+      "path": "companies/tapis-venture-inc/monitors/tapis-venture-inc.json",
+      "sha256": "0d91537a151ec56fceb620b06ccee629e6f2a9ee6edc3686ca938864434222a7",
+      "collection_ids": [
+        "full-public-boards-25-20261029"
+      ],
+      "catalog_commit": "5f08f5d45ea874f0da6df1120aed03c0b89372dd"
+    },
+    {
+      "id": "tbc-fabrication",
+      "company_id": "tbc-fabrication",
+      "company_name": "TBC Fabrication",
+      "revision": 1,
+      "path": "companies/tbc-fabrication/monitors/tbc-fabrication.json",
+      "sha256": "723473e0ca26a26583d02dd213da1a3fa6b15df0bb9ad2051672015fbeab2ed3",
+      "collection_ids": [
+        "full-public-boards-25-20261029"
+      ],
+      "catalog_commit": "5f08f5d45ea874f0da6df1120aed03c0b89372dd"
+    },
+    {
+      "id": "usinage-marcotte-inc",
+      "company_id": "usinage-marcotte-inc",
+      "company_name": "Usinage Marcotte inc.",
+      "revision": 1,
+      "path": "companies/usinage-marcotte-inc/monitors/usinage-marcotte-inc.json",
+      "sha256": "c0df708b9057dffcc0cf1b14f72ea7d6ec49ae9de9635ba9cb9b6875e5620b5e",
+      "collection_ids": [
+        "full-public-boards-25-20261029"
+      ],
+      "catalog_commit": "5f08f5d45ea874f0da6df1120aed03c0b89372dd"
+    },
+    {
+      "id": "vergers-leahy-inc",
+      "company_id": "vergers-leahy-inc",
+      "company_name": "Vergers Leahy Inc.",
+      "revision": 1,
+      "path": "companies/vergers-leahy-inc/monitors/vergers-leahy-inc.json",
+      "sha256": "a062a78bc73776c7852e8122eba35bdf8d6cffbbe74277bd86cc967eff60be22",
+      "collection_ids": [
+        "full-public-boards-25-20261029"
+      ],
+      "catalog_commit": "5f08f5d45ea874f0da6df1120aed03c0b89372dd"
+    },
+    {
+      "id": "voltam-inc",
+      "company_id": "voltam-inc",
+      "company_name": "Voltam inc.",
+      "revision": 1,
+      "path": "companies/voltam-inc/monitors/voltam-inc.json",
+      "sha256": "ee624c4447e434f21641dc0379baf58f5a4a71fc7b85d8e4ed0995a7d3fba8b3",
+      "collection_ids": [
+        "full-public-boards-25-20261029"
+      ],
+      "catalog_commit": "5f08f5d45ea874f0da6df1120aed03c0b89372dd"
+    }
+  ]
+}
