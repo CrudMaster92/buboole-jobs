@@ -1,15 +1,163 @@
 {
-  "catalog_commit": "60835af5d693e7ec6c83937f67f47b96f02aeb73",
-  "catalog_pr": "https://github.com/CrudMaster92/buboole-presets/pull/54",
-  "previous_pins": 1200,
-  "added_pins": 38,
-  "new_companies": 25,
-  "total_pins": 1238,
-  "new_pin_hashes_and_runtime_contracts_validated": true,
-  "existing_pins_unchanged": true,
+  "catalog_commit": "e036affeb6f244106fa002074a6f52575465ad77",
+  "catalog_pr": "https://github.com/CrudMaster92/buboole-presets/pull/55",
+  "final_companies": 25,
+  "final_sources": 36,
+  "observed_source_records": 183,
+  "pre_task_pins_preserved": 1200,
+  "existing_other_pins_preserved": 1231,
+  "updated_pins": [
+    "armatures-bois-francs",
+    "laser-amp-en",
+    "laser-amp"
+  ],
+  "added_pins": [
+    "garaga",
+    "tc-industries"
+  ],
+  "held_back_pins": [
+    "groupe-morin",
+    "laserax",
+    "laserax-de",
+    "laserax-en"
+  ],
+  "held_back_reason": "GitHub Linux receives HTTP 403; unavailable sources are excluded, never described as zero openings.",
+  "total_pins": 1236,
+  "all_new_source_hashes_and_contracts_validated": true,
   "runtime_unchanged": true,
   "runtime_revision": "f3b4f2500d7a51bf5aa45fd2a2aa0a44d79b7a1f573950fbd9f3bc4d5af48f97",
-  "new_sources": [
+  "github_runner_validation": {
+    "run": "https://github.com/CrudMaster92/buboole-jobs/actions/runs/40836827454",
+    "sources": [
+      {
+        "id": "tc-industries",
+        "checked_at": "2026-10-29T07:39:43.123025+00:00",
+        "complete": true,
+        "job_count": 8,
+        "pages": 9,
+        "warnings": [
+          "description detail enrichment was incomplete for 8 jobs"
+        ],
+        "titles": [
+          "Maintenance Worker II",
+          "CNC Machine Operator",
+          "Leader MP",
+          "Multi Machine Operator III (2nd Shift 4PM-12AM or 12AM-8AM 3rd)",
+          "Multi Machine Operator III (2nd Shift 4PM-12AM or 12AM-8AM 3rd)",
+          "Multi Machine Operator II",
+          "Multi Machine Operator I (1st, 2nd and 3rd Shift Available)",
+          "Maintenance Worker II"
+        ],
+        "source_urls": [
+          "https://workforcenow.adp.com/mascsr/default/mdf/recruitment/recruitment.html?cid=9e6c3835-f8f3-4797-8a07-263db5c91b1f&ccId=19000101_000001&lang=en_US&jobId=616341",
+          "https://workforcenow.adp.com/mascsr/default/mdf/recruitment/recruitment.html?cid=9e6c3835-f8f3-4797-8a07-263db5c91b1f&ccId=19000101_000001&lang=en_US&jobId=616340",
+          "https://workforcenow.adp.com/mascsr/default/mdf/recruitment/recruitment.html?cid=9e6c3835-f8f3-4797-8a07-263db5c91b1f&ccId=19000101_000001&lang=en_US&jobId=615760",
+          "https://workforcenow.adp.com/mascsr/default/mdf/recruitment/recruitment.html?cid=9e6c3835-f8f3-4797-8a07-263db5c91b1f&ccId=19000101_000001&lang=en_US&jobId=615205",
+          "https://workforcenow.adp.com/mascsr/default/mdf/recruitment/recruitment.html?cid=9e6c3835-f8f3-4797-8a07-263db5c91b1f&ccId=19000101_000001&lang=en_US&jobId=615204",
+          "https://workforcenow.adp.com/mascsr/default/mdf/recruitment/recruitment.html?cid=9e6c3835-f8f3-4797-8a07-263db5c91b1f&ccId=19000101_000001&lang=en_US&jobId=615202",
+          "https://workforcenow.adp.com/mascsr/default/mdf/recruitment/recruitment.html?cid=9e6c3835-f8f3-4797-8a07-263db5c91b1f&ccId=19000101_000001&lang=en_US&jobId=615201",
+          "https://workforcenow.adp.com/mascsr/default/mdf/recruitment/recruitment.html?cid=9e6c3835-f8f3-4797-8a07-263db5c91b1f&ccId=19000101_000001&lang=en_US&jobId=614880"
+        ]
+      },
+      {
+        "id": "laser-amp",
+        "checked_at": "2026-10-29T07:39:46.007003+00:00",
+        "complete": true,
+        "job_count": 1,
+        "pages": 2,
+        "warnings": [
+          "description detail enrichment was incomplete for 1 jobs"
+        ],
+        "titles": [
+          "Journalier"
+        ],
+        "source_urls": [
+          "https://laseramp.com/careers/journalier"
+        ]
+      },
+      {
+        "id": "laser-amp-en",
+        "checked_at": "2026-10-29T07:39:49.489726+00:00",
+        "complete": true,
+        "job_count": 1,
+        "pages": 2,
+        "warnings": [
+          "description detail enrichment was incomplete for 1 jobs"
+        ],
+        "titles": [
+          "Laborer"
+        ],
+        "source_urls": [
+          "https://laseramp.com/en/careers/laborer"
+        ]
+      },
+      {
+        "id": "armatures-bois-francs",
+        "checked_at": "2026-10-29T07:39:51.417819+00:00",
+        "complete": true,
+        "job_count": 4,
+        "pages": 5,
+        "warnings": [],
+        "titles": [
+          "Conseiller·ère RH",
+          "Coordonnateur·trice SST",
+          "Camionneur·euse",
+          "Chef·fe d’équipe"
+        ],
+        "source_urls": [
+          "https://abf-inc.com/carriere/conseiller%c2%b7ere-rh",
+          "https://abf-inc.com/carriere/coordonnateur%c2%b7trice-sst",
+          "https://abf-inc.com/carriere/camionneur%c2%b7euse-repartiteur%c2%b7trice",
+          "https://abf-inc.com/carriere/chef%c2%b7fe-dequipe-duplicate"
+        ]
+      },
+      {
+        "id": "garaga",
+        "checked_at": "2026-10-29T07:39:59.859704+00:00",
+        "complete": true,
+        "job_count": 15,
+        "pages": 16,
+        "warnings": [
+          "description detail enrichment was incomplete for 15 jobs"
+        ],
+        "titles": [
+          "Human Resources Manager",
+          "Applications Engineering Technician",
+          "Applications Engineering Technician NC",
+          "Human Resources Business Partner",
+          "Driver/Warehouse Team Member",
+          "Warehouse Associate",
+          "Analyste Financier 3MEI",
+          "Coordonnateur Marketing Junior",
+          "Coordonnateur Marketing Sénior",
+          "Directeur des ressources humaines - Services partagés",
+          "Gestionnaire Acquisition de talents",
+          "Journalier",
+          "Programmeur-Analyste Sénior",
+          "Technicien en ressources humaines",
+          "Stagiaire - Développeur Données"
+        ],
+        "source_urls": [
+          "https://www.garaga.com/job-offer/human-resources-manager",
+          "https://www.garaga.com/job-offer/applications-engineering-technician",
+          "https://www.garaga.com/job-offer/applications-engineering-technician-nc",
+          "https://www.garaga.com/ca/job-offer/human-resources-business-partner",
+          "https://www.garaga.com/ca/job-offer/driver-warehouse-team-member-red-deer",
+          "https://www.garaga.com/ca/job-offer/warehouse-associate-vancouver",
+          "https://www.garaga.com/fr-ca/offres-emploi/3mei-analyste-financier",
+          "https://www.garaga.com/fr-ca/offres-emploi/coordonnateur-marketing-junior",
+          "https://www.garaga.com/fr-ca/offres-emploi/coordonnateur-marketing-senior",
+          "https://www.garaga.com/fr-ca/offres-emploi/directeur-rh-services-partages",
+          "https://www.garaga.com/fr-ca/offres-emploi/gestionnaire-acquisitions-de-talents",
+          "https://www.garaga.com/fr-ca/offres-emploi/journalier",
+          "https://www.garaga.com/fr-ca/offres-emploi/programmeur-analyste-senior",
+          "https://www.garaga.com/fr-ca/offres-emploi/technicien-rh",
+          "https://www.garaga.com/fr-ca/offres-emploi/stagiaire-developpeur-donnees"
+        ]
+      }
+    ]
+  },
+  "final_sources_and_hashes": [
     {
       "id": "acier-select-en",
       "company_id": "acier-select",
@@ -38,13 +186,13 @@
       "id": "armatures-bois-francs",
       "company_id": "armatures-bois-francs",
       "company_name": "Armatures Bois-Francs",
-      "revision": 1,
+      "revision": 2,
       "path": "companies/armatures-bois-francs/monitors/armatures-bois-francs.json",
-      "sha256": "5b56ffc03728eeaaeab2053942b1974378664dc253999cdeb6bab56c19bd03c6",
+      "sha256": "1d5752af824a8ed220d6cdb1041b32515d3f199634f2fdcce0dfbd3670a8f9ae",
       "collection_ids": [
         "additional-complete-boards-25-20261028"
       ],
-      "catalog_commit": "60835af5d693e7ec6c83937f67f47b96f02aeb73"
+      "catalog_commit": "e036affeb6f244106fa002074a6f52575465ad77"
     },
     {
       "id": "canatal-fr",
@@ -179,18 +327,6 @@
       "catalog_commit": "60835af5d693e7ec6c83937f67f47b96f02aeb73"
     },
     {
-      "id": "groupe-morin",
-      "company_id": "groupe-morin",
-      "company_name": "Groupe Morin",
-      "revision": 1,
-      "path": "companies/groupe-morin/monitors/groupe-morin.json",
-      "sha256": "9a71cc17efff39d95cfefaaf0d31f81decaa5e9dad2f315292fc7b9684448478",
-      "collection_ids": [
-        "additional-complete-boards-25-20261028"
-      ],
-      "catalog_commit": "60835af5d693e7ec6c83937f67f47b96f02aeb73"
-    },
-    {
       "id": "isothermic-en",
       "company_id": "isothermic",
       "company_name": "Isothermic",
@@ -218,61 +354,25 @@
       "id": "laser-amp-en",
       "company_id": "laser-amp",
       "company_name": "Laser AMP",
-      "revision": 1,
+      "revision": 2,
       "path": "companies/laser-amp/monitors/laser-amp-en.json",
-      "sha256": "64b69f42e1817ac3ed9f07892bd18a06d54994da926a82b02b9881da50c74128",
+      "sha256": "56ece76a753da5b5171d54a6ec4146ddadf5d7504e0527c3766dba1d565f9226",
       "collection_ids": [
         "additional-complete-boards-25-20261028"
       ],
-      "catalog_commit": "60835af5d693e7ec6c83937f67f47b96f02aeb73"
+      "catalog_commit": "e036affeb6f244106fa002074a6f52575465ad77"
     },
     {
       "id": "laser-amp",
       "company_id": "laser-amp",
       "company_name": "Laser AMP",
-      "revision": 1,
+      "revision": 2,
       "path": "companies/laser-amp/monitors/laser-amp.json",
-      "sha256": "dcb9e65229f4242f782ec6a16baf0739eab90c412e7aaba8dc37cfedc5456efc",
+      "sha256": "4f86c7cf07a71f722bfcbed29d01ea7f12d9ea112075cb63c9319fae0a33f17e",
       "collection_ids": [
         "additional-complete-boards-25-20261028"
       ],
-      "catalog_commit": "60835af5d693e7ec6c83937f67f47b96f02aeb73"
-    },
-    {
-      "id": "laserax-de",
-      "company_id": "laserax",
-      "company_name": "Laserax",
-      "revision": 1,
-      "path": "companies/laserax/monitors/laserax-de.json",
-      "sha256": "a01d0e53593a933a989386ba9b3e8354e964524984f434e0ca80e0befc3e87c1",
-      "collection_ids": [
-        "additional-complete-boards-25-20261028"
-      ],
-      "catalog_commit": "60835af5d693e7ec6c83937f67f47b96f02aeb73"
-    },
-    {
-      "id": "laserax-en",
-      "company_id": "laserax",
-      "company_name": "Laserax",
-      "revision": 1,
-      "path": "companies/laserax/monitors/laserax-en.json",
-      "sha256": "0d82b3c4de10fab4a283e9a01805a577b173e6b038c4715ef09c1bb5f764db7a",
-      "collection_ids": [
-        "additional-complete-boards-25-20261028"
-      ],
-      "catalog_commit": "60835af5d693e7ec6c83937f67f47b96f02aeb73"
-    },
-    {
-      "id": "laserax",
-      "company_id": "laserax",
-      "company_name": "Laserax",
-      "revision": 1,
-      "path": "companies/laserax/monitors/laserax.json",
-      "sha256": "35835a97ea7ae184d43da24e8f3cd8966883112996a7aed12d2ebfd70e02a70f",
-      "collection_ids": [
-        "additional-complete-boards-25-20261028"
-      ],
-      "catalog_commit": "60835af5d693e7ec6c83937f67f47b96f02aeb73"
+      "catalog_commit": "e036affeb6f244106fa002074a6f52575465ad77"
     },
     {
       "id": "lorendo-en",
@@ -465,6 +565,30 @@
         "additional-complete-boards-25-20261028"
       ],
       "catalog_commit": "60835af5d693e7ec6c83937f67f47b96f02aeb73"
+    },
+    {
+      "id": "garaga",
+      "company_id": "garaga",
+      "company_name": "Garaga",
+      "revision": 1,
+      "path": "companies/garaga/monitors/garaga.json",
+      "sha256": "e64c12bc85a0ec412904616144867320aeee6691161238e0a1e1cb4bbaf89a83",
+      "collection_ids": [
+        "additional-complete-boards-25-20261028"
+      ],
+      "catalog_commit": "e036affeb6f244106fa002074a6f52575465ad77"
+    },
+    {
+      "id": "tc-industries",
+      "company_id": "tc-industries",
+      "company_name": "TC Industries",
+      "revision": 1,
+      "path": "companies/tc-industries/monitors/tc-industries.json",
+      "sha256": "69c69747313558200e25a8afcd29205b89013f3239c5536b7858c106845b9e84",
+      "collection_ids": [
+        "additional-complete-boards-25-20261028"
+      ],
+      "catalog_commit": "e036affeb6f244106fa002074a6f52575465ad77"
     }
   ]
 }
