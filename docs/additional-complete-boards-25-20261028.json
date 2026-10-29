@@ -1,158 +1,36 @@
 {
-  "catalog_commit": "e036affeb6f244106fa002074a6f52575465ad77",
-  "catalog_pr": "https://github.com/CrudMaster92/buboole-presets/pull/55",
+  "catalog_commit": "79a021531d4ee8fe900695f1c4a24a0ae5a3abd3",
+  "catalog_pr": "https://github.com/CrudMaster92/buboole-presets/pull/56",
   "final_companies": 25,
   "final_sources": 36,
-  "observed_source_records": 183,
+  "observed_source_records": 180,
   "pre_task_pins_preserved": 1200,
-  "existing_other_pins_preserved": 1231,
-  "updated_pins": [
-    "armatures-bois-francs",
-    "laser-amp-en",
-    "laser-amp"
-  ],
-  "added_pins": [
-    "garaga",
-    "tc-industries"
-  ],
+  "added_pin": "inogec",
   "held_back_pins": [
+    "armatures-bois-francs",
     "groupe-morin",
     "laserax",
-    "laserax-de",
-    "laserax-en"
+    "laserax-en",
+    "laserax-de"
   ],
-  "held_back_reason": "GitHub Linux receives HTTP 403; unavailable sources are excluded, never described as zero openings.",
-  "total_pins": 1236,
-  "all_new_source_hashes_and_contracts_validated": true,
   "runtime_unchanged": true,
-  "runtime_revision": "f3b4f2500d7a51bf5aa45fd2a2aa0a44d79b7a1f573950fbd9f3bc4d5af48f97",
-  "github_runner_validation": {
-    "run": "https://github.com/CrudMaster92/buboole-jobs/actions/runs/40836827454",
+  "all_selected_source_hashes_and_contracts_validated": true,
+  "inogec_runner_proof": {
+    "run": "https://github.com/CrudMaster92/buboole-jobs/actions/runs/40841695863",
+    "head_sha": "263dd301261be5fcea579d04a567d3f597cc228f",
     "sources": [
       {
-        "id": "tc-industries",
-        "checked_at": "2026-10-29T07:39:43.123025+00:00",
-        "complete": true,
-        "job_count": 8,
-        "pages": 9,
-        "warnings": [
-          "description detail enrichment was incomplete for 8 jobs"
-        ],
-        "titles": [
-          "Maintenance Worker II",
-          "CNC Machine Operator",
-          "Leader MP",
-          "Multi Machine Operator III (2nd Shift 4PM-12AM or 12AM-8AM 3rd)",
-          "Multi Machine Operator III (2nd Shift 4PM-12AM or 12AM-8AM 3rd)",
-          "Multi Machine Operator II",
-          "Multi Machine Operator I (1st, 2nd and 3rd Shift Available)",
-          "Maintenance Worker II"
-        ],
-        "source_urls": [
-          "https://workforcenow.adp.com/mascsr/default/mdf/recruitment/recruitment.html?cid=9e6c3835-f8f3-4797-8a07-263db5c91b1f&ccId=19000101_000001&lang=en_US&jobId=616341",
-          "https://workforcenow.adp.com/mascsr/default/mdf/recruitment/recruitment.html?cid=9e6c3835-f8f3-4797-8a07-263db5c91b1f&ccId=19000101_000001&lang=en_US&jobId=616340",
-          "https://workforcenow.adp.com/mascsr/default/mdf/recruitment/recruitment.html?cid=9e6c3835-f8f3-4797-8a07-263db5c91b1f&ccId=19000101_000001&lang=en_US&jobId=615760",
-          "https://workforcenow.adp.com/mascsr/default/mdf/recruitment/recruitment.html?cid=9e6c3835-f8f3-4797-8a07-263db5c91b1f&ccId=19000101_000001&lang=en_US&jobId=615205",
-          "https://workforcenow.adp.com/mascsr/default/mdf/recruitment/recruitment.html?cid=9e6c3835-f8f3-4797-8a07-263db5c91b1f&ccId=19000101_000001&lang=en_US&jobId=615204",
-          "https://workforcenow.adp.com/mascsr/default/mdf/recruitment/recruitment.html?cid=9e6c3835-f8f3-4797-8a07-263db5c91b1f&ccId=19000101_000001&lang=en_US&jobId=615202",
-          "https://workforcenow.adp.com/mascsr/default/mdf/recruitment/recruitment.html?cid=9e6c3835-f8f3-4797-8a07-263db5c91b1f&ccId=19000101_000001&lang=en_US&jobId=615201",
-          "https://workforcenow.adp.com/mascsr/default/mdf/recruitment/recruitment.html?cid=9e6c3835-f8f3-4797-8a07-263db5c91b1f&ccId=19000101_000001&lang=en_US&jobId=614880"
-        ]
-      },
-      {
-        "id": "laser-amp",
-        "checked_at": "2026-10-29T07:39:46.007003+00:00",
+        "id": "inogec",
+        "checked_at": "2026-10-29T08:22:59.149681+00:00",
         "complete": true,
         "job_count": 1,
         "pages": 2,
-        "warnings": [
-          "description detail enrichment was incomplete for 1 jobs"
-        ],
-        "titles": [
-          "Journalier"
-        ],
-        "source_urls": [
-          "https://laseramp.com/careers/journalier"
-        ]
-      },
-      {
-        "id": "laser-amp-en",
-        "checked_at": "2026-10-29T07:39:49.489726+00:00",
-        "complete": true,
-        "job_count": 1,
-        "pages": 2,
-        "warnings": [
-          "description detail enrichment was incomplete for 1 jobs"
-        ],
-        "titles": [
-          "Laborer"
-        ],
-        "source_urls": [
-          "https://laseramp.com/en/careers/laborer"
-        ]
-      },
-      {
-        "id": "armatures-bois-francs",
-        "checked_at": "2026-10-29T07:39:51.417819+00:00",
-        "complete": true,
-        "job_count": 4,
-        "pages": 5,
         "warnings": [],
         "titles": [
-          "Conseiller·ère RH",
-          "Coordonnateur·trice SST",
-          "Camionneur·euse",
-          "Chef·fe d’équipe"
+          "Ingénieur(e) Concepteur(trice) en électricité et automatisation"
         ],
         "source_urls": [
-          "https://abf-inc.com/carriere/conseiller%c2%b7ere-rh",
-          "https://abf-inc.com/carriere/coordonnateur%c2%b7trice-sst",
-          "https://abf-inc.com/carriere/camionneur%c2%b7euse-repartiteur%c2%b7trice",
-          "https://abf-inc.com/carriere/chef%c2%b7fe-dequipe-duplicate"
-        ]
-      },
-      {
-        "id": "garaga",
-        "checked_at": "2026-10-29T07:39:59.859704+00:00",
-        "complete": true,
-        "job_count": 15,
-        "pages": 16,
-        "warnings": [
-          "description detail enrichment was incomplete for 15 jobs"
-        ],
-        "titles": [
-          "Human Resources Manager",
-          "Applications Engineering Technician",
-          "Applications Engineering Technician NC",
-          "Human Resources Business Partner",
-          "Driver/Warehouse Team Member",
-          "Warehouse Associate",
-          "Analyste Financier 3MEI",
-          "Coordonnateur Marketing Junior",
-          "Coordonnateur Marketing Sénior",
-          "Directeur des ressources humaines - Services partagés",
-          "Gestionnaire Acquisition de talents",
-          "Journalier",
-          "Programmeur-Analyste Sénior",
-          "Technicien en ressources humaines",
-          "Stagiaire - Développeur Données"
-        ],
-        "source_urls": [
-          "https://www.garaga.com/job-offer/human-resources-manager",
-          "https://www.garaga.com/job-offer/applications-engineering-technician",
-          "https://www.garaga.com/job-offer/applications-engineering-technician-nc",
-          "https://www.garaga.com/ca/job-offer/human-resources-business-partner",
-          "https://www.garaga.com/ca/job-offer/driver-warehouse-team-member-red-deer",
-          "https://www.garaga.com/ca/job-offer/warehouse-associate-vancouver",
-          "https://www.garaga.com/fr-ca/offres-emploi/3mei-analyste-financier",
-          "https://www.garaga.com/fr-ca/offres-emploi/coordonnateur-marketing-junior",
-          "https://www.garaga.com/fr-ca/offres-emploi/coordonnateur-marketing-senior",
-          "https://www.garaga.com/fr-ca/offres-emploi/directeur-rh-services-partages",
-          "https://www.garaga.com/fr-ca/offres-emploi/gestionnaire-acquisitions-de-talents",
-          "https://www.garaga.com/fr-ca/offres-emploi/journalier",
-          "https://www.garaga.com/fr-ca/offres-emploi/programmeur-analyste-senior",
-          "https://www.garaga.com/fr-ca/offres-emploi/technicien-rh",
-          "https://www.garaga.com/fr-ca/offres-emploi/stagiaire-developpeur-donnees"
+          "https://www.jobillico.com/fr/offre-d-emploi/inogec-inc/ingenieur-e-concepteur-trice-en-electricite-et-automatisation-/17596110"
         ]
       }
     ]
@@ -181,18 +59,6 @@
         "additional-complete-boards-25-20261028"
       ],
       "catalog_commit": "60835af5d693e7ec6c83937f67f47b96f02aeb73"
-    },
-    {
-      "id": "armatures-bois-francs",
-      "company_id": "armatures-bois-francs",
-      "company_name": "Armatures Bois-Francs",
-      "revision": 2,
-      "path": "companies/armatures-bois-francs/monitors/armatures-bois-francs.json",
-      "sha256": "1d5752af824a8ed220d6cdb1041b32515d3f199634f2fdcce0dfbd3670a8f9ae",
-      "collection_ids": [
-        "additional-complete-boards-25-20261028"
-      ],
-      "catalog_commit": "e036affeb6f244106fa002074a6f52575465ad77"
     },
     {
       "id": "canatal-fr",
@@ -589,6 +455,18 @@
         "additional-complete-boards-25-20261028"
       ],
       "catalog_commit": "e036affeb6f244106fa002074a6f52575465ad77"
+    },
+    {
+      "id": "inogec",
+      "company_id": "inogec",
+      "company_name": "INOGEC",
+      "revision": 1,
+      "path": "companies/inogec/monitors/inogec.json",
+      "sha256": "a66e8c817e8127074855a99cecbf2ea25566d79969528873f52033bb879f1c68",
+      "collection_ids": [
+        "additional-complete-boards-25-20261028"
+      ],
+      "catalog_commit": "79a021531d4ee8fe900695f1c4a24a0ae5a3abd3"
     }
   ]
 }
