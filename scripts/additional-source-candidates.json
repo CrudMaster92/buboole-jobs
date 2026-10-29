@@ -834,9 +834,7 @@
         "headers": {
           "Accept": "application/json"
         },
-        "params": {
-          "_fields": "id,title,link,content"
-        },
+        "params": {},
         "json_body": null,
         "timeout_seconds": 30,
         "max_response_bytes": 20000000
