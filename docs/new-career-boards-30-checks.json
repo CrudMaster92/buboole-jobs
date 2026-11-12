@@ -1,0 +1,12 @@
+{
+  "catalog_schema": "passed (normalized sources validated by production builder)",
+  "legacy_import_validator": "passed (0 optional legacy presets)",
+  "catalog_production_build": "passed: 1,603 companies, 1,510 monitors, 33 collections",
+  "catalog_tests": "11 passed",
+  "collector_tests": "203 passed",
+  "canonical_runtime_integrity": "51 files match canonical application export",
+  "fresh_public_collection": "30 complete sources; 1,040 postings; 1,040 descriptions; no warnings",
+  "feed_pins": "30 added; all 1,318 prior pins and all existing collection entries unchanged",
+  "diff_whitespace": "passed",
+  "website": "No website changes; website tests/build not applicable"
+}

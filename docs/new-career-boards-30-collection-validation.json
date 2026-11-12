@@ -1,0 +1,309 @@
+{
+  "checked_at": "2026-11-12T14:26:58.862208+00:00",
+  "sources": 30,
+  "complete": true,
+  "job_count": 1040,
+  "descriptions": 1040,
+  "source_summaries": [
+    {
+      "id": "airops-careers",
+      "company_id": "airops",
+      "company_name": "AirOps",
+      "revision": 1,
+      "status": "complete",
+      "complete": true,
+      "job_count": 15,
+      "warnings": []
+    },
+    {
+      "id": "bland-ai-careers",
+      "company_id": "bland-ai",
+      "company_name": "Bland AI",
+      "revision": 1,
+      "status": "complete",
+      "complete": true,
+      "job_count": 16,
+      "warnings": []
+    },
+    {
+      "id": "campfire-careers",
+      "company_id": "campfire",
+      "company_name": "Campfire",
+      "revision": 1,
+      "status": "complete",
+      "complete": true,
+      "job_count": 52,
+      "warnings": []
+    },
+    {
+      "id": "cartesia-careers",
+      "company_id": "cartesia",
+      "company_name": "Cartesia",
+      "revision": 1,
+      "status": "complete",
+      "complete": true,
+      "job_count": 23,
+      "warnings": []
+    },
+    {
+      "id": "deepgram-careers",
+      "company_id": "deepgram",
+      "company_name": "Deepgram",
+      "revision": 1,
+      "status": "complete",
+      "complete": true,
+      "job_count": 66,
+      "warnings": []
+    },
+    {
+      "id": "delphi-careers",
+      "company_id": "delphi",
+      "company_name": "Delphi",
+      "revision": 1,
+      "status": "complete",
+      "complete": true,
+      "job_count": 5,
+      "warnings": []
+    },
+    {
+      "id": "drata-careers",
+      "company_id": "drata",
+      "company_name": "Drata",
+      "revision": 1,
+      "status": "complete",
+      "complete": true,
+      "job_count": 23,
+      "warnings": []
+    },
+    {
+      "id": "higgsfield-careers",
+      "company_id": "higgsfield",
+      "company_name": "Higgsfield",
+      "revision": 1,
+      "status": "complete",
+      "complete": true,
+      "job_count": 97,
+      "warnings": []
+    },
+    {
+      "id": "inference-net-careers",
+      "company_id": "inference-net",
+      "company_name": "Inference.net",
+      "revision": 1,
+      "status": "complete",
+      "complete": true,
+      "job_count": 5,
+      "warnings": []
+    },
+    {
+      "id": "inngest-careers",
+      "company_id": "inngest",
+      "company_name": "Inngest",
+      "revision": 1,
+      "status": "complete",
+      "complete": true,
+      "job_count": 2,
+      "warnings": []
+    },
+    {
+      "id": "lambda-careers",
+      "company_id": "lambda",
+      "company_name": "Lambda",
+      "revision": 1,
+      "status": "complete",
+      "complete": true,
+      "job_count": 92,
+      "warnings": []
+    },
+    {
+      "id": "linear-careers",
+      "company_id": "linear",
+      "company_name": "Linear",
+      "revision": 1,
+      "status": "complete",
+      "complete": true,
+      "job_count": 33,
+      "warnings": []
+    },
+    {
+      "id": "motherduck-careers",
+      "company_id": "motherduck",
+      "company_name": "MotherDuck",
+      "revision": 1,
+      "status": "complete",
+      "complete": true,
+      "job_count": 6,
+      "warnings": []
+    },
+    {
+      "id": "mutiny-careers",
+      "company_id": "mutiny",
+      "company_name": "Mutiny",
+      "revision": 1,
+      "status": "complete",
+      "complete": true,
+      "job_count": 7,
+      "warnings": []
+    },
+    {
+      "id": "numeric-careers",
+      "company_id": "numeric",
+      "company_name": "Numeric",
+      "revision": 1,
+      "status": "complete",
+      "complete": true,
+      "job_count": 24,
+      "warnings": []
+    },
+    {
+      "id": "pika-careers",
+      "company_id": "pika",
+      "company_name": "Pika",
+      "revision": 1,
+      "status": "complete",
+      "complete": true,
+      "job_count": 18,
+      "warnings": []
+    },
+    {
+      "id": "plain-careers",
+      "company_id": "plain",
+      "company_name": "Plain",
+      "revision": 1,
+      "status": "complete",
+      "complete": true,
+      "job_count": 5,
+      "warnings": []
+    },
+    {
+      "id": "prime-intellect-careers",
+      "company_id": "prime-intellect",
+      "company_name": "Prime Intellect",
+      "revision": 1,
+      "status": "complete",
+      "complete": true,
+      "job_count": 37,
+      "warnings": []
+    },
+    {
+      "id": "pylon-careers",
+      "company_id": "pylon",
+      "company_name": "Pylon",
+      "revision": 1,
+      "status": "complete",
+      "complete": true,
+      "job_count": 14,
+      "warnings": []
+    },
+    {
+      "id": "ramp-careers",
+      "company_id": "ramp",
+      "company_name": "Ramp",
+      "revision": 1,
+      "status": "complete",
+      "complete": true,
+      "job_count": 176,
+      "warnings": []
+    },
+    {
+      "id": "retell-ai-careers",
+      "company_id": "retell-ai",
+      "company_name": "Retell AI",
+      "revision": 1,
+      "status": "complete",
+      "complete": true,
+      "job_count": 19,
+      "warnings": []
+    },
+    {
+      "id": "rillet-careers",
+      "company_id": "rillet",
+      "company_name": "Rillet",
+      "revision": 1,
+      "status": "complete",
+      "complete": true,
+      "job_count": 42,
+      "warnings": []
+    },
+    {
+      "id": "rime-careers",
+      "company_id": "rime",
+      "company_name": "Rime",
+      "revision": 1,
+      "status": "complete",
+      "complete": true,
+      "job_count": 3,
+      "warnings": []
+    },
+    {
+      "id": "runpod-careers",
+      "company_id": "runpod",
+      "company_name": "Runpod",
+      "revision": 1,
+      "status": "complete",
+      "complete": true,
+      "job_count": 21,
+      "warnings": []
+    },
+    {
+      "id": "supabase-careers",
+      "company_id": "supabase",
+      "company_name": "Supabase",
+      "revision": 1,
+      "status": "complete",
+      "complete": true,
+      "job_count": 77,
+      "warnings": []
+    },
+    {
+      "id": "trigger-dev-careers",
+      "company_id": "trigger-dev",
+      "company_name": "Trigger.dev",
+      "revision": 1,
+      "status": "complete",
+      "complete": true,
+      "job_count": 5,
+      "warnings": []
+    },
+    {
+      "id": "unify-careers",
+      "company_id": "unify",
+      "company_name": "Unify",
+      "revision": 1,
+      "status": "complete",
+      "complete": true,
+      "job_count": 11,
+      "warnings": []
+    },
+    {
+      "id": "vapi-careers",
+      "company_id": "vapi",
+      "company_name": "Vapi",
+      "revision": 1,
+      "status": "complete",
+      "complete": true,
+      "job_count": 5,
+      "warnings": []
+    },
+    {
+      "id": "writer-careers",
+      "company_id": "writer",
+      "company_name": "Writer",
+      "revision": 1,
+      "status": "complete",
+      "complete": true,
+      "job_count": 43,
+      "warnings": []
+    },
+    {
+      "id": "zip-careers",
+      "company_id": "zip",
+      "company_name": "Zip",
+      "revision": 1,
+      "status": "complete",
+      "complete": true,
+      "job_count": 98,
+      "warnings": []
+    }
+  ]
+}
