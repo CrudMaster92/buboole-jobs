@@ -1,7 +1,7 @@
 {
   "checked_at": "2026-11-12T14:25:33.026339+00:00",
-  "status": "Prepared locally; public submission and merge pending authorization",
-  "catalog_commit": "16eec4e1463814af76d27cf711a973b37bc23c66",
+  "status": "Maintainer authorized submission, merge and publication; catalog PR 62 merged after successful CI.",
+  "catalog_commit": "ceb8ea453c0bc7ab7e369322b39599ac0732a7f7",
   "previous_pins": 1318,
   "added_pins": 30,
   "total_pins": 1348,
@@ -371,5 +371,6 @@
       ],
       "catalog_commit": "16eec4e1463814af76d27cf711a973b37bc23c66"
     }
-  ]
+  ],
+  "catalog_pr": "https://github.com/CrudMaster92/buboole-presets/pull/62"
 }
