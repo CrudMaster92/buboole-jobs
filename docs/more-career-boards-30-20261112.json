@@ -1,7 +1,7 @@
 {
   "checked_at": "2026-11-12T16:45:42.681084+00:00",
-  "status": "Validated locally; continuing the approved build-and-publish workflow for the additional batch.",
-  "catalog_commit": "e16ea7a052f3f4328d6112333ab1107fc65d53f8",
+  "status": "Catalog PR 63 merged after successful CI; continuing approved publication.",
+  "catalog_commit": "4949e6845ed7584b82ed9e0db04816e4ac6383e8",
   "previous_pins": 1348,
   "added_pins": 30,
   "total_pins": 1378,
@@ -371,5 +371,6 @@
       ],
       "catalog_commit": "e16ea7a052f3f4328d6112333ab1107fc65d53f8"
     }
-  ]
+  ],
+  "catalog_pr": "https://github.com/CrudMaster92/buboole-presets/pull/63"
 }
