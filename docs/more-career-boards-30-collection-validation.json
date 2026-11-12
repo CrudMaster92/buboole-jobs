@@ -1,0 +1,309 @@
+{
+  "checked_at": "2026-11-12T16:46:36.271612+00:00",
+  "sources": 30,
+  "complete": true,
+  "job_count": 588,
+  "descriptions": 588,
+  "source_summaries": [
+    {
+      "id": "9fin-careers",
+      "company_id": "9fin",
+      "company_name": "9fin",
+      "revision": 1,
+      "status": "complete",
+      "complete": true,
+      "job_count": 35,
+      "warnings": []
+    },
+    {
+      "id": "authzed-careers",
+      "company_id": "authzed",
+      "company_name": "Authzed",
+      "revision": 1,
+      "status": "complete",
+      "complete": true,
+      "job_count": 5,
+      "warnings": []
+    },
+    {
+      "id": "braintrust-careers",
+      "company_id": "braintrust",
+      "company_name": "Braintrust",
+      "revision": 1,
+      "status": "complete",
+      "complete": true,
+      "job_count": 32,
+      "warnings": []
+    },
+    {
+      "id": "clerk-careers",
+      "company_id": "clerk",
+      "company_name": "Clerk",
+      "revision": 1,
+      "status": "complete",
+      "complete": true,
+      "job_count": 2,
+      "warnings": []
+    },
+    {
+      "id": "compa-careers",
+      "company_id": "compa",
+      "company_name": "Compa",
+      "revision": 1,
+      "status": "complete",
+      "complete": true,
+      "job_count": 6,
+      "warnings": []
+    },
+    {
+      "id": "convex-careers",
+      "company_id": "convex",
+      "company_name": "Convex",
+      "revision": 1,
+      "status": "complete",
+      "complete": true,
+      "job_count": 10,
+      "warnings": []
+    },
+    {
+      "id": "dash0-careers",
+      "company_id": "dash0",
+      "company_name": "Dash0",
+      "revision": 1,
+      "status": "complete",
+      "complete": true,
+      "job_count": 44,
+      "warnings": []
+    },
+    {
+      "id": "e2b-careers",
+      "company_id": "e2b",
+      "company_name": "E2B",
+      "revision": 1,
+      "status": "complete",
+      "complete": true,
+      "job_count": 14,
+      "warnings": []
+    },
+    {
+      "id": "exa-careers",
+      "company_id": "exa",
+      "company_name": "Exa",
+      "revision": 1,
+      "status": "complete",
+      "complete": true,
+      "job_count": 65,
+      "warnings": []
+    },
+    {
+      "id": "fathom-careers",
+      "company_id": "fathom",
+      "company_name": "Fathom",
+      "revision": 1,
+      "status": "complete",
+      "complete": true,
+      "job_count": 1,
+      "warnings": []
+    },
+    {
+      "id": "firecrawl-careers",
+      "company_id": "firecrawl",
+      "company_name": "Firecrawl",
+      "revision": 1,
+      "status": "complete",
+      "complete": true,
+      "job_count": 24,
+      "warnings": []
+    },
+    {
+      "id": "front-careers",
+      "company_id": "front",
+      "company_name": "Front",
+      "revision": 1,
+      "status": "complete",
+      "complete": true,
+      "job_count": 4,
+      "warnings": []
+    },
+    {
+      "id": "knock-careers",
+      "company_id": "knock",
+      "company_name": "Knock",
+      "revision": 1,
+      "status": "complete",
+      "complete": true,
+      "job_count": 2,
+      "warnings": []
+    },
+    {
+      "id": "linkup-careers",
+      "company_id": "linkup",
+      "company_name": "Linkup",
+      "revision": 1,
+      "status": "complete",
+      "complete": true,
+      "job_count": 14,
+      "warnings": []
+    },
+    {
+      "id": "livekit-careers",
+      "company_id": "livekit",
+      "company_name": "LiveKit",
+      "revision": 1,
+      "status": "complete",
+      "complete": true,
+      "job_count": 30,
+      "warnings": []
+    },
+    {
+      "id": "metaview-careers",
+      "company_id": "metaview",
+      "company_name": "Metaview",
+      "revision": 1,
+      "status": "complete",
+      "complete": true,
+      "job_count": 39,
+      "warnings": []
+    },
+    {
+      "id": "opal-security-careers",
+      "company_id": "opal-security",
+      "company_name": "Opal Security",
+      "revision": 1,
+      "status": "complete",
+      "complete": true,
+      "job_count": 11,
+      "warnings": []
+    },
+    {
+      "id": "oso-careers",
+      "company_id": "oso",
+      "company_name": "Oso",
+      "revision": 1,
+      "status": "complete",
+      "complete": true,
+      "job_count": 7,
+      "warnings": []
+    },
+    {
+      "id": "paraform-careers",
+      "company_id": "paraform",
+      "company_name": "Paraform",
+      "revision": 1,
+      "status": "complete",
+      "complete": true,
+      "job_count": 12,
+      "warnings": []
+    },
+    {
+      "id": "parallel-careers",
+      "company_id": "parallel",
+      "company_name": "Parallel",
+      "revision": 1,
+      "status": "complete",
+      "complete": true,
+      "job_count": 34,
+      "warnings": []
+    },
+    {
+      "id": "quo-careers",
+      "company_id": "quo",
+      "company_name": "Quo",
+      "revision": 1,
+      "status": "complete",
+      "complete": true,
+      "job_count": 13,
+      "warnings": []
+    },
+    {
+      "id": "read-ai-careers",
+      "company_id": "read-ai",
+      "company_name": "Read AI",
+      "revision": 1,
+      "status": "complete",
+      "complete": true,
+      "job_count": 16,
+      "warnings": []
+    },
+    {
+      "id": "render-careers",
+      "company_id": "render",
+      "company_name": "Render",
+      "revision": 1,
+      "status": "complete",
+      "complete": true,
+      "job_count": 35,
+      "warnings": []
+    },
+    {
+      "id": "semgrep-careers",
+      "company_id": "semgrep",
+      "company_name": "Semgrep",
+      "revision": 1,
+      "status": "complete",
+      "complete": true,
+      "job_count": 14,
+      "warnings": []
+    },
+    {
+      "id": "snyk-careers",
+      "company_id": "snyk",
+      "company_name": "Snyk",
+      "revision": 1,
+      "status": "complete",
+      "complete": true,
+      "job_count": 38,
+      "warnings": []
+    },
+    {
+      "id": "socket-careers",
+      "company_id": "socket",
+      "company_name": "Socket",
+      "revision": 1,
+      "status": "complete",
+      "complete": true,
+      "job_count": 25,
+      "warnings": []
+    },
+    {
+      "id": "steel-careers",
+      "company_id": "steel",
+      "company_name": "Steel",
+      "revision": 1,
+      "status": "complete",
+      "complete": true,
+      "job_count": 1,
+      "warnings": []
+    },
+    {
+      "id": "svix-careers",
+      "company_id": "svix",
+      "company_name": "Svix",
+      "revision": 1,
+      "status": "complete",
+      "complete": true,
+      "job_count": 3,
+      "warnings": []
+    },
+    {
+      "id": "teleport-careers",
+      "company_id": "teleport",
+      "company_name": "Teleport",
+      "revision": 1,
+      "status": "complete",
+      "complete": true,
+      "job_count": 25,
+      "warnings": []
+    },
+    {
+      "id": "workos-careers",
+      "company_id": "workos",
+      "company_name": "WorkOS",
+      "revision": 1,
+      "status": "complete",
+      "complete": true,
+      "job_count": 27,
+      "warnings": []
+    }
+  ]
+}
