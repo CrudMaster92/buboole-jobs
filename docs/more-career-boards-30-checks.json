@@ -1,0 +1,11 @@
+{
+  "catalog_schema_and_build": "passed; 1,633 companies, 1,540 monitors, 34 collections",
+  "catalog_tests": "11 passed",
+  "collector_tests": "203 passed",
+  "canonical_runtime_integrity": "51 exported files match canonical app",
+  "independent_inventory": "All listed IDs match normalized results for each selected employer",
+  "public_collection": "30 complete sources; 588 postings and descriptions; no warnings",
+  "prior_pins": "All 1,348 existing source pins and all prior collection entries unchanged",
+  "website_and_runtime_code": "unchanged",
+  "publication_scope": "Continuation of the maintainer-approved build-and-publish workflow; another 30 explicitly requested"
+}

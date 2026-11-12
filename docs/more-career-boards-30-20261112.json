@@ -1,0 +1,375 @@
+{
+  "checked_at": "2026-11-12T16:45:42.681084+00:00",
+  "status": "Validated locally; continuing the approved build-and-publish workflow for the additional batch.",
+  "catalog_commit": "e16ea7a052f3f4328d6112333ab1107fc65d53f8",
+  "previous_pins": 1348,
+  "added_pins": 30,
+  "total_pins": 1378,
+  "existing_pins_unchanged": true,
+  "existing_collections_unchanged": true,
+  "new_pin_hashes_and_runtime_contracts_validated": true,
+  "runtime_unchanged": true,
+  "runtime_revision": "658d022cbe149ac00ad3931651f0dba9243ebea6751fb513c5bba8e61b0ddcf5",
+  "new_sources": [
+    {
+      "id": "9fin-careers",
+      "company_id": "9fin",
+      "company_name": "9fin",
+      "revision": 1,
+      "path": "companies/9fin/monitors/9fin-careers.json",
+      "sha256": "b615c92134eff3a7da61b04449a312954e90095c4526aed1a4aead802ac65c40",
+      "collection_ids": [
+        "more-career-boards-30-20261112"
+      ],
+      "catalog_commit": "e16ea7a052f3f4328d6112333ab1107fc65d53f8"
+    },
+    {
+      "id": "authzed-careers",
+      "company_id": "authzed",
+      "company_name": "Authzed",
+      "revision": 1,
+      "path": "companies/authzed/monitors/authzed-careers.json",
+      "sha256": "f6169e90e596d04fa241d6abeb147195ecde382250b5d00985d3f0846655edb6",
+      "collection_ids": [
+        "more-career-boards-30-20261112"
+      ],
+      "catalog_commit": "e16ea7a052f3f4328d6112333ab1107fc65d53f8"
+    },
+    {
+      "id": "braintrust-careers",
+      "company_id": "braintrust",
+      "company_name": "Braintrust",
+      "revision": 1,
+      "path": "companies/braintrust/monitors/braintrust-careers.json",
+      "sha256": "1ef16dcfa2d9526ef3ded29be398bc3f26f09af52e5c3760a4c61ae385953add",
+      "collection_ids": [
+        "more-career-boards-30-20261112"
+      ],
+      "catalog_commit": "e16ea7a052f3f4328d6112333ab1107fc65d53f8"
+    },
+    {
+      "id": "clerk-careers",
+      "company_id": "clerk",
+      "company_name": "Clerk",
+      "revision": 1,
+      "path": "companies/clerk/monitors/clerk-careers.json",
+      "sha256": "838bdeed4de45b01f690f4bd2a424f8b0a3cd8578ab691287eb99a5e2896676c",
+      "collection_ids": [
+        "more-career-boards-30-20261112"
+      ],
+      "catalog_commit": "e16ea7a052f3f4328d6112333ab1107fc65d53f8"
+    },
+    {
+      "id": "compa-careers",
+      "company_id": "compa",
+      "company_name": "Compa",
+      "revision": 1,
+      "path": "companies/compa/monitors/compa-careers.json",
+      "sha256": "348c2e7c40c5454b4feb5a8bbe889f79162a710e7f69c28b3f96db3f8a2baea1",
+      "collection_ids": [
+        "more-career-boards-30-20261112"
+      ],
+      "catalog_commit": "e16ea7a052f3f4328d6112333ab1107fc65d53f8"
+    },
+    {
+      "id": "convex-careers",
+      "company_id": "convex",
+      "company_name": "Convex",
+      "revision": 1,
+      "path": "companies/convex/monitors/convex-careers.json",
+      "sha256": "4939c32e8382477f08d9377169f75e03206fe2596ffeea6c659d557489ac96cf",
+      "collection_ids": [
+        "more-career-boards-30-20261112"
+      ],
+      "catalog_commit": "e16ea7a052f3f4328d6112333ab1107fc65d53f8"
+    },
+    {
+      "id": "dash0-careers",
+      "company_id": "dash0",
+      "company_name": "Dash0",
+      "revision": 1,
+      "path": "companies/dash0/monitors/dash0-careers.json",
+      "sha256": "dd3bc3c0b5558e9e13f30de561477cc1aa20ed81b3e32895d245e102b2c00e94",
+      "collection_ids": [
+        "more-career-boards-30-20261112"
+      ],
+      "catalog_commit": "e16ea7a052f3f4328d6112333ab1107fc65d53f8"
+    },
+    {
+      "id": "e2b-careers",
+      "company_id": "e2b",
+      "company_name": "E2B",
+      "revision": 1,
+      "path": "companies/e2b/monitors/e2b-careers.json",
+      "sha256": "ca68bac064ab1ec051197da23c632b7d9a55142993b02efefa01bcb702ce4d1e",
+      "collection_ids": [
+        "more-career-boards-30-20261112"
+      ],
+      "catalog_commit": "e16ea7a052f3f4328d6112333ab1107fc65d53f8"
+    },
+    {
+      "id": "exa-careers",
+      "company_id": "exa",
+      "company_name": "Exa",
+      "revision": 1,
+      "path": "companies/exa/monitors/exa-careers.json",
+      "sha256": "af02febde908295fcbffd2cf987778faba07c2b7baf5e9d967b58e6274902bb7",
+      "collection_ids": [
+        "more-career-boards-30-20261112"
+      ],
+      "catalog_commit": "e16ea7a052f3f4328d6112333ab1107fc65d53f8"
+    },
+    {
+      "id": "fathom-careers",
+      "company_id": "fathom",
+      "company_name": "Fathom",
+      "revision": 1,
+      "path": "companies/fathom/monitors/fathom-careers.json",
+      "sha256": "87da788ea65545cee116e661daa3a9c6929628454400cfbc4c79f5ad290ec5ee",
+      "collection_ids": [
+        "more-career-boards-30-20261112"
+      ],
+      "catalog_commit": "e16ea7a052f3f4328d6112333ab1107fc65d53f8"
+    },
+    {
+      "id": "firecrawl-careers",
+      "company_id": "firecrawl",
+      "company_name": "Firecrawl",
+      "revision": 1,
+      "path": "companies/firecrawl/monitors/firecrawl-careers.json",
+      "sha256": "8fc78c2f59dafe94f6b60266aada5f068d270fd3a80dc7c98c2dd17b2863bf61",
+      "collection_ids": [
+        "more-career-boards-30-20261112"
+      ],
+      "catalog_commit": "e16ea7a052f3f4328d6112333ab1107fc65d53f8"
+    },
+    {
+      "id": "front-careers",
+      "company_id": "front",
+      "company_name": "Front",
+      "revision": 1,
+      "path": "companies/front/monitors/front-careers.json",
+      "sha256": "d55111090397638181de9ee48198e3a05b9a064f60f513635b1d8217adad1e4e",
+      "collection_ids": [
+        "more-career-boards-30-20261112"
+      ],
+      "catalog_commit": "e16ea7a052f3f4328d6112333ab1107fc65d53f8"
+    },
+    {
+      "id": "knock-careers",
+      "company_id": "knock",
+      "company_name": "Knock",
+      "revision": 1,
+      "path": "companies/knock/monitors/knock-careers.json",
+      "sha256": "1c16e66c59e5691dcd879d8ce440e7fc16598fd1d033241ee813cf361d1b6b87",
+      "collection_ids": [
+        "more-career-boards-30-20261112"
+      ],
+      "catalog_commit": "e16ea7a052f3f4328d6112333ab1107fc65d53f8"
+    },
+    {
+      "id": "linkup-careers",
+      "company_id": "linkup",
+      "company_name": "Linkup",
+      "revision": 1,
+      "path": "companies/linkup/monitors/linkup-careers.json",
+      "sha256": "7e01c29ec86deeb78ca5b45a250ca89b14aade8bb2429a66b4c62e83a3166712",
+      "collection_ids": [
+        "more-career-boards-30-20261112"
+      ],
+      "catalog_commit": "e16ea7a052f3f4328d6112333ab1107fc65d53f8"
+    },
+    {
+      "id": "livekit-careers",
+      "company_id": "livekit",
+      "company_name": "LiveKit",
+      "revision": 1,
+      "path": "companies/livekit/monitors/livekit-careers.json",
+      "sha256": "0a83bb8e28e64e4c98b4bcd84c78b50fe07ceeff9cfe89fcca4af38b9f8a7c2f",
+      "collection_ids": [
+        "more-career-boards-30-20261112"
+      ],
+      "catalog_commit": "e16ea7a052f3f4328d6112333ab1107fc65d53f8"
+    },
+    {
+      "id": "metaview-careers",
+      "company_id": "metaview",
+      "company_name": "Metaview",
+      "revision": 1,
+      "path": "companies/metaview/monitors/metaview-careers.json",
+      "sha256": "6d120a04142a52b4343c9b7fe35f7e0353585f63af883b640eec42da20c6ec96",
+      "collection_ids": [
+        "more-career-boards-30-20261112"
+      ],
+      "catalog_commit": "e16ea7a052f3f4328d6112333ab1107fc65d53f8"
+    },
+    {
+      "id": "opal-security-careers",
+      "company_id": "opal-security",
+      "company_name": "Opal Security",
+      "revision": 1,
+      "path": "companies/opal-security/monitors/opal-security-careers.json",
+      "sha256": "8e37b440f457b2077ca2aa5eed2239dd5c9ae10d39eca68bbbd409b7cfb5e8d9",
+      "collection_ids": [
+        "more-career-boards-30-20261112"
+      ],
+      "catalog_commit": "e16ea7a052f3f4328d6112333ab1107fc65d53f8"
+    },
+    {
+      "id": "oso-careers",
+      "company_id": "oso",
+      "company_name": "Oso",
+      "revision": 1,
+      "path": "companies/oso/monitors/oso-careers.json",
+      "sha256": "2510760cfcc26c0fe9160bfe83feabc951606f5d6a36bf00a32d970b42a6bf76",
+      "collection_ids": [
+        "more-career-boards-30-20261112"
+      ],
+      "catalog_commit": "e16ea7a052f3f4328d6112333ab1107fc65d53f8"
+    },
+    {
+      "id": "paraform-careers",
+      "company_id": "paraform",
+      "company_name": "Paraform",
+      "revision": 1,
+      "path": "companies/paraform/monitors/paraform-careers.json",
+      "sha256": "0414e4ee6beb5326363efdc32bdb78b20b67336517bcd0a425784c5c702ac086",
+      "collection_ids": [
+        "more-career-boards-30-20261112"
+      ],
+      "catalog_commit": "e16ea7a052f3f4328d6112333ab1107fc65d53f8"
+    },
+    {
+      "id": "parallel-careers",
+      "company_id": "parallel",
+      "company_name": "Parallel",
+      "revision": 1,
+      "path": "companies/parallel/monitors/parallel-careers.json",
+      "sha256": "cfdd59d8a6956ef3b64a2a845c9f20a37bb920c1edf5903e3acd1904ffb97a70",
+      "collection_ids": [
+        "more-career-boards-30-20261112"
+      ],
+      "catalog_commit": "e16ea7a052f3f4328d6112333ab1107fc65d53f8"
+    },
+    {
+      "id": "quo-careers",
+      "company_id": "quo",
+      "company_name": "Quo",
+      "revision": 1,
+      "path": "companies/quo/monitors/quo-careers.json",
+      "sha256": "45c6f0a81abdada1fc6afbd48630a5ec571f6bd7c212ad9f4f6811f1d9494d42",
+      "collection_ids": [
+        "more-career-boards-30-20261112"
+      ],
+      "catalog_commit": "e16ea7a052f3f4328d6112333ab1107fc65d53f8"
+    },
+    {
+      "id": "read-ai-careers",
+      "company_id": "read-ai",
+      "company_name": "Read AI",
+      "revision": 1,
+      "path": "companies/read-ai/monitors/read-ai-careers.json",
+      "sha256": "373aa21581da057a2892e4d72ca78fe0881eb354b9112edd4d2860bbad09664c",
+      "collection_ids": [
+        "more-career-boards-30-20261112"
+      ],
+      "catalog_commit": "e16ea7a052f3f4328d6112333ab1107fc65d53f8"
+    },
+    {
+      "id": "render-careers",
+      "company_id": "render",
+      "company_name": "Render",
+      "revision": 1,
+      "path": "companies/render/monitors/render-careers.json",
+      "sha256": "b557885b7d1588068f18fbce1f5ef422b5b8ae71f8e33521482d9596afbe1b79",
+      "collection_ids": [
+        "more-career-boards-30-20261112"
+      ],
+      "catalog_commit": "e16ea7a052f3f4328d6112333ab1107fc65d53f8"
+    },
+    {
+      "id": "semgrep-careers",
+      "company_id": "semgrep",
+      "company_name": "Semgrep",
+      "revision": 1,
+      "path": "companies/semgrep/monitors/semgrep-careers.json",
+      "sha256": "292bfef588565dae3a62118f4047d38eab18befd09a5d6e0abf6bfa51b4837fd",
+      "collection_ids": [
+        "more-career-boards-30-20261112"
+      ],
+      "catalog_commit": "e16ea7a052f3f4328d6112333ab1107fc65d53f8"
+    },
+    {
+      "id": "snyk-careers",
+      "company_id": "snyk",
+      "company_name": "Snyk",
+      "revision": 1,
+      "path": "companies/snyk/monitors/snyk-careers.json",
+      "sha256": "b04354a3dae5937fbcb4fcdc9b17f51a86b1ca97aa10b90e1e870aa9f1c91a9f",
+      "collection_ids": [
+        "more-career-boards-30-20261112"
+      ],
+      "catalog_commit": "e16ea7a052f3f4328d6112333ab1107fc65d53f8"
+    },
+    {
+      "id": "socket-careers",
+      "company_id": "socket",
+      "company_name": "Socket",
+      "revision": 1,
+      "path": "companies/socket/monitors/socket-careers.json",
+      "sha256": "d3af6451fced6a03a8286a73c684051a3bce8b4939f16cf46b1a28db30576bb1",
+      "collection_ids": [
+        "more-career-boards-30-20261112"
+      ],
+      "catalog_commit": "e16ea7a052f3f4328d6112333ab1107fc65d53f8"
+    },
+    {
+      "id": "steel-careers",
+      "company_id": "steel",
+      "company_name": "Steel",
+      "revision": 1,
+      "path": "companies/steel/monitors/steel-careers.json",
+      "sha256": "51edb8588136ec6addb480a2c5e2560cfdb00b618f22d701caa0d832abaef362",
+      "collection_ids": [
+        "more-career-boards-30-20261112"
+      ],
+      "catalog_commit": "e16ea7a052f3f4328d6112333ab1107fc65d53f8"
+    },
+    {
+      "id": "svix-careers",
+      "company_id": "svix",
+      "company_name": "Svix",
+      "revision": 1,
+      "path": "companies/svix/monitors/svix-careers.json",
+      "sha256": "e7392d36b74948871ea6f42e9f43274e94c78c6ad38d59ec2541d821bbf8d094",
+      "collection_ids": [
+        "more-career-boards-30-20261112"
+      ],
+      "catalog_commit": "e16ea7a052f3f4328d6112333ab1107fc65d53f8"
+    },
+    {
+      "id": "teleport-careers",
+      "company_id": "teleport",
+      "company_name": "Teleport",
+      "revision": 1,
+      "path": "companies/teleport/monitors/teleport-careers.json",
+      "sha256": "c065e0dcab5bc0eb4f5b5ec71215f1fc3bcdd60f4936502c9a5f1c1bef1eab28",
+      "collection_ids": [
+        "more-career-boards-30-20261112"
+      ],
+      "catalog_commit": "e16ea7a052f3f4328d6112333ab1107fc65d53f8"
+    },
+    {
+      "id": "workos-careers",
+      "company_id": "workos",
+      "company_name": "WorkOS",
+      "revision": 1,
+      "path": "companies/workos/monitors/workos-careers.json",
+      "sha256": "af6982561fa4007384bb8e7eb985a315f9195d28a861f4e27864d969f86167ae",
+      "collection_ids": [
+        "more-career-boards-30-20261112"
+      ],
+      "catalog_commit": "e16ea7a052f3f4328d6112333ab1107fc65d53f8"
+    }
+  ]
+}
